@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXO OBRA (NO)</title>
+<style>
+:root{--bg:#090E17;--surf:#101827;--elev:#162033;--hover:#1C2840;--bd:#24324D;--bd2:#2E3F60;--tx:#F8FAFC;--tx2:#94A3B8;--mut:#64748B;
+--gold:#E5B869;--gold-ink:#F2D49B;--cob:#2563EB;--ok:#16A34A;--warn:#F59E0B;--bad:#DC2626;--sans:"Segoe UI",Inter,Arial,sans-serif}
+:root{color-scheme:dark}
+*{box-sizing:border-box} [hidden]{display:none!important}
+.f-hoja{overflow:auto} .hoja{overflow-x:auto}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:13px/1.45 var(--sans);overflow:hidden;font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:200px 1fr;grid-template-rows:52px 1fr;height:100vh}
+/* riel */
+.rail{grid-row:1/3;background:var(--surf);border-right:1px solid var(--bd);display:flex;flex-direction:column;padding:10px 8px;gap:4px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.1em;color:var(--gold-ink);font-size:11.5px;padding:4px 6px 14px}
+.logo .mk{flex:none;width:38px;height:30px;display:grid;place-items:center;border:1px solid var(--bd2);border-radius:8px;background:linear-gradient(135deg,#3a2f17,#1b1a17)}
+.rail a{display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:8px;color:var(--tx2);text-decoration:none;cursor:pointer;white-space:nowrap}
+.rail a:hover{background:var(--hover);color:var(--tx)} .rail a.on{background:#1f2b45;color:var(--tx);box-shadow:inset 3px 0 0 var(--gold)}
+.rail a i{font-style:normal;width:20px;text-align:center;color:var(--gold-ink)} .rail .sp{flex:1}
+.rail .ver{font-size:10.5px;color:var(--mut);padding:6px 10px}
+/* barra superior */
+header{display:flex;align-items:center;gap:14px;padding:0 16px;border-bottom:1px solid var(--bd);background:var(--surf);min-width:0}
+.crumb{font-size:13px;color:var(--tx2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .crumb b{color:var(--tx)}
+.estado{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2);padding:4px 10px;border:1px solid var(--bd);border-radius:999px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:520px}
+.estado i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--mut)} .estado.ok i{background:var(--ok)} .estado.err i{background:var(--bad)} .estado.ro i{background:var(--gold)}
+.sp{flex:1}
+.campo{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.inp{height:30px;padding:0 9px;background:var(--elev);border:1px solid var(--bd);border-radius:7px;min-width:0}
+.inp:focus{outline:none;border-color:var(--gold)}
+.btn{height:30px;padding:0 12px;border:1px solid var(--bd2);background:var(--elev);border-radius:7px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--hover)} .btn.pri{background:var(--gold);color:#1a1405;border-color:var(--gold);font-weight:600}
+.btn.sm{height:26px;font-size:12px;padding:0 9px} .btn:disabled{opacity:.45;cursor:default}
+/* páginas */
+main{min-height:0;min-width:0;overflow:hidden;position:relative}
+.pag{position:absolute;inset:0;overflow:auto;padding:16px} .pag.full{padding:0;overflow:hidden}
+.grid{display:grid;gap:14px}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:14px;min-width:0}
+.card h3,.h3{font-size:12px;margin:0 0 10px;color:var(--gold-ink);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.kpi{background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.kpi small{display:block;color:var(--tx2);font-size:11.5px} .kpi b{display:block;font-size:22px;font-weight:600;margin:2px 0} .kpi span{font-size:11.5px;color:var(--mut)}
+.kpi.ok b{color:#4ade80} .kpi.warn b{color:#fbbf24} .kpi.bad b{color:#f87171}
+.slot3d{position:relative;min-height:260px;border-radius:10px;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#121c30,#070b12)}
+.slot3d canvas{width:100%;height:100%;display:block;position:absolute;inset:0}
+.vacio{color:var(--mut);padding:24px 16px;text-align:center}
+.nota{font-size:11.5px;color:var(--mut);margin-top:6px}
+.err{color:#fca5a5}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{position:sticky;top:0;background:var(--elev);color:var(--tx2);font-weight:500;text-align:left;padding:6px;border-bottom:1px solid var(--bd);z-index:1}
+td{padding:5px 6px;border-bottom:1px solid var(--bd)} td.n,th.n{text-align:right}
+tr.sel td{background:#1f2b45} tr.cl{cursor:pointer} tr.cl:hover td{background:var(--hover)}
+td input{width:78px;height:26px;text-align:right}
+.fila{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+.bar{height:6px;background:var(--elev);border-radius:3px;overflow:hidden} .bar i{display:block;height:100%;background:var(--gold)}
+.bar i.ok{background:var(--ok)} .bar i.ex{background:var(--bad)} .bar i.pv{background:var(--tx2)}
+.tag{font-size:10.5px;padding:1px 7px;border-radius:999px;border:1px solid var(--bd2);color:var(--tx2);white-space:nowrap}
+.tag.ok{border-color:var(--ok);color:#86efac} .tag.bad{border-color:var(--bad);color:#fca5a5} .tag.warn{border-color:var(--warn);color:#fcd34d}
+.leyenda{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--tx2)} .leyenda span{display:flex;align-items:center;gap:5px} .leyenda i{width:10px;height:10px;border-radius:2px}
+.cap{position:sticky;top:0;background:var(--elev);padding:6px 12px;font-size:11px;letter-spacing:.06em;color:var(--gold-ink);text-transform:uppercase;border-bottom:1px solid var(--bd);z-index:1}
+.par{padding:8px 12px;border-bottom:1px solid var(--bd);cursor:pointer} .par:hover{background:var(--hover)} .par.on{background:#1f2b45;box-shadow:inset 3px 0 0 var(--gold)}
+.par .t{display:flex;gap:8px} .par .it{color:var(--mut);font-size:11.5px;min-width:62px} .par .d{flex:1;font-size:12.5px}
+.par .m{display:flex;justify-content:space-between;color:var(--tx2);font-size:11.5px;margin:4px 0}
+.seg{display:flex;border:1px solid var(--bd2);border-radius:7px;overflow:hidden;background:var(--elev)}
+.seg button{border:0;background:none;padding:0 12px;height:28px;color:var(--tx2);cursor:pointer;font-size:12px}
+.seg button.on{background:var(--gold);color:#1a1405;font-weight:600}
+.chart svg{width:100%;height:auto;display:block}
+.capbar{display:grid;grid-template-columns:150px 1fr 90px;gap:8px;align-items:center;font-size:12px;margin:6px 0}
+.capbar .bars{display:grid;gap:3px}
+/* visor */
+.visor{display:grid;grid-template-columns:1fr 330px;height:100%}
+.visor .slot3d{border-radius:0;min-height:0}
+.tool{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;z-index:2}
+.tool .inp,.tool .btn{height:28px;font-size:12px;background:rgba(16,24,39,.92)}
+.ley3d{position:absolute;left:10px;bottom:10px;background:rgba(16,24,39,.9);padding:6px 10px;border-radius:7px;border:1px solid var(--bd);z-index:2}
+.info3d{position:absolute;right:10px;bottom:10px;font-size:11.5px;color:var(--tx2);background:rgba(16,24,39,.9);padding:6px 10px;border-radius:7px;border:1px solid var(--bd);max-width:55%;z-index:2}
+.timeline{position:absolute;left:10px;right:10px;bottom:48px;display:flex;align-items:center;gap:10px;background:rgba(16,24,39,.92);border:1px solid var(--bd);border-radius:8px;padding:6px 10px;z-index:2}
+.timeline input[type=range]{flex:1;accent-color:var(--gold)} .tl-info{font-size:12px;color:var(--tx2);min-width:250px;text-align:right}
+.lado{border-left:1px solid var(--bd);background:var(--surf);overflow:auto;padding:12px}
+/* partidas */
+.partidas{display:grid;grid-template-columns:400px 1fr;height:100%}
+.partidas .lista{border-right:1px solid var(--bd);background:var(--surf);display:flex;flex-direction:column;min-height:0}
+.partidas .det{display:grid;grid-template-rows:280px 1fr;min-height:0}
+.partidas .det .slot3d{border-radius:0}
+.scroll{overflow:auto;min-height:0;flex:1}
+.pad{padding:12px}
+/* parte diario */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal div{min-height:58px;border:1px solid var(--bd);border-radius:7px;padding:4px 6px;font-size:11.5px;cursor:pointer;background:var(--surf)}
+.cal div.h{min-height:0;border:0;background:none;color:var(--mut);text-align:center;cursor:default}
+.cal div.nl{background:repeating-linear-gradient(135deg,#0d1422,#0d1422 6px,#111a2b 6px,#111a2b 12px);color:var(--mut)}
+.cal div.con{border-color:var(--gold)} .cal div.on{background:#1f2b45;box-shadow:inset 0 0 0 1px var(--gold)}
+.cal div b{display:block;color:var(--gold-ink);font-size:11px;margin-top:4px}
+.cal div.fuera{visibility:hidden}
+/* gantt */
+.gantt table{font-size:11.5px;border-collapse:separate;border-spacing:0}
+.gantt th,.gantt td{white-space:nowrap;padding:3px 6px}
+.gantt td.g{padding:0;border-left:1px solid var(--bd)}
+.gantt .gb{position:absolute;top:4px;height:13px;border-radius:3px;overflow:hidden;opacity:.55} .gantt .gb i{position:absolute;inset:0 auto 0 0;background:#fff;opacity:.9}
+.gantt .gbr{position:absolute;top:4px;height:13px;border-radius:3px;border:1px solid rgba(255,255,255,.35)}
+.gantt tr.grp td{background:var(--elev);color:var(--gold-ink);font-weight:600}
+.gantt tr.on td{background:#1f2b45} .gantt tr.act{cursor:pointer} .gantt tr.act:hover td{background:var(--hover)}
+.gantt .fijo{position:sticky;left:0;background:var(--surf);z-index:1;max-width:340px;overflow:hidden;text-overflow:ellipsis} .gantt th.fijo{z-index:3}
+/* formato / expediente */
+#toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--elev);border:1px solid var(--bd2);padding:8px 14px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:30}
+#toast.on{opacity:1}
+dialog{background:var(--surf);color:var(--tx);border:1px solid var(--bd2);border-radius:10px;max-width:540px;padding:18px} dialog::backdrop{background:rgba(0,0,0,.55)}
+.formato{position:fixed;inset:0;z-index:20;background:#0b111c;display:flex;flex-direction:column}
+.f-bar{display:flex;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--bd);background:var(--surf);flex-wrap:wrap}
+.f-hoja{overflow:auto;flex:1;padding:22px;background:#e9ecf1}
+.hoja{background:#fff;color:#111;max-width:1500px;margin:0 auto 22px;padding:28px 30px;font:11px/1.35 Arial,sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.hoja h1{font-size:16px;margin:0 0 4px;text-align:center;letter-spacing:.04em} .hoja h2{font-size:13px;margin:16px 0 8px;border-bottom:2px solid #1f2937;padding-bottom:3px}
+.hoja .sub{text-align:center;color:#444;margin-bottom:12px}
+.hoja .cab{display:grid;grid-template-columns:1fr 1fr;gap:2px 30px;margin-bottom:12px} .hoja .cab b{display:inline-block;min-width:130px}
+.hoja table{width:100%;border-collapse:collapse;font-size:10.5px} .hoja th,.hoja td{border:1px solid #999;padding:3px 4px;color:#111;background:#fff;position:static}
+.hoja th{background:#dfe5ee;text-align:center;font-weight:700} .hoja td.n{text-align:right} .hoja tr.t td{font-weight:700;background:#f2f4f7}
+.hoja tr.tot td{font-weight:700;background:#eef1f6} .hoja tr.neto td{font-weight:700;background:#fff3d6}
+.hoja .res{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0} .hoja .res div{border:1px solid #bbb;padding:8px} .hoja .res b{display:block;font-size:14px}
+.hoja .firmas{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px;text-align:center} .hoja .firmas div{border-top:1px solid #333;padding-top:4px}
+.hoja .nota2{color:#555;font-size:10px;margin-top:8px}
+.hoja.caratula{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:640px;text-align:center;gap:10px}
+.hoja.caratula h1{font-size:24px} .hoja.caratula img{max-height:90px}
+.salto{page-break-after:always;break-after:page}
+@media print{body{overflow:visible}.app,#toast,dialog,.f-bar{display:none!important}.formato{position:static;display:block!important}.f-hoja{padding:0;background:#fff;overflow:visible}
+  .hoja{box-shadow:none;max-width:none;padding:0;margin:0}@page{size:A4 landscape;margin:10mm}}
+@media (max-width:1200px){.kpis{grid-template-columns:repeat(3,1fr)}.app{grid-template-columns:64px 1fr}.rail a span,.logo span.nm,.rail .ver{display:none}}
+@media (max-width:760px){
+  .app{grid-template-columns:52px 1fr;grid-template-rows:auto 1fr}.rail{padding:8px 4px}.rail a{padding:0;justify-content:center}.logo{padding:4px 0 10px;justify-content:center}
+  header{flex-wrap:wrap;gap:6px;padding:8px 12px}.estado{max-width:100%}.crumb{width:100%}
+  .kpis{grid-template-columns:repeat(2,1fr)} .kpi b{font-size:18px}
+  .grid{grid-template-columns:1fr!important} .pag{padding:12px}
+  .pag.full{overflow:auto} .visor{grid-template-columns:1fr;grid-template-rows:62vh auto;height:auto} .lado{border-left:0;border-top:1px solid var(--bd)}
+  .partidas{grid-template-columns:1fr;height:auto} .partidas .lista{max-height:50vh} .partidas .det{grid-template-rows:240px auto}
+  .timeline{flex-wrap:wrap} .tl-info{min-width:0;text-align:left} .info3d{display:none} .capbar{grid-template-columns:110px 1fr 56px}
+  .f-hoja{padding:8px} .hoja{padding:14px} .hoja .res{grid-template-columns:1fr 1fr} .f-bar .campo{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav class="rail" id="rail">
+    <div class="logo"><span class="mk">NO</span><span class="nm">NEXO OBRA (NO)</span></div>
+    <a data-pag="inicio"><i>⌂</i><span>Inicio</span></a>
+    <a data-pag="visor"><i>◈</i><span>Visor 3D</span></a>
+    <a data-pag="partidas"><i>☰</i><span>Partidas</span></a>
+    <a data-pag="parte"><i>▦</i><span>Parte diario</span></a>
+    <a data-pag="cronograma"><i>◷</i><span>Cronograma</span></a>
+    <a data-pag="valorizaciones"><i>S/</i><span>Valorizaciones</span></a>
+    <a data-pag="control"><i>⚠</i><span>Control</span></a>
+    <a data-pag="config"><i>⚙</i><span>Configuración</span></a>
+    <div class="sp"></div><div class="ver" id="ver"></div>
+  </nav>
+  <header>
+    <div class="crumb"><b id="crumbObra">NEXO OBRA (NO)</b> / <span id="crumbPag">Inicio</span></div>
+    <div class="estado" id="estado"><i></i><span>Conectando con Revit…</span></div>
+    <div class="sp"></div>
+    <label class="campo">Fecha de corte <input type="date" class="inp" id="corte"></label>
+    <button class="btn" id="recargar" title="Volver a leer los parámetros VZ_ del modelo">↻</button>
+  </header>
+  <main id="main">
+    <!-- 1 INICIO -->
+    <section class="pag" id="pag-inicio">
+      <div class="kpis" id="kpis"></div>
+      <div class="grid" style="grid-template-columns:1.4fr 1fr;margin-top:14px">
+        <div class="card"><h3>Curva S · programado vs valorizado (costo directo acumulado)</h3><div class="chart" id="curvaInicio"></div></div>
+        <div class="card"><h3>Avance por capítulo</h3><div id="capitulos"></div></div>
+        <div class="card" style="padding:0"><div class="slot3d" id="slotInicio" style="height:330px"></div></div>
+        <div class="card"><h3>Mes de la fecha de corte</h3><div id="resMes"></div></div>
+      </div>
+    </section>
+    <!-- 2 VISOR -->
+    <section class="pag full" id="pag-visor" hidden>
+      <div class="visor">
+        <div class="slot3d" id="slotVisor">
+          <div class="tool">
+            <select class="inp" id="nivel"><option value="">Todos los niveles</option></select>
+            <label class="campo" style="text-transform:none;letter-spacing:0;color:var(--tx2)"><input type="checkbox" id="hasta"> y niveles inferiores</label>
+            <div class="seg" id="modo3d"><button class="on" data-m="avance">Avance</button><button data-m="programado">Programado</button><button data-m="atraso">Atraso</button><button data-m="sector">Sector</button></div>
+            <button class="btn" id="limpiar">Quitar selección</button><button class="btn" id="encuadre">Encuadrar</button>
+          </div>
+          <div class="timeline" id="timeline">
+            <label class="campo" style="text-transform:none;letter-spacing:0;color:var(--tx2)"><input type="checkbox" id="tlOn"> Simular lo programado</label>
+            <button class="btn sm" id="tlPlay" disabled>▶</button>
+            <input type="range" id="tlDia" min="0" max="0" value="0" disabled>
+            <div class="tl-info" id="tlInfo">Cronograma programado</div>
+          </div>
+          <div class="ley3d leyenda" id="leyenda"></div>
+          <div class="info3d" id="info3d">Arrastra para girar · rueda para acercar · clic derecho o Shift para desplazar · clic para seleccionar</div>
+        </div>
+        <aside class="lado"><div id="ladoVisor"></div></aside>
+      </div>
+    </section>
+    <!-- 3 PARTIDAS -->
+    <section class="pag full" id="pag-partidas" hidden>
+      <div class="partidas">
+        <div class="lista">
+          <div class="pad fila" style="margin:0"><input class="inp" id="buscar" placeholder="Buscar ítem o descripción…" style="flex:1">
+            <select class="inp" id="fCap"><option value="">Todos los capítulos</option></select>
+            <select class="inp" id="fEst"><option value="">Todos</option><option value="0">Sin iniciar</option><option value="1">En ejecución</option><option value="2">Completas</option><option value="3">Mayor metrado</option></select></div>
+          <div class="scroll" id="lista"></div>
+        </div>
+        <div class="det"><div class="slot3d" id="slotPartidas"></div><div class="scroll pad" id="detalle"></div></div>
+      </div>
+    </section>
+    <!-- 4 PARTE DIARIO -->
+    <section class="pag" id="pag-parte" hidden>
+      <div class="grid" style="grid-template-columns:420px 1fr">
+        <div class="card"><div class="fila" style="margin:0 0 10px"><button class="btn sm" id="mesAnt">‹</button><b id="mesTit" style="flex:1;text-align:center"></b><button class="btn sm" id="mesSig">›</button></div>
+          <div class="cal" id="cal"></div><div class="nota">Rayado = domingo o feriado (calendario del cronograma). Borde dorado = hay metrados registrados.</div>
+          <h3 style="margin-top:16px">Días con registros</h3><div id="diasReg"></div></div>
+        <div class="card"><div id="parte"></div></div>
+      </div>
+    </section>
+    <!-- 5 CRONOGRAMA -->
+    <section class="pag" id="pag-cronograma" hidden>
+      <div class="grid" style="grid-template-columns:1fr">
+        <div class="card"><h3>Hitos del cronograma</h3><div id="hitos" class="grid" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px"></div></div>
+        <div class="card" style="padding:0"><div class="gantt" id="gantt" style="max-height:62vh;overflow:auto"></div></div>
+        <div class="card" id="detAct"><div class="vacio">Elige una actividad del Gantt.</div></div>
+      </div>
+    </section>
+    <!-- 6 VALORIZACIONES -->
+    <section class="pag" id="pag-valorizaciones" hidden>
+      <div class="grid" style="grid-template-columns:1fr">
+        <div class="card"><div class="fila" style="margin:0 0 10px"><h3 style="margin:0;flex:1">Valorizaciones creadas</h3><button class="btn pri" id="crearVz">＋ Crear valorización</button></div><div id="listaVz"></div></div>
+        <div class="card"><div class="fila" style="margin:0 0 10px"><h3 style="margin:0;flex:1">Control de valorizaciones (en vivo)</h3>
+          <label class="campo">Valorización <select class="inp" id="mes"></select></label>
+          <button class="btn pri" id="verFormato">Formato</button><button class="btn" id="verMetrados">Hoja de metrados</button><button class="btn" id="verExpediente">Expediente PDF</button><button class="btn" id="csv">⇩ CSV</button></div>
+          <div id="tablaVal"></div></div>
+        <div class="grid" style="grid-template-columns:1fr 1fr">
+          <div class="card"><h3>Curva S mensual</h3><div class="chart" id="curvaVal"></div></div>
+          <div class="card"><h3>Programado vs valorizado por mes</h3><div class="chart" id="barrasVal"></div></div>
+        </div>
+      </div>
+    </section>
+    <!-- 7 CONTROL -->
+    <section class="pag" id="pag-control" hidden>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card"><h3>Atrasados al corte</h3><div id="atrasados"></div></div>
+        <div class="card"><h3>Mayor metrado</h3><div id="mayores"></div></div>
+        <div class="card"><h3>Desvío del mes por partida</h3><div id="desvio"></div></div>
+      </div>
+      <div class="card" style="margin-top:14px"><h3>Mes siguiente: actividades que empiezan y materiales a pedir</h3><div id="siguiente"></div></div>
+    </section>
+    <!-- 8 CONFIGURACIÓN -->
+    <section class="pag" id="pag-config" hidden>
+      <div class="grid" style="grid-template-columns:1fr 1fr">
+        <div class="card"><h3>Conexión y fuentes</h3><div id="conexion"></div></div>
+        <div class="card"><h3>Datos para el formato y el expediente</h3>
+          <div class="nota" style="margin:0 0 8px">Los escribes tú; se guardan en este navegador.</div>
+          <div class="grid" style="grid-template-columns:150px 1fr;gap:8px;align-items:center">
+            <span>Razón social</span><input class="inp" data-emp="empresa"><span>Obra (nombre)</span><input class="inp" data-emp="obra">
+            <span>Propietario</span><input class="inp" data-emp="propietario"><span>Ubicación</span><input class="inp" data-emp="ubicacion">
+            <span>Residente</span><input class="inp" data-emp="residente"><span>Supervisor</span><input class="inp" data-emp="supervisor">
+            <span>Logo (PNG/JPG)</span><input type="file" accept="image/*" id="logo"></div><div id="logoPrev" class="nota"></div></div>
+        <div class="card"><h3>Calendario de obra</h3><div id="calendario"></div></div>
+        <div class="card"><h3>Compartir (solo lectura)</h3><div id="compartir"></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+<dialog id="dlg"><div id="dlgCuerpo"></div><div class="fila" style="justify-content:flex-end;margin-top:14px" id="dlgBotones"></div></dialog>
+<div class="formato" id="formato" hidden><div class="f-bar"><b id="fTitulo">Formato de valorización</b><span class="sp"></span>
+  <span id="fCampos"><label class="campo">Amort. adelanto directo % <input class="inp" id="fAdel" type="number" step="any" min="0" style="width:80px"></label>
+  <label class="campo">Amort. adelanto materiales S/ <input class="inp" id="fMat" type="number" step="any" min="0" style="width:110px"></label>
+  <label class="campo">Retención garantía % <input class="inp" id="fRet" type="number" step="any" min="0" style="width:80px"></label></span>
+  <button class="btn" id="fImprimir">⎙ Imprimir / PDF</button><button class="btn pri" id="fCerrar">Cerrar</button></div>
+  <div class="f-hoja" id="fHoja"></div></div>
+<script>
+"use strict";
+/* ============================================================ datos incrustados y utilidades */
+const CRONO = /*__CRONOGRAMA__*/null;                 // cronograma programado (armar_panel.py)
+const SNAP = window.NEXO_SNAPSHOT || null;            // instantánea de solo lectura (datos y geometría incrustados)
+const LECTURA = !!SNAP || new URLSearchParams(location.search).has("lectura");
+const S = {datos:null, partidas:[], porItem:{}, els:[], porId:{}, elsDePartida:{}, global:{}, globalRegs:[], niveles:[], selPartida:null, selEl:null, selAct:null,
+           res:null, resTxt:"", geo:null, tl:null, modo3d:"avance", pag:"inicio", mesCal:null, diaSel:null, valN:null};
+const ACT = CRONO ? Object.fromEntries(CRONO.actividades.map(a => [a.id, a])) : {};
+const $ = s => document.querySelector(s);
+const nf = (x, d=2) => (x==null||isNaN(x)) ? "-" : Number(x).toLocaleString("es-PE",{minimumFractionDigits:d,maximumFractionDigits:d});
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isoD = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const dISO = s => new Date(+s.slice(0,4), +s.slice(5,7)-1, +s.slice(8,10));
+const hoy = () => isoD(new Date());
+const fmtD = s => s ? s.split("-").reverse().join("/") : "";
+const mesTxt = s => dISO(s).toLocaleDateString("es-PE",{month:"long",year:"numeric"});
+const corte = () => $("#corte").value || hoy();
+function toast(m){ const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("on"), 2600); }
+function estado(cls, msg){ const e = $("#estado"); e.className = "estado " + cls; e.querySelector("span").textContent = msg; e.title = msg; }
+function dialogo(html, botones){ return new Promise(res => { $("#dlgCuerpo").innerHTML = html; const b = $("#dlgBotones"); b.innerHTML = "";
+  botones.forEach(([txt, val, cls]) => { const x = document.createElement("button"); x.className = "btn " + (cls||""); x.textContent = txt; x.onclick = () => { $("#dlg").close(); res(val); }; b.appendChild(x); });
+  $("#dlg").showModal(); }); }
+function ls(k, v){ try{ if(v === undefined) return JSON.parse(localStorage.getItem("nexoNO_" + k)); localStorage.setItem("nexoNO_" + k, JSON.stringify(v)); }catch(e){ return null; } }
+
+/* calendario de obra: lunes a sábado, sin feriados (del cronograma) */
+const FER = new Set(CRONO ? CRONO.feriados : []);
+const laborable = s => dISO(s).getDay() !== 0 && !FER.has(s);
+const DIAS_OBRA = (() => { if(!CRONO) return []; const fin = CRONO.actividades.reduce((m,a) => a.fin > m ? a.fin : m, CRONO.inicio);
+  const out = []; for(let d = dISO(CRONO.inicio); isoD(d) <= fin; d.setDate(d.getDate()+1)) if(laborable(isoD(d))) out.push(isoD(d)); return out; })();
+const IDX = Object.fromEntries(DIAS_OBRA.map((d,i) => [d, i]));
+function lab(a, b){ if(a > b) return 0; let n = 0; for(let d = dISO(a); isoD(d) <= b; d.setDate(d.getDate()+1)) if(laborable(isoD(d))) n++; return n; }
+const BAC_CRONO = CRONO ? CRONO.actividades.reduce((s,a) => s + a.monto_cd, 0) : 0;
+function fracAct(a, desde, hasta){ const lo = a.inicio > desde ? a.inicio : desde, hi = a.fin < hasta ? a.fin : hasta; return lo > hi ? 0 : lab(lo, hi) / Math.max(1, a.duracion); }
+function pvA(fecha){ return CRONO ? CRONO.actividades.reduce((s,a) => s + a.monto_cd * fracAct(a, a.inicio, fecha), 0) : 0; }
+function estadoProg(id, fecha){ const r = CRONO?.elementos[id]; if(!r) return -1; const [c, a, en] = r.map(x => ACT[x]);
+  if(c && c.fin <= fecha) return 2; if((a && a.inicio <= fecha) || (en && en.inicio <= fecha) || (c && c.inicio <= fecha)) return 1; return 0; }
+
+/* registros «aaaa-mm-dd|ítem|cantidad;» */
+function parsear(reg){ return (reg||"").split(";").filter(Boolean).map(x => { const [f, it, q] = x.split("|"); return {f, it, q: parseFloat(q)}; }).filter(r => r.f && !isNaN(r.q)); }
+function sumar(regs, hasta){ const s = {}; regs.forEach(r => { if(!hasta || r.f <= hasta) s[r.it] = (s[r.it]||0) + r.q; }); return s; }
+function todos(){ const out = []; S.els.forEach(e => e.regs.forEach(r => out.push({...r, id:e.id, el:e}))); S.globalRegs.forEach(r => out.push({...r, id:0})); return out; }
+const pu = it => S.porItem[it]?.pu || 0;
+function evEntre(desde, hasta){ return todos().reduce((s,r) => s + (r.f >= desde && r.f <= hasta ? r.q * pu(r.it) : 0), 0); }
+const BAC = () => S.partidas.reduce((s,p) => s + p.metrado * p.pu, 0);
+function principal(e){ return e.partidas.find(x => x.clase === "concreto" || x.clase === "muro"); }
+function estadoReal(e, hasta){ const ej = hasta ? sumar(e.regs, hasta) : e.ejec, p = principal(e);
+  if(p && (ej[p.item]||0) >= p.metrado*0.999) return 2; return Object.values(ej).some(q => q > 1e-9) ? 1 : 0; }
+function atrasado(e, fecha){ const a = ACT[CRONO?.elementos[e.id]?.[0]]; return !!a && a.fin < fecha && estadoReal(e, fecha) < 2; }
+function periodos(){ if(!S.datos) return []; const ini = S.datos.inicio; const fechas = [ini, corte(), ...(CRONO ? CRONO.periodos.map(p => p.hasta) : []), ...todos().map(r => r.f)];
+  const max = fechas.sort().at(-1); const out = []; let y = +ini.slice(0,4), m = +ini.slice(5,7), n = 1;
+  while(true){ const d = `${y}-${String(m).padStart(2,"0")}`; out.push({n, desde:d+"-01", hasta:d+"-"+String(new Date(y,m,0).getDate()).padStart(2,"0")});
+    if(d >= max.slice(0,7) || n > 120) break; n++; m++; if(m > 12){ m = 1; y++; } } return out; }
+
+/* ============================================================ API (o instantánea) */
+async function api(ruta, opc){
+  if(SNAP){ if(ruta.startsWith("/api/datos")) return SNAP.datos; if(ruta.startsWith("/api/geometria")) return SNAP.geo; throw new Error("Instantánea de solo lectura: no se puede registrar."); }
+  const r = await fetch(ruta, opc); const j = await r.json().catch(() => ({ok:false, error:"Respuesta no válida"}));
+  if(!r.ok || j.ok === false) throw new Error(j.error || ("HTTP " + r.status)); return j; }
+async function cargarDatos(){
+  const d = await api("/api/datos");
+  S.datos = d; S.partidas = d.partidas; S.porItem = Object.fromEntries(d.partidas.map(p => [p.item, p]));
+  S.els = d.elementos.filter(e => e.existe); S.porId = Object.fromEntries(S.els.map(e => [e.id, e])); S.elsDePartida = {};
+  S.els.forEach(e => { e.regs = parsear(e.registro); e.ejec = sumar(e.regs); e.partidas.forEach(p => (S.elsDePartida[p.item] ||= []).push(e)); });
+  S.globalRegs = parsear(d.registroGlobal); S.global = sumar(S.globalRegs); S.niveles = d.niveles;
+  $("#nivel").innerHTML = '<option value="">Todos los niveles</option>' + d.niveles.filter(n => S.els.some(e => e.nivel === n.nombre)).map(n => `<option value="${esc(n.nombre)}">${esc(n.nombre)} (${nf(n.cota,2)} m)</option>`).join("");
+  $("#fCap").innerHTML = '<option value="">Todos los capítulos</option>' + Object.entries(d.capitulos).filter(([k]) => k.length === 2).map(([k,v]) => `<option value="${k}">${k} · ${esc(v)}</option>`).join("");
+  $("#crumbObra").textContent = (ls("empresa")?.obra) || ("NEXO OBRA (NO) · " + d.modelo);
+  const faltan = d.parametrosFaltan || [];
+  if(SNAP) estado("ro", `Solo lectura · datos al ${fmtD(SNAP.fecha)} · deja tus sugerencias en los comentarios de la página`);
+  else estado(LECTURA ? "ro" : "ok", `Revit: ${d.modelo} · ${S.els.length} elementos` + (LECTURA ? " · solo lectura" : "") + (faltan.length ? ` · ${faltan.length} parámetros se crearán al registrar` : ""));
+  pintar();
+}
+
+/* ============================================================ navegación */
+const TITULOS = {inicio:"Inicio", visor:"Visor 3D", partidas:"Partidas y metrado diario", parte:"Parte diario", cronograma:"Cronograma", valorizaciones:"Valorizaciones", control:"Control y alertas", config:"Configuración"};
+const SLOT = {inicio:"#slotInicio", visor:"#slotVisor", partidas:"#slotPartidas"};
+function ir(p){ if(!TITULOS[p]) p = "inicio"; S.pag = p; ls("pag", p); if(location.hash !== "#" + p) history.replaceState(null, "", "#" + p);
+  document.querySelectorAll("#rail a").forEach(a => a.classList.toggle("on", a.dataset.pag === p));
+  document.querySelectorAll("main > .pag").forEach(s => s.hidden = s.id !== "pag-" + p);
+  $("#crumbPag").textContent = TITULOS[p]; if(SLOT[p]) V.montar($(SLOT[p])); pintar(); }
+document.querySelectorAll("#rail a").forEach(a => a.addEventListener("click", () => ir(a.dataset.pag)));
+function pintar(){ if(!S.datos) return;
+  ({inicio:pInicio, visor:pVisor, partidas:pPartidas, parte:pParte, cronograma:pCronograma, valorizaciones:pValorizaciones, control:pControl, config:pConfig})[S.pag]();
+  V.colorear(); }
+
+/* ============================================================ gráficos SVG */
+function curvaS(cont, opc = {}){
+  const per = periodos(), c = corte(), W = 640, H = opc.alto || 230, m = {l:56, r:12, t:12, b:28};
+  const pv = per.map(p => CRONO ? (CRONO.periodos.find(x => x.n === p.n)?.pv_acum ?? pvA(p.hasta)) : 0);
+  let ac = 0; const ev = per.map(p => { if(p.desde > c) return null; ac += evEntre(p.desde, p.hasta < c ? p.hasta : c); return ac; });
+  const max = Math.max(1, ...pv, ...ev.filter(x => x != null)), X = i => m.l + (W - m.l - m.r) * (per.length < 2 ? 0 : i / (per.length - 1)), Y = v => H - m.b - (H - m.t - m.b) * v / max;
+  const lin = (arr, col, dash) => { const pts = arr.map((v,i) => v == null ? null : `${X(i)},${Y(v)}`).filter(Boolean); return pts.length ? `<polyline fill="none" stroke="${col}" stroke-width="2.4" ${dash ? 'stroke-dasharray="6 4"' : ""} points="${pts.join(" ")}"/>` + arr.map((v,i) => v == null ? "" : `<circle cx="${X(i)}" cy="${Y(v)}" r="3" fill="${col}"><title>N° ${per[i].n}: S/ ${nf(v)}</title></circle>`).join("") : ""; };
+  const ticks = [0, .25, .5, .75, 1].map(f => `<line x1="${m.l}" x2="${W-m.r}" y1="${Y(max*f)}" y2="${Y(max*f)}" stroke="#24324D"/><text x="${m.l-6}" y="${Y(max*f)+4}" text-anchor="end" font-size="10" fill="#94A3B8">${nf(max*f/1000,0)}k</text>`).join("");
+  const xs = per.map((p,i) => `<text x="${X(i)}" y="${H-10}" text-anchor="middle" font-size="10" fill="#94A3B8">${String(p.n).padStart(2,"0")}</text>`).join("");
+  cont.innerHTML = `<svg viewBox="0 0 ${W} ${H}">${ticks}${xs}${lin(pv, "#E5B869", true)}${lin(ev, "#3B82F6")}</svg>
+    <div class="leyenda" style="margin-top:6px"><span><i style="background:#E5B869"></i>Programado (cronograma)</span><span><i style="background:#3B82F6"></i>Valorizado (metrados registrados)</span><span>Eje X: valorización N° · Eje Y: miles de S/</span></div>`;
+  return {per, pv, ev};
+}
+function barrasMes(cont){
+  const per = periodos(), c = corte(), W = 640, H = 230, m = {l:56, r:12, t:12, b:28};
+  const pv = per.map(p => CRONO ? (CRONO.periodos.find(x => x.n === p.n)?.pv_mes ?? 0) : 0), ev = per.map(p => p.desde > c ? 0 : evEntre(p.desde, p.hasta));
+  const max = Math.max(1, ...pv, ...ev), bw = (W - m.l - m.r) / per.length, Y = v => H - m.b - (H - m.t - m.b) * v / max;
+  cont.innerHTML = `<svg viewBox="0 0 ${W} ${H}">` + [0,.5,1].map(f => `<line x1="${m.l}" x2="${W-m.r}" y1="${Y(max*f)}" y2="${Y(max*f)}" stroke="#24324D"/><text x="${m.l-6}" y="${Y(max*f)+4}" text-anchor="end" font-size="10" fill="#94A3B8">${nf(max*f/1000,0)}k</text>`).join("") +
+    per.map((p,i) => { const x = m.l + i*bw; return `<rect x="${x+bw*.12}" y="${Y(pv[i])}" width="${bw*.36}" height="${H-m.b-Y(pv[i])}" fill="#E5B869"><title>Programado N° ${p.n}: S/ ${nf(pv[i])}</title></rect>
+      <rect x="${x+bw*.52}" y="${Y(ev[i])}" width="${bw*.36}" height="${H-m.b-Y(ev[i])}" fill="#3B82F6"><title>Valorizado N° ${p.n}: S/ ${nf(ev[i])}</title></rect><text x="${x+bw/2}" y="${H-10}" text-anchor="middle" font-size="10" fill="#94A3B8">${String(p.n).padStart(2,"0")}</text>`; }).join("") +
+    `</svg><div class="leyenda" style="margin-top:6px"><span><i style="background:#E5B869"></i>Programado del mes</span><span><i style="background:#3B82F6"></i>Valorizado del mes</span></div>`;
+}
+
+/* ============================================================ 1 INICIO */
+function pInicio(){
+  const c = corte(), bac = BAC(), pie = S.datos.pie, ev = evEntre("0000", c), pv = pvA(c), spi = pv > 0 ? ev / pv : null;
+  const iC = IDX[c] ?? (c < (DIAS_OBRA[0]||"") ? -1 : DIAS_OBRA.length - 1), finObra = DIAS_OBRA.at(-1);
+  $("#kpis").innerHTML = `
+    <div class="kpi"><small>Presupuesto (con IGV)</small><b>S/ ${nf(bac*(1+(pie.gg||0)+(pie.ut||0))*(1+(pie.igv||0)),0)}</b><span>Costo directo S/ ${nf(bac,0)}</span></div>
+    <div class="kpi"><small>Valorizado acumulado (CD)</small><b>${nf(bac?ev/bac*100:0,1)}%</b><span>S/ ${nf(ev,0)}</span></div>
+    <div class="kpi"><small>Programado al corte (CD)</small><b>${nf(bac?pv/bac*100:0,1)}%</b><span>S/ ${nf(pv,0)}</span></div>
+    <div class="kpi ${spi==null?"":spi>=1?"ok":spi>=0.9?"warn":"bad"}"><small>SPI (valorizado / programado)</small><b>${spi==null?"-":nf(spi,2)}</b><span>${spi==null?"aún no hay programado":spi>=1?"a tiempo o adelantado":"atrasado"}</span></div>
+    <div class="kpi"><small>Plazo (días laborables)</small><b>${iC < 0 ? "0" : iC+1} / ${DIAS_OBRA.length}</b><span>Inicio ${fmtD(CRONO?.inicio)} · fin ${fmtD(finObra)}</span></div>`;
+  curvaS($("#curvaInicio"));
+  const caps = Object.entries(S.datos.capitulos).filter(([k]) => k.length === 2);
+  $("#capitulos").innerHTML = caps.map(([k, nom]) => { const ps = S.partidas.filter(p => p.item.startsWith(k + ".")), pre = ps.reduce((s,p) => s + p.metrado*p.pu, 0);
+      const ej = todos().reduce((s,r) => s + (r.f <= c && r.it.startsWith(k + ".") ? r.q*pu(r.it) : 0), 0), pr = CRONO ? CRONO.actividades.reduce((s,a) => s + a.partidas.filter(x => x.item.startsWith(k+".")).reduce((t,x) => t + x.metrado*pu(x.item), 0) * fracAct(a, a.inicio, c), 0) : 0;
+      return `<div class="capbar"><span title="${esc(nom)}">${k} · ${esc(nom.length > 18 ? nom.slice(0,18)+"…" : nom)}</span><div class="bars"><div class="bar" title="Programado"><i class="pv" style="width:${pre?Math.min(100,pr/pre*100):0}%"></i></div><div class="bar" title="Valorizado"><i style="width:${pre?Math.min(100,ej/pre*100):0}%"></i></div></div><span style="text-align:right">${nf(pre?ej/pre*100:0,1)}%</span></div>`; }).join("") +
+    `<div class="leyenda"><span><i style="background:#94A3B8"></i>Programado al corte</span><span><i style="background:#E5B869"></i>Valorizado</span></div>`;
+  const per = periodos().find(p => p.desde <= c && c <= p.hasta);
+  const evm = per ? evEntre(per.desde, c) : 0, pvm = per ? pvA(c) - pvA(isoD(new Date(dISO(per.desde).getTime() - 864e5))) : 0;
+  const atr = S.els.filter(e => atrasado(e, c)).length, may = S.els.filter(e => e.obs).length;
+  $("#resMes").innerHTML = per ? `<div class="nota" style="margin:0 0 8px">Valorización N° ${String(per.n).padStart(2,"0")} · ${mesTxt(per.desde)} · hasta el ${fmtD(c)}</div>
+    <table><tbody><tr><td>Valorizado del mes (CD)</td><td class="n">S/ ${nf(evm)}</td></tr><tr><td>Programado del mes hasta el corte (CD)</td><td class="n">S/ ${nf(pvm)}</td></tr>
+    <tr class="cl" data-ir="control"><td>Elementos atrasados</td><td class="n"><span class="tag ${atr?"bad":"ok"}">${atr}</span></td></tr>
+    <tr class="cl" data-ir="control"><td>Elementos con mayor metrado</td><td class="n"><span class="tag ${may?"warn":"ok"}">${may}</span></td></tr>
+    <tr class="cl" data-ir="parte"><td>Registros del mes</td><td class="n">${todos().filter(r => r.f >= per.desde && r.f <= c).length}</td></tr></tbody></table>`
+    : `<div class="vacio">La fecha de corte (${fmtD(c)}) es anterior al inicio de obra (${fmtD(S.datos.inicio)}).</div>`;
+  $("#resMes").querySelectorAll("[data-ir]").forEach(tr => tr.onclick = () => ir(tr.dataset.ir));
+}
+
+/* ============================================================ 2 VISOR */
+function visible(e){ const nv = $("#nivel").value; if(!nv) return true; if(!$("#hasta").checked) return e.nivel === nv;
+  const c = S.niveles.find(n => n.nombre === nv)?.cota ?? 1e9, ce = S.niveles.find(n => n.nombre === e.nivel)?.cota ?? -1e9; return ce <= c + 1e-6; }
+function pVisor(){
+  const box = $("#ladoVisor");
+  if(S.selEl) return detalleElemento(box, S.porId[S.selEl]);
+  const c = corte(), paqs = {};
+  S.els.forEach(e => { const k = e.paquete; const p = (paqs[k] ||= {pre:0, ej:0, n:0}); p.n++;
+    const ej = sumar(e.regs, c); e.partidas.forEach(x => { p.pre += x.metrado*pu(x.item); p.ej += (ej[x.item]||0)*pu(x.item); }); });
+  const orden = Object.keys(paqs).sort((a,b) => (a.startsWith("AN") ? "0" : a === "CIM" ? "1" : "2" + a).localeCompare(b.startsWith("AN") ? "0" : b === "CIM" ? "1" : "2" + b));
+  box.innerHTML = `<div class="h3">Avance por bloque al ${fmtD(c)}</div>` + orden.map(k => { const p = paqs[k], f = p.pre ? p.ej/p.pre : 0;
+    return `<div class="cl" data-paq="${k}" style="margin:8px 0;cursor:pointer"><div class="fila" style="margin:0;justify-content:space-between"><span>${esc(nombrePaquete(k))}</span><span>${nf(f*100,1)}%</span></div><div class="bar"><i class="${f>=0.999?"ok":""}" style="width:${Math.min(100,f*100)}%"></i></div><div class="nota" style="margin:2px 0 0">${p.n} elementos · S/ ${nf(p.ej,0)} de ${nf(p.pre,0)}</div></div>`; }).join("") +
+    `<div class="nota">Clic en un bloque para resaltarlo. Clic en un elemento del 3D para ver sus partidas y registrar.</div>`;
+  box.querySelectorAll("[data-paq]").forEach(d => d.onclick = () => resaltar(S.els.filter(e => e.paquete === d.dataset.paq).map(e => e.id), nombrePaquete(d.dataset.paq)));
+}
+function resaltar(ids, txt){ S.res = ids ? new Set(ids) : null; S.resTxt = txt || ""; S.selEl = null; S.selPartida = null; S.selAct = null; V.colorear(); if(ids) V.encuadrar(ids.map(i => S.porId[i]).filter(Boolean)); }
+document.querySelectorAll("#modo3d button").forEach(b => b.onclick = () => { document.querySelectorAll("#modo3d button").forEach(x => x.classList.toggle("on", x === b)); S.modo3d = b.dataset.m; V.colorear(); });
+$("#nivel").addEventListener("change", () => { pintar(); V.encuadrar(); });
+$("#hasta").addEventListener("change", () => { pintar(); V.encuadrar(); });
+$("#limpiar").addEventListener("click", () => { S.selPartida = null; S.selEl = null; S.selAct = null; S.res = null; pintar(); });
+$("#encuadre").addEventListener("click", () => V.encuadrar(S.res ? [...S.res].map(i => S.porId[i]) : S.selPartida ? S.elsDePartida[S.selPartida] : null));
+/* timeline programado */
+function tlPintar(){ const i = +$("#tlDia").value, d = DIAS_OBRA[i]; if(!d) return; S.tl = d; const pv = pvA(d);
+  $("#tlInfo").textContent = `${fmtD(d)} · día ${i+1} de ${DIAS_OBRA.length} · programado S/ ${nf(pv,0)} (${nf(BAC_CRONO?pv/BAC_CRONO*100:0,1)}%)`; V.colorear(); }
+$("#tlOn").addEventListener("change", () => { const on = $("#tlOn").checked; $("#tlPlay").disabled = $("#tlDia").disabled = !on;
+  if(on){ $("#tlDia").max = DIAS_OBRA.length - 1; const h = IDX[corte()]; $("#tlDia").value = h ?? 0; tlPintar(); } else { S.tl = null; tlParar(); $("#tlInfo").textContent = "Cronograma programado"; V.colorear(); } });
+$("#tlDia").addEventListener("input", tlPintar);
+let tlT = null; function tlParar(){ clearInterval(tlT); tlT = null; $("#tlPlay").textContent = "▶"; }
+$("#tlPlay").addEventListener("click", () => { if(tlT) return tlParar(); $("#tlPlay").textContent = "❚❚"; if(+$("#tlDia").value >= DIAS_OBRA.length - 1) $("#tlDia").value = 0;
+  tlT = setInterval(() => { const s = $("#tlDia"); if(+s.value >= +s.max) return tlParar(); s.value = +s.value + 1; tlPintar(); }, 90); });
+
+/* ============================================================ 3 PARTIDAS */
+function ejecutadoPartida(item, hasta){ let s = 0; S.globalRegs.forEach(r => { if(r.it === item && (!hasta || r.f <= hasta)) s += r.q; });
+  (S.elsDePartida[item]||[]).forEach(e => e.regs.forEach(r => { if(r.it === item && (!hasta || r.f <= hasta)) s += r.q; })); return s; }
+function estadoPartida(p){ const ej = ejecutadoPartida(p.item); return ej > p.metrado*1.000001 ? 3 : ej >= p.metrado*0.999 ? 2 : ej > 1e-9 ? 1 : 0; }
+function pPartidas(){ pintarLista(); pintarDetalle(); }
+function pintarLista(){
+  const q = $("#buscar").value.trim().toLowerCase(), fc = $("#fCap").value, fe = $("#fEst").value; let html = "", capAnt = null;
+  S.partidas.forEach(p => {
+    if(q && !(p.item + " " + p.desc).toLowerCase().includes(q)) return; if(fc && !p.item.startsWith(fc + ".")) return;
+    const est = estadoPartida(p); if(fe !== "" && est !== +fe) return;
+    const cap = p.item.slice(0,2); if(cap !== capAnt){ html += `<div class="cap">${cap} · ${esc(S.datos.capitulos[cap] || "")}</div>`; capAnt = cap; }
+    const ej = ejecutadoPartida(p.item), pct = p.metrado ? ej / p.metrado : 0, n = (S.elsDePartida[p.item]||[]).length;
+    html += `<div class="par ${S.selPartida===p.item?"on":""}" data-item="${p.item}"><div class="t"><span class="it">${p.item}</span><span class="d">${esc(p.desc)}</span></div>
+      <div class="m"><span>${nf(ej)} / ${nf(p.metrado)} ${esc(p.und)}</span><span>${n ? n + " elem." : '<span class="tag">sin elementos</span>'} · ${nf(pct*100,1)}%</span></div>
+      <div class="bar"><i class="${est===3?"ex":est===2?"ok":""}" style="width:${Math.min(100,pct*100)}%"></i></div></div>`; });
+  $("#lista").innerHTML = html || '<div class="vacio">Sin resultados.</div>';
+}
+$("#lista").addEventListener("click", e => { const d = e.target.closest(".par"); if(!d) return;
+  S.selPartida = S.selPartida === d.dataset.item ? null : d.dataset.item; S.selEl = null; S.selAct = null; S.res = null; pintar(); if(S.selPartida) V.encuadrar(S.elsDePartida[S.selPartida]); });
+["#buscar","#fCap","#fEst"].forEach(s => $(s).addEventListener("input", pintarLista));
+const fechaParte = () => $("#fParte")?.value || ls("fParte") || hoy();
+function campoFecha(){ return LECTURA ? "" : `<label class="campo">Fecha del parte <input type="date" class="inp" id="fParte" value="${fechaParte()}"></label>`; }
+function pintarDetalle(){
+  const box = $("#detalle");
+  if(S.selEl) return detalleElemento(box, S.porId[S.selEl]);
+  if(!S.selPartida){ box.innerHTML = '<div class="vacio">Elige una partida de la lista o un elemento en el 3D.</div>'; return; }
+  const p = S.porItem[S.selPartida], ej = ejecutadoPartida(p.item), els = (S.elsDePartida[p.item]||[]), vis = els.filter(visible);
+  let html = `<div class="fila" style="margin:0;justify-content:space-between"><h2 style="margin:0;font-size:15px">${p.item} · ${esc(p.desc)}</h2>${campoFecha()}</div>
+    <div class="nota">P.U. S/ ${nf(p.pu)} por ${esc(p.und)} · presupuesto S/ ${nf(p.metrado*p.pu)}</div>
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr);margin-top:10px"><div class="kpi"><small>Contrato</small><b>${nf(p.metrado)}</b><span>${esc(p.und)}</span></div>
+    <div class="kpi"><small>Ejecutado</small><b>${nf(ej)}</b><span>${nf(p.metrado?ej/p.metrado*100:0,1)}%</span></div>
+    <div class="kpi ${ej>p.metrado+1e-6?"bad":""}"><small>Saldo</small><b>${nf(p.metrado-ej)}</b><span>${esc(p.und)}</span></div>
+    <div class="kpi"><small>Valorizado</small><b>${nf(ej*p.pu,0)}</b><span>S/ (CD)</span></div></div>`;
+  if(!LECTURA){
+    if(!els.length) html += `<div class="h3" style="margin-top:14px">Metrado del día</div><div class="nota">Esta partida no tiene elementos en el modelo: se registra como total de la partida.</div>
+      <div class="fila"><input class="inp" id="qGlobal" type="number" step="any" placeholder="Cantidad (${esc(p.und)})" style="width:160px"><button class="btn pri" id="regGlobal">Registrar</button></div>`;
+    else html += `<div class="h3" style="margin-top:14px">Por partida completa</div><div class="nota">Se reparte entre los ${vis.length} elementos ${$("#nivel").value ? "del nivel elegido en el Visor" : "de la partida"} según su saldo.</div>
+      <div class="fila"><input class="inp" id="qPartida" type="number" step="any" placeholder="Cantidad (${esc(p.und)})" style="width:160px"><button class="btn" id="saldoPartida">Usar saldo</button><button class="btn pri" id="regPartida">Registrar</button></div>`;
+  }
+  if(els.length) html += `<div class="h3" style="margin-top:14px">Por elemento (${vis.length}${vis.length!==els.length?" de "+els.length:""})</div>
+      <table><thead><tr><th>Elemento</th><th>Nivel</th><th class="n">Contrato</th><th class="n">Ejec.</th>${LECTURA?"":'<th class="n">Hoy</th>'}</tr></thead><tbody>` +
+      vis.map(e => { const pc = e.partidas.find(x => x.item === p.item), ex = e.ejec[p.item]||0;
+        return `<tr class="cl" data-id="${e.id}"><td>${esc(e.tipo)}<div class="nota" style="margin:0">${e.id} · ${esc(e.paquete)}-${esc(e.sector)}</div></td><td>${esc(e.nivel)}</td>
+        <td class="n">${nf(pc.metrado)}</td><td class="n ${ex>pc.metrado+1e-6?"err":""}">${nf(ex)}</td>${LECTURA?"":`<td class="n"><input class="inp" type="number" step="any" data-q="${e.id}"></td>`}</tr>`; }).join("") +
+      `</tbody></table>` + (LECTURA ? "" : `<div class="fila" style="justify-content:flex-end"><button class="btn pri" id="regElems">Registrar metrado del día</button></div>`);
+  const regs = [...S.globalRegs.filter(r => r.it === p.item).map(r => ({...r, id:0}))]; els.forEach(e => e.regs.filter(r => r.it === p.item).forEach(r => regs.push({...r, id:e.id})));
+  regs.sort((a,b) => b.f.localeCompare(a.f));
+  html += `<div class="h3" style="margin-top:14px">Historial (${regs.length})</div>` + (regs.length ? `<table><thead><tr><th>Fecha</th><th>Elemento</th><th class="n">Cantidad</th><th class="n">S/</th></tr></thead><tbody>` +
+    regs.slice(0,300).map(r => `<tr><td>${fmtD(r.f)}</td><td>${r.id ? r.id : "Partida"}</td><td class="n">${nf(r.q,3)}</td><td class="n">${nf(r.q*p.pu)}</td></tr>`).join("") + "</tbody></table>" : '<div class="nota">Sin registros todavía.</div>');
+  box.innerHTML = html;
+  $("#fParte")?.addEventListener("change", e => ls("fParte", e.target.value));
+  $("#regGlobal")?.addEventListener("click", () => registrar([{id:0, item:p.item, cantidad:parseFloat($("#qGlobal").value)}]));
+  $("#saldoPartida")?.addEventListener("click", () => { $("#qPartida").value = Math.max(0, vis.reduce((s,e) => s + saldo(e,p.item), 0)).toFixed(4); });
+  $("#regPartida")?.addEventListener("click", () => porPartida(p, vis));
+  $("#regElems")?.addEventListener("click", () => { const r = [...box.querySelectorAll("input[data-q]")].map(i => ({id:+i.dataset.q, item:p.item, cantidad:parseFloat(i.value)})).filter(r => r.cantidad && !isNaN(r.cantidad));
+    if(!r.length) return toast("Escribe al menos una cantidad."); registrar(r); });
+  box.querySelectorAll("tr.cl").forEach(tr => tr.addEventListener("click", ev => { if(ev.target.tagName === "INPUT") return; V.resaltarUno(+tr.dataset.id); box.querySelectorAll("tr.sel").forEach(x => x.classList.remove("sel")); tr.classList.add("sel"); }));
+}
+function saldo(e, item){ const pc = e.partidas.find(x => x.item === item); return pc.metrado - (e.ejec[item]||0); }
+async function porPartida(p, els){
+  const Q = parseFloat($("#qPartida").value); if(!Q || isNaN(Q)) return toast("Escribe la cantidad de la partida."); if(!els.length) return toast("No hay elementos visibles de esta partida.");
+  let pesos = els.map(e => Math.max(0, saldo(e, p.item))), tot = pesos.reduce((a,b) => a+b, 0);
+  if(tot <= 1e-9){ pesos = els.map(e => e.partidas.find(x => x.item === p.item).metrado); tot = pesos.reduce((a,b) => a+b, 0); }
+  const regs = els.map((e,i) => ({id:e.id, item:p.item, cantidad:+(Q*pesos[i]/tot).toFixed(6)})).filter(r => r.cantidad);
+  const ok = await dialogo(`<h2>¿Está seguro de colocar por la partida completa?</h2><p>Se registrarán <b>${nf(Q,3)} ${esc(p.und)}</b> de <b>${esc(p.item)} ${esc(p.desc)}</b> con fecha ${fmtD(fechaParte())}, repartidos entre <b>${regs.length}</b> elementos según su saldo${$("#nivel").value ? " (solo los del nivel elegido)" : ""}.</p><p class="nota">Se escribe en Revit (parámetros VZ_) y se suma a lo ya ejecutado.</p>`,
+    [["Cancelar", false], ["Sí, registrar", true, "pri"]]);
+  if(ok) registrar(regs);
+}
+function detalleElemento(box, e){
+  if(!e){ box.innerHTML = '<div class="vacio">Elemento sin datos.</div>'; return; }
+  const a = ACT[CRONO?.elementos[e.id]?.[0]];
+  box.innerHTML = `<div class="fila" style="margin:0;justify-content:space-between"><h2 style="margin:0;font-size:15px">${esc(e.tipo)}</h2>${S.pag === "partidas" ? campoFecha() : ""}</div>
+    <div class="nota">ElementId ${e.id} · ${esc(e.nivel)} · bloque ${esc(e.paquete)} · sector ${esc(e.sector)}${a ? ` · vaciado programado ${fmtD(a.fin)} (${esc(a.id)})` : ""}${atrasado(e, corte()) ? ' · <span class="tag bad">atrasado</span>' : ""}</div>
+    <div class="h3" style="margin-top:12px">Partidas del elemento</div><table><thead><tr><th>Partida</th><th class="n">Contrato</th><th class="n">Ejec.</th>${LECTURA?"":'<th class="n">Hoy</th>'}</tr></thead><tbody>` +
+    e.partidas.map(pc => { const p = S.porItem[pc.item], ex = e.ejec[pc.item]||0;
+      return `<tr><td>${pc.item}<div class="nota" style="margin:0">${esc(p?.desc||"")} (${esc(p?.und||"")})</div></td><td class="n">${nf(pc.metrado)}</td><td class="n ${ex>pc.metrado+1e-6?"err":""}">${nf(ex)}</td>${LECTURA?"":`<td class="n"><input class="inp" type="number" step="any" data-item="${pc.item}"></td>`}</tr>`; }).join("") +
+    `</tbody></table>` + (LECTURA ? "" : `<div class="fila" style="justify-content:flex-end"><button class="btn" id="saldoEl">Completar saldos</button><button class="btn pri" id="regEl">Registrar metrado del día</button></div>`) +
+    (e.obs ? `<div class="h3" style="margin-top:12px">Observaciones</div><div class="err" style="white-space:pre-wrap;font-size:12px">${esc(e.obs)}</div>` : "") +
+    `<div class="h3" style="margin-top:12px">Historial</div>` + (e.regs.length ? `<table><tbody>${[...e.regs].reverse().map(r => `<tr><td>${fmtD(r.f)}</td><td>${r.it}</td><td class="n">${nf(r.q,3)}</td></tr>`).join("")}</tbody></table>` : '<div class="nota">Sin registros todavía.</div>');
+  $("#fParte")?.addEventListener("change", ev => ls("fParte", ev.target.value));
+  if($("#saldoEl")) $("#saldoEl").onclick = () => box.querySelectorAll("input[data-item]").forEach(i => { const s = saldo(e, i.dataset.item); i.value = s > 1e-9 ? +s.toFixed(4) : ""; });
+  if($("#regEl")) $("#regEl").onclick = () => { const r = [...box.querySelectorAll("input[data-item]")].map(i => ({id:e.id, item:i.dataset.item, cantidad:parseFloat(i.value)})).filter(r => r.cantidad && !isNaN(r.cantidad));
+    if(!r.length) return toast("Escribe al menos una cantidad."); registrar(r); };
+}
+async function registrar(registros){
+  if(LECTURA) return toast("Modo solo lectura.");
+  const fecha = fechaParte(); if(!fecha) return toast("Elige la fecha del parte.");
+  registros = registros.filter(r => r.cantidad && !isNaN(r.cantidad)); if(!registros.length) return toast("Cantidad no válida.");
+  try{
+    const r = await api("/api/metrado", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({fecha, simular:false, registros})});
+    r.elementos.forEach(x => { const e = S.porId[x.id]; if(e){ e.registro = x.registro; e.obs = x.obs; e.regs = parsear(x.registro); e.ejec = sumar(e.regs); } });
+    S.globalRegs = parsear(r.registroGlobal); S.global = sumar(S.globalRegs); pintar();
+    if(r.alertas.length) alert("ALERTA DE MAYOR METRADO\n\n" + r.alertas.join("\n") + "\n\nQuedó anotado en VZ_Observaciones del elemento.");
+    if(r.rechazados.length) alert("No se registraron:\n" + r.rechazados.map(x => `${x.id||"Partida"} ${x.item}: ${x.motivo}`).join("\n"));
+    toast(`Registrado en Revit: ${r.aplicados.length} valores` + (r.notas.length ? " · " + r.notas.length + " parámetros creados" : ""));
+  }catch(err){ alert("No se pudo registrar en Revit:\n" + err.message); }
+}
+
+/* ============================================================ 4 PARTE DIARIO */
+function pParte(){
+  const regs = todos(), porDia = {}; regs.forEach(r => { const d = (porDia[r.f] ||= {n:0, monto:0}); d.n++; d.monto += r.q * pu(r.it); });
+  const dias = Object.keys(porDia).sort().reverse();
+  if(!S.diaSel) S.diaSel = dias[0] || corte(); if(!S.mesCal) S.mesCal = S.diaSel.slice(0,7);
+  const [y, m] = S.mesCal.split("-").map(Number), primero = new Date(y, m-1, 1), nd = new Date(y, m, 0).getDate(), off = (primero.getDay()+6)%7;
+  $("#mesTit").textContent = mesTxt(S.mesCal + "-01");
+  let cal = ["L","M","M","J","V","S","D"].map(d => `<div class="h">${d}</div>`).join("") + "<div class='fuera'></div>".repeat(off);
+  for(let d = 1; d <= nd; d++){ const s = `${S.mesCal}-${String(d).padStart(2,"0")}`, r = porDia[s];
+    cal += `<div class="${laborable(s)?"":"nl"} ${r?"con":""} ${s===S.diaSel?"on":""}" data-dia="${s}">${d}${FER.has(s)?' <span class="tag">feriado</span>':""}${r?`<b>S/ ${nf(r.monto,0)}</b>${r.n} reg.`:""}</div>`; }
+  $("#cal").innerHTML = cal;
+  $("#cal").querySelectorAll("[data-dia]").forEach(x => x.onclick = () => { S.diaSel = x.dataset.dia; pParte(); });
+  $("#diasReg").innerHTML = dias.length ? `<table><tbody>${dias.map(d => `<tr class="cl ${d===S.diaSel?"sel":""}" data-d="${d}"><td>${fmtD(d)}</td><td class="n">${porDia[d].n} reg.</td><td class="n">S/ ${nf(porDia[d].monto)}</td></tr>`).join("")}</tbody></table>` : '<div class="nota">Todavía no hay registros.</div>';
+  $("#diasReg").querySelectorAll("tr[data-d]").forEach(tr => tr.onclick = () => { S.diaSel = tr.dataset.d; S.mesCal = S.diaSel.slice(0,7); pParte(); });
+  const del = regs.filter(r => r.f === S.diaSel), g = {}; del.forEach(r => (g[r.it] ||= []).push(r));
+  $("#parte").innerHTML = `<div class="fila" style="margin:0 0 6px;justify-content:space-between"><h2 style="margin:0;font-size:15px">Parte del ${fmtD(S.diaSel)}</h2><span><button class="btn sm" id="ver3dDia">Ver en 3D</button> <button class="btn sm" id="impParte">⎙ Imprimir</button></span></div>
+    <div class="nota">${del.length} registros · S/ ${nf(del.reduce((s,r) => s + r.q*pu(r.it), 0))} de costo directo${laborable(S.diaSel) ? "" : " · día no laborable del calendario"}</div>` +
+    (Object.keys(g).sort().map(it => { const p = S.porItem[it], q = g[it].reduce((s,r) => s + r.q, 0);
+      return `<div class="h3" style="margin-top:14px">${it} · ${esc(p?.desc||"")}</div><table><thead><tr><th>Elemento</th><th>Nivel</th><th class="n">Cantidad</th><th class="n">S/</th></tr></thead><tbody>` +
+        g[it].map(r => `<tr><td>${r.id ? esc(r.el.tipo) + ` <span class="nota">${r.id}</span>` : "Partida (sin elementos)"}</td><td>${r.id ? esc(r.el.nivel) : ""}</td><td class="n">${nf(r.q,3)}</td><td class="n">${nf(r.q*pu(it))}</td></tr>`).join("") +
+        `<tr><td colspan="2"><b>Total (${esc(p?.und||"")})</b></td><td class="n"><b>${nf(q,3)}</b></td><td class="n"><b>${nf(q*pu(it))}</b></td></tr></tbody></table>`; }).join("") || '<div class="vacio">No hay metrados registrados este día.</div>');
+  $("#ver3dDia").onclick = () => { const ids = [...new Set(del.filter(r => r.id).map(r => r.id))]; if(!ids.length) return toast("Ese día no tiene elementos registrados."); ir("visor"); resaltar(ids, "Trabajado el " + fmtD(S.diaSel)); };
+  $("#impParte").onclick = () => abrirHoja("Parte diario " + fmtD(S.diaSel), `<div class="hoja">${cabecera("PARTE DIARIO DE METRADOS", "Día " + fmtD(S.diaSel))}${$("#parte").innerHTML.replace(/<button[^>]*>.*?<\/button>/g, "")}<div class="firmas"><div>Residente de obra</div><div>Supervisión</div><div></div></div></div>`, false);
+}
+$("#mesAnt").onclick = () => { const [y,m] = S.mesCal.split("-").map(Number); const d = new Date(y, m-2, 1); S.mesCal = isoD(d).slice(0,7); pParte(); };
+$("#mesSig").onclick = () => { const [y,m] = S.mesCal.split("-").map(Number); const d = new Date(y, m, 1); S.mesCal = isoD(d).slice(0,7); pParte(); };
+
+/* ============================================================ 5 CRONOGRAMA */
+function nombrePaquete(id){ return CRONO?.paquetes[id] || ({AN1:"Anillo 1 · muros anclados del semisótano", AN2:"Anillo 2 · muros anclados del sótano 1", "":"Generales y movimiento de tierras"}[id] ?? id); }
+const COL_TIPO = t => ["EXC","ANC","TEN","MUA","MAN","FPI"].includes(t) ? "#A0522D" : ["CIM","AV","EV","CV","ALB"].includes(t) ? "#2563EB" : ["EH","AH","CH"].includes(t) ? "#D4A14A" : "#7c8698";
+function elsDeActividad(id){ return S.els.filter(e => (CRONO?.elementos[e.id] || []).includes(id)); }
+function avanceAct(a, hasta){ const els = elsDeActividad(a.id); if(!els.length) return null; let pre = 0, ej = 0;
+  a.partidas.forEach(p => { pre += p.metrado * pu(p.item); els.forEach(e => { const s = sumar(e.regs, hasta); ej += Math.min(s[p.item]||0, e.partidas.find(x => x.item === p.item)?.metrado || 0) * pu(p.item); }); });
+  return pre ? Math.min(1, ej / pre) : 0; }
+function pCronograma(){
+  if(!CRONO){ $("#gantt").innerHTML = '<div class="vacio">El panel no tiene el cronograma: corre armar_panel.py.</div>'; return; }
+  const acts = CRONO.actividades, c = corte(), finDe = f => acts.filter(f).reduce((m,a) => a.fin > m ? a.fin : m, "");
+  const hitos = [["Fin de obras provisionales", finDe(a => a.tipo === "PRO")], ["Fin del anillo 1", finDe(a => a.paquete === "AN1")], ["Fin del anillo 2", finDe(a => a.paquete === "AN2")],
+    ["Fin de cimentaciones", finDe(a => a.paquete === "CIM" && ["CIM","MAN"].includes(a.tipo))], ...Object.keys(CRONO.paquetes).filter(k => k.startsWith("T")).sort().map(k => [CRONO.paquetes[k], finDe(a => a.paquete === k)]),
+    ["Fin del casco estructural", DIAS_OBRA.at(-1)]];
+  $("#hitos").innerHTML = hitos.filter(h => h[1]).map(([n, f]) => `<div class="kpi" style="padding:8px 10px"><small>${esc(n)}</small><b style="font-size:15px">${fmtD(f)}</b><span>${f <= c ? "debería estar cumplido" : "pendiente"}</span></div>`).join("");
+  const d0 = dISO(CRONO.inicio); d0.setDate(d0.getDate() - ((d0.getDay()+6)%7));
+  const sem = []; for(let d = new Date(d0); isoD(d) <= DIAS_OBRA.at(-1); d.setDate(d.getDate()+7)) sem.push(isoD(d));
+  const PX = 14, ancho = sem.length*7*PX, dx = s => Math.round((dISO(s) - d0) / 864e5) * PX, cX = dx(c), grupos = [];
+  acts.forEach(a => { let g = grupos.find(x => x.k === (a.paquete||"")); if(!g) grupos.push(g = {k:a.paquete||"", acts:[]}); g.acts.push(a); });
+  let h = `<table><thead><tr><th class="fijo">Actividad</th><th>Inicio</th><th>Fin</th><th class="n">Días</th><th class="n">Monto CD</th><th class="n">Real</th><th style="padding:0"><div style="position:relative;width:${ancho}px;height:22px">` +
+    sem.map((s,i) => `<span style="position:absolute;left:${i*7*PX}px;top:4px;font-weight:400;font-size:10px;color:var(--mut)">${fmtD(s).slice(0,5)}</span>`).join("") + `</div></th></tr></thead><tbody>`;
+  grupos.forEach(g => { h += `<tr class="grp"><td class="fijo" colspan="6">${esc(nombrePaquete(g.k))}</td><td></td></tr>`;
+    g.acts.forEach(a => { const av = avanceAct(a, c), w = Math.max(PX, dx(a.fin)-dx(a.inicio)+PX);
+      h += `<tr class="act ${S.selAct===a.id?"on":""}" data-act="${a.id}"><td class="fijo" title="${esc(a.id)}">${esc(a.nombre)}</td><td>${fmtD(a.inicio)}</td><td>${fmtD(a.fin)}</td><td class="n">${a.duracion}</td><td class="n">${nf(a.monto_cd,0)}</td><td class="n">${av==null?"-":nf(av*100,0)+"%"}</td>
+      <td class="g"><div style="position:relative;width:${ancho}px;height:21px">${cX>=0&&cX<=ancho?`<i style="position:absolute;left:${cX}px;top:0;bottom:0;width:1px;background:#DC2626"></i>`:""}<div class="gb" style="left:${dx(a.inicio)}px;width:${w}px;background:${COL_TIPO(a.tipo)}"></div><div class="gbr" style="left:${dx(a.inicio)}px;width:${w}px;background:linear-gradient(90deg,${COL_TIPO(a.tipo)} ${(av||0)*100}%,transparent ${(av||0)*100}%)" title="${esc(a.nombre)} · ${fmtD(a.inicio)} → ${fmtD(a.fin)} · real ${av==null?"-":nf(av*100,0)+"%"}"></div></div></td></tr>`; }); });
+  $("#gantt").innerHTML = h + `</tbody></table>`;
+  $("#gantt").querySelectorAll("tr.act").forEach(tr => tr.onclick = () => { S.selAct = S.selAct === tr.dataset.act ? null : tr.dataset.act; $("#gantt").querySelectorAll("tr.act").forEach(x => x.classList.toggle("on", x.dataset.act === S.selAct)); detAct(); });
+  detAct();
+}
+function detAct(){
+  const a = ACT[S.selAct], box = $("#detAct");
+  if(!a){ box.innerHTML = '<div class="vacio">Elige una actividad del Gantt. La barra clara es lo programado; el relleno sólido es el avance real (metrados de sus elementos). Línea roja = fecha de corte.</div>'; return; }
+  const els = elsDeActividad(a.id);
+  box.innerHTML = `<div class="fila" style="margin:0;justify-content:space-between"><h2 style="margin:0;font-size:15px">${esc(a.nombre)}</h2><button class="btn sm" id="actEn3d" ${els.length?"":"disabled"}>Ver elementos en 3D</button></div>
+    <div class="nota">${esc(a.id)} · ${fmtD(a.inicio)} → ${fmtD(a.fin)} · ${a.duracion} días laborables · predecesoras: ${esc(a.predecesoras.join(", ") || "ninguna")} · ${els.length} elementos · S/ ${nf(a.monto_cd)}</div>
+    <table style="margin-top:8px"><thead><tr><th>Partida</th><th class="n">Metrado programado</th><th class="n">Ejecutado en sus elementos</th></tr></thead><tbody>` +
+    a.partidas.map(p => { const pp = S.porItem[p.item], ej = els.reduce((s,e) => s + (e.ejec[p.item]||0), 0);
+      return `<tr><td>${p.item} · ${esc(pp?.desc||"")}</td><td class="n">${nf(p.metrado)} ${esc(pp?.und||"")}</td><td class="n">${els.length ? nf(ej) : "-"}</td></tr>`; }).join("") + `</tbody></table>`;
+  $("#actEn3d").onclick = () => { ir("visor"); resaltar(els.map(e => e.id), a.nombre); };
+}
+
+/* ============================================================ 6 VALORIZACIONES */
+function datosVal(n){
+  if(S.vz && S.vz.n == n) return {p:{n:S.vz.n, desde:S.vz.desde, hasta:S.vz.hasta}, ant:S.vz.ant, act:S.vz.act, det:S.vz.det.map(r => ({...r, el:r.id ? r.el : null}))};   // valorización guardada (congelada)
+  const per = periodos(), p = per.find(x => x.n == n) || per.at(-1), ant = {}, act = {}, det = [];
+  todos().forEach(r => { if(r.f < p.desde) ant[r.it] = (ant[r.it]||0) + r.q; else if(r.f <= p.hasta){ act[r.it] = (act[r.it]||0) + r.q; det.push(r); } });
+  return {p, ant, act, det}; }
+
+/* ---------- valorizaciones creadas: se guardan con sus datos (cabecera, deducciones, metrados) y se pueden editar */
+const VZ = () => ls("valorizaciones") || [];
+function totalVz(v){ const pie = S.datos.pie, cd = Object.entries(v.act).reduce((s,[it,q]) => s + q*pu(it), 0), sub = cd*(1+(pie.gg||0)+(pie.ut||0)), bruta = sub*(1+(pie.igv||0));
+  return {cd, bruta, neto: bruta*(1 - (parseFloat(v.ded.adel)||0)/100 - (parseFloat(v.ded.ret)||0)/100) - (parseFloat(v.ded.mat)||0)}; }
+async function formVz(existente){
+  const per = periodos(), creadas = VZ(), emp = ls("empresa") || {}, c = ls("formato") || {};
+  const n = existente ? existente.n : (S.valN || per[0].n), p = per.find(x => x.n == n) || per[0];
+  const v = existente || {n:p.n, desde:p.desde, hasta:p.hasta, emision:hoy(), cab:{obra:emp.obra||"", empresa:emp.empresa||"", propietario:emp.propietario||"", ubicacion:emp.ubicacion||"", residente:emp.residente||"", supervisor:emp.supervisor||""}, ded:{adel:c.adel||"", mat:c.mat||"", ret:c.ret||""}, obs:"", estado:"Borrador"};
+  const campo = (k, lbl, val, tipo="text") => `<span>${lbl}</span><input class="inp" id="vz_${k}" type="${tipo}" value="${esc(val)}" ${tipo==="number"?'step="any" min="0"':""}>`;
+  const prom = dialogo(`<h2 style="margin-top:0">${existente ? "Editar" : "Crear"} valorización N° ${String(v.n).padStart(2,"0")}</h2>
+    <div class="nota" style="margin:0 0 10px">Valores tomados de Configuración y del panel; puedes cambiarlos solo para esta valorización.</div>
+    <div class="grid" style="grid-template-columns:150px 1fr;gap:6px;align-items:center;max-height:60vh;overflow:auto">
+      <span>Valorización N°</span><select class="inp" id="vz_n" ${existente?"disabled":""}>${per.map(x => `<option value="${x.n}" ${x.n==v.n?"selected":""}>N° ${String(x.n).padStart(2,"0")} · ${mesTxt(x.desde)}${creadas.some(y => y.n == x.n) && !existente ? " (ya creada)" : ""}</option>`).join("")}</select>
+      ${campo("desde","Periodo desde",v.desde,"date")}${campo("hasta","Periodo hasta",v.hasta,"date")}${campo("emision","Fecha de emisión",v.emision,"date")}
+      ${campo("obra","Obra",v.cab.obra)}${campo("empresa","Contratista",v.cab.empresa)}${campo("propietario","Propietario",v.cab.propietario)}${campo("ubicacion","Ubicación",v.cab.ubicacion)}
+      ${campo("residente","Residente",v.cab.residente)}${campo("supervisor","Supervisor",v.cab.supervisor)}
+      ${campo("adel","Amort. adelanto directo %",v.ded.adel,"number")}${campo("mat","Amort. adelanto materiales S/",v.ded.mat,"number")}${campo("ret","Retención garantía %",v.ded.ret,"number")}
+      <span>Observaciones</span><textarea class="inp" id="vz_obs" rows="3" style="height:auto;padding:6px 9px">${esc(v.obs)}</textarea>
+      ${existente ? `<span></span><label class="campo" style="text-transform:none;letter-spacing:0;color:var(--tx2)"><input type="checkbox" id="vz_recalc"> volver a tomar los metrados registrados (si se corrigió algo en el periodo)</label>` : ""}
+    </div>`, [["Cancelar", false], [existente ? "Guardar cambios" : "Crear valorización", true, "pri"]]);
+  $("#vz_n").onchange = () => { const q = per.find(x => x.n == $("#vz_n").value); $("#vz_desde").value = q.desde; $("#vz_hasta").value = q.hasta;
+    $("#dlgCuerpo h2").textContent = `Crear valorización N° ${String(q.n).padStart(2,"0")}`; };
+  const ok = await prom;
+  if(!ok) return;
+  const g = k => $("#vz_" + k).value;
+  v.n = existente ? v.n : +g("n"); v.desde = g("desde"); v.hasta = g("hasta"); v.emision = g("emision"); v.obs = $("#vz_obs").value;
+  if(!v.desde || !v.hasta || v.desde > v.hasta) return alert("Revisa el periodo: la fecha «desde» debe ser anterior o igual a «hasta».");
+  ["obra","empresa","propietario","ubicacion","residente","supervisor"].forEach(k => v.cab[k] = g(k)); ["adel","mat","ret"].forEach(k => v.ded[k] = g(k));
+  if(!existente || $("#vz_recalc")?.checked){       // congela los metrados del periodo
+    const ant = {}, act = {}, det = [];
+    todos().forEach(r => { if(r.f < v.desde) ant[r.it] = (ant[r.it]||0) + r.q; else if(r.f <= v.hasta){ act[r.it] = (act[r.it]||0) + r.q;
+      det.push({f:r.f, it:r.it, q:r.q, id:r.id, el:r.id ? {tipo:r.el.tipo, nivel:r.el.nivel, paquete:r.el.paquete, sector:r.el.sector} : null}); } });
+    Object.assign(v, {ant, act, det, congelado:new Date().toISOString()});
+  }
+  const lista = VZ().filter(x => x.n != v.n); lista.push(v); lista.sort((a,b) => a.n - b.n); ls("valorizaciones", lista);
+  if(window.NUBE?.guardarVz) NUBE.guardarVz(v).catch(e => toast("No se guardó en la nube: " + e.message));
+  S.valN = v.n; pValorizaciones(); verVz(v.n, "expediente"); toast(`Valorización N° ${String(v.n).padStart(2,"0")} ${existente ? "actualizada" : "creada"}`);
+}
+function verVz(n, que){ S.vz = VZ().find(x => x.n == n) || null; if(!S.vz) return;
+  abrirHoja(`Valorización N° ${String(n).padStart(2,"0")} (guardada)`, que === "formato" ? formatoHTML(n) : que === "metrados" ? metradosHTML(n) : expedienteHTML(n), false); }
+function listaVz(){
+  const l = VZ(); if(!l.length) return '<div class="nota">Todavía no has creado valorizaciones. Usa «Crear valorización».</div>';
+  return `<table><thead><tr><th>N°</th><th>Periodo</th><th>Emisión</th><th class="n">Costo directo</th><th class="n">Bruta (con IGV)</th><th class="n">Neto a pagar</th><th>Estado</th><th></th></tr></thead><tbody>` +
+    l.map(v => { const t = totalVz(v); return `<tr><td>${String(v.n).padStart(2,"0")}</td><td>${fmtD(v.desde)} – ${fmtD(v.hasta)}</td><td>${fmtD(v.emision)}</td><td class="n">${nf(t.cd)}</td><td class="n">${nf(t.bruta)}</td><td class="n"><b>${nf(t.neto)}</b></td>
+      <td>${LECTURA ? esc(v.estado) : `<select class="inp" data-vzest="${v.n}" style="height:26px">${["Borrador","Presentada","Aprobada","Pagada"].map(x => `<option ${v.estado===x?"selected":""}>${x}</option>`).join("")}</select>`}</td>
+      <td style="white-space:nowrap"><button class="btn sm" data-vz="${v.n}" data-q="expediente">Expediente</button> <button class="btn sm" data-vz="${v.n}" data-q="formato">Formato</button> <button class="btn sm" data-vz="${v.n}" data-q="metrados">Metrados</button>
+      ${LECTURA ? "" : `<button class="btn sm" data-vzed="${v.n}">Editar</button> <button class="btn sm" data-vzdel="${v.n}">Eliminar</button>`}</td></tr>`; }).join("") + `</tbody></table>
+    <div class="nota">Cada valorización guarda sus metrados del periodo al momento de crearla; si luego registras correcciones, edítala y marca «volver a tomar los metrados».</div>`;
+}
+function pValorizaciones(){
+  const per = periodos(), c = corte(), sel = $("#mes"), v = S.valN;
+  sel.innerHTML = per.map(p => `<option value="${p.n}">N° ${String(p.n).padStart(2,"0")} · ${mesTxt(p.desde)}</option>`).join("");
+  S.valN = v && per.some(p => p.n == v) ? v : (per.find(p => p.desde <= c && c <= p.hasta)?.n || per[0]?.n); sel.value = S.valN;
+  const est = ls("estados") || {}, bac = BAC(); let acum = 0;
+  $("#tablaVal").innerHTML = `<table><thead><tr><th>N°</th><th>Periodo</th><th class="n">Programado mes</th><th class="n">Valorizado mes</th><th class="n">Valorizado acum.</th><th class="n">% acum.</th><th class="n">Programado acum.</th><th class="n">SPI</th><th>Estado</th></tr></thead><tbody>` +
+    per.map(p => { const pvm = CRONO?.periodos.find(x => x.n === p.n)?.pv_mes ?? 0, pva = CRONO?.periodos.find(x => x.n === p.n)?.pv_acum ?? pvA(p.hasta);
+      const futuro = p.desde > c, evm = futuro ? 0 : evEntre(p.desde, p.hasta); acum += evm;
+      return `<tr class="cl ${p.n==S.valN?"sel":""}" data-n="${p.n}"><td>${String(p.n).padStart(2,"0")}</td><td>${mesTxt(p.desde)}</td><td class="n">${nf(pvm)}</td><td class="n">${futuro?"-":nf(evm)}</td><td class="n">${futuro?"-":nf(acum)}</td><td class="n">${futuro?"-":nf(bac?acum/bac*100:0,2)+"%"}</td><td class="n">${nf(pva)}</td><td class="n">${futuro||!pva?"-":nf(acum/pva,2)}</td>
+        <td>${LECTURA ? esc(est[p.n]||"Borrador") : `<select class="inp" data-est="${p.n}" style="height:26px">${["Borrador","Presentada","Aprobada","Pagada"].map(x => `<option ${ (est[p.n]||"Borrador")===x?"selected":""}>${x}</option>`).join("")}</select>`}</td></tr>`; }).join("") +
+    `</tbody></table><div class="nota">Programado: cronograma. Valorizado: metrados diarios registrados en Revit × P.U. del presupuesto (costo directo). El estado lo marcas tú y se guarda en este navegador.</div>`;
+  $("#tablaVal").querySelectorAll("tr[data-n]").forEach(tr => tr.onclick = ev => { if(ev.target.tagName === "SELECT") return; S.valN = +tr.dataset.n; pValorizaciones(); });
+  $("#tablaVal").querySelectorAll("select[data-est]").forEach(s => s.onchange = () => { const e = ls("estados") || {}; e[s.dataset.est] = s.value; ls("estados", e); });
+  curvaS($("#curvaVal")); barrasMes($("#barrasVal"));
+  $("#listaVz").innerHTML = listaVz(); $("#crearVz").hidden = LECTURA;
+  $("#listaVz").querySelectorAll("[data-vz]").forEach(b => b.onclick = () => verVz(+b.dataset.vz, b.dataset.q));
+  $("#listaVz").querySelectorAll("[data-vzed]").forEach(b => b.onclick = () => formVz(VZ().find(x => x.n == b.dataset.vzed)));
+  $("#listaVz").querySelectorAll("[data-vzest]").forEach(s => s.onchange = () => { const l = VZ(), v = l.find(x => x.n == s.dataset.vzest); v.estado = s.value; ls("valorizaciones", l); if(window.NUBE?.guardarVz) NUBE.guardarVz(v).catch(() => {}); });
+  $("#listaVz").querySelectorAll("[data-vzdel]").forEach(b => b.onclick = async () => { const n = +b.dataset.vzdel;
+    if(!await dialogo(`<h2 style="margin-top:0">¿Eliminar la valorización N° ${String(n).padStart(2,"0")}?</h2><p>Se borra el documento guardado (cabecera, deducciones y metrados congelados). Los metrados registrados en Revit no se tocan.</p>`, [["Cancelar", false], ["Eliminar", true, "pri"]])) return;
+    ls("valorizaciones", VZ().filter(x => x.n != n)); if(window.NUBE?.borrarVz) NUBE.borrarVz(n).catch(() => {}); pValorizaciones(); });
+}
+$("#mes").addEventListener("change", () => { S.valN = +$("#mes").value; pValorizaciones(); });
+const empresaDoc = () => S.vz ? S.vz.cab : (ls("empresa") || {});
+function cabecera(titulo, sub){ const emp = empresaDoc(), logo = ls("logo");
+  return `${logo?`<img src="${logo}" style="max-height:50px;float:left">`:""}<h1>${titulo}</h1><div class="sub">${esc(sub)}</div>
+    <div class="cab"><div><b>Obra:</b> ${esc(emp.obra || S.datos.modelo + " · casco estructural")}</div><div><b>Contratista:</b> ${esc(emp.empresa || "—")}</div>
+      <div><b>Propietario:</b> ${esc(emp.propietario || "—")}</div><div><b>Ubicación:</b> ${esc(emp.ubicacion || "—")}</div>
+      <div><b>Inicio de obra:</b> ${fmtD(S.datos.inicio)}</div><div><b>Fecha de emisión:</b> ${fmtD(S.vz ? S.vz.emision : hoy())}</div></div>`; }
+function firmas(){ const emp = empresaDoc(); return `<div class="firmas"><div>Residente de obra<br>${esc(emp.residente||"")}</div><div>Supervisión<br>${esc(emp.supervisor||"")}</div><div>Propietario<br>${esc(emp.propietario||"")}</div></div>`; }
+function abrirHoja(titulo, html, campos){ $("#fTitulo").textContent = titulo; $("#fCampos").hidden = !campos; $("#fHoja").innerHTML = html; $("#formato").hidden = false; }
+function formatoHTML(n){
+  const {p, ant, act} = datosVal(n), pie = S.datos.pie, gg = pie.gg||0, ut = pie.ut||0, igv = pie.igv||0, c = S.vz ? S.vz.ded : (ls("formato") || {});
+  const adel = (parseFloat(c.adel)||0)/100, mat = parseFloat(c.mat)||0, ret = (parseFloat(c.ret)||0)/100;
+  const filas = [...Object.entries(S.datos.capitulos).map(([it, d]) => ({it, d, cap:true})), ...S.partidas.map(x => ({it:x.item, x}))].sort((a,b) => a.it.localeCompare(b.it, "es", {numeric:true}));
+  const tot = it => { const t = {pre:0, ant:0, act:0}; S.partidas.forEach(x => { if(x.item.startsWith(it + ".")){ t.pre += x.metrado*x.pu; t.ant += (ant[x.item]||0)*x.pu; t.act += (act[x.item]||0)*x.pu; } }); return t; };
+  let cuerpo = "", T = {pre:0, ant:0, act:0};
+  filas.forEach(f => {
+    if(f.cap){ const t = tot(f.it); if(!t.pre) return; const ac = t.ant + t.act;
+      cuerpo += `<tr class="t"><td>${f.it}</td><td>${esc(f.d)}</td><td></td><td></td><td></td><td class="n">${nf(t.pre)}</td><td></td><td class="n">${nf(t.ant)}</td><td></td><td class="n">${nf(t.act)}</td><td></td><td class="n">${nf(ac)}</td><td class="n">${nf(t.pre?ac/t.pre*100:0,2)}%</td><td></td><td class="n">${nf(t.pre-ac)}</td></tr>`; return; }
+    const x = f.x, a = ant[x.item]||0, m = act[x.item]||0, ac = a + m, pre = x.metrado*x.pu; T.pre += pre; T.ant += a*x.pu; T.act += m*x.pu;
+    cuerpo += `<tr><td>${x.item}</td><td>${esc(x.desc)}${ac > x.metrado + 1e-6 ? ' <b style="color:#b91c1c">(mayor metrado)</b>' : ""}</td><td>${esc(x.und)}</td><td class="n">${nf(x.metrado)}</td><td class="n">${nf(x.pu)}</td><td class="n">${nf(pre)}</td>
+      <td class="n">${nf(a)}</td><td class="n">${nf(a*x.pu)}</td><td class="n">${nf(m)}</td><td class="n">${nf(m*x.pu)}</td><td class="n">${nf(ac)}</td><td class="n">${nf(ac*x.pu)}</td><td class="n">${nf(x.metrado?ac/x.metrado*100:0,2)}%</td><td class="n">${nf(x.metrado-ac)}</td><td class="n">${nf(pre-ac*x.pu)}</td></tr>`; });
+  const T_ac = T.ant + T.act, linea = (lbl, f, cls="tot") => `<tr class="${cls}"><td></td><td>${lbl}</td><td colspan="3"></td><td class="n">${nf(f(T.pre))}</td><td></td><td class="n">${nf(f(T.ant))}</td><td></td><td class="n">${nf(f(T.act))}</td><td></td><td class="n">${nf(f(T_ac))}</td><td class="n">${nf(T.pre?f(T_ac)/f(T.pre)*100:0,2)}%</td><td></td><td class="n">${nf(f(T.pre)-f(T_ac))}</td></tr>`;
+  const sub = v => v*(1+gg+ut), tot1 = v => sub(v)*(1+igv), bruta = tot1(T.act), aAdel = bruta*adel, aRet = bruta*ret, neto = bruta - aAdel - mat - aRet;
+  const per = CRONO?.periodos.find(x => x.n === p.n), pvAc = per ? per.pv_acum : pvA(p.hasta), pvMes = per ? per.pv_mes : null;
+  return `<div class="hoja">${cabecera("VALORIZACIÓN DE OBRA N° " + String(p.n).padStart(2,"0"), `Periodo del ${fmtD(p.desde)} al ${fmtD(p.hasta)} · soles, precios sin IGV · presupuesto ${CRONO?.fuentePresupuesto || "S10"}`)}
+    <table><thead><tr><th rowspan="2">Ítem</th><th rowspan="2">Descripción</th><th rowspan="2">Und.</th><th colspan="3">Presupuesto contratado</th><th colspan="2">Anterior</th><th colspan="2">Del mes</th><th colspan="3">Acumulado</th><th colspan="2">Saldo</th></tr>
+      <tr><th>Metrado</th><th>P.U. S/</th><th>Parcial S/</th><th>Metrado</th><th>S/</th><th>Metrado</th><th>S/</th><th>Metrado</th><th>S/</th><th>%</th><th>Metrado</th><th>S/</th></tr></thead>
+    <tbody>${cuerpo}${linea("COSTO DIRECTO", v => v)}${linea(`GASTOS GENERALES (${nf(gg*100,2)}% del CD)`, v => v*gg, "")}${linea(`UTILIDAD (${nf(ut*100,2)}% del CD)`, v => v*ut, "")}
+      ${linea("SUBTOTAL", sub)}${linea(`IGV (${nf(igv*100,2)}%)`, v => sub(v)*igv, "")}${linea("TOTAL VALORIZADO", tot1)}</tbody></table>
+    <div class="res"><div>Avance económico del mes<b>${nf(T.pre?T.act/T.pre*100:0,2)}%</b>del costo directo contratado</div><div>Avance económico acumulado<b>${nf(T.pre?T_ac/T.pre*100:0,2)}%</b>S/ ${nf(T_ac)} de ${nf(T.pre)}</div>
+      <div>Programado acumulado al ${fmtD(p.hasta)}<b>${nf(T.pre?pvAc/T.pre*100:0,2)}%</b>S/ ${nf(pvAc)}${pvMes!=null?` · del mes S/ ${nf(pvMes)}`:""}</div>
+      <div>SPI acumulado<b>${pvAc ? nf(T_ac/pvAc,3) : "-"}</b>${pvAc ? (T_ac >= pvAc ? "a tiempo o adelantado" : "atrasado respecto al programa") : "sin programado"}</div></div>
+    <table style="max-width:640px;margin-left:auto"><tbody>
+      <tr><td>Costo directo del mes</td><td class="n">${nf(T.act)}</td><td class="n">100.00%</td></tr><tr><td>Gastos generales (costo indirecto)</td><td class="n">${nf(T.act*gg)}</td><td class="n">${nf(gg*100,2)}%</td></tr>
+      <tr><td>Utilidad (costo indirecto)</td><td class="n">${nf(T.act*ut)}</td><td class="n">${nf(ut*100,2)}%</td></tr><tr class="tot"><td>Subtotal</td><td class="n">${nf(sub(T.act))}</td><td class="n">${nf((1+gg+ut)*100,2)}%</td></tr>
+      <tr><td>IGV</td><td class="n">${nf(sub(T.act)*igv)}</td><td class="n">${nf(igv*100,2)}% del subtotal</td></tr><tr class="tot"><td>Valorización bruta del mes</td><td class="n">${nf(bruta)}</td><td></td></tr>
+      <tr><td>(-) Amortización de adelanto directo</td><td class="n">${nf(-aAdel)}</td><td class="n">${nf(adel*100,2)}%</td></tr><tr><td>(-) Amortización de adelanto de materiales</td><td class="n">${nf(-mat)}</td><td></td></tr>
+      <tr><td>(-) Retención por fondo de garantía</td><td class="n">${nf(-aRet)}</td><td class="n">${nf(ret*100,2)}%</td></tr><tr class="neto"><td>NETO A PAGAR</td><td class="n">${nf(neto)}</td><td></td></tr></tbody></table>
+    <div class="nota2">Gastos generales, utilidad e IGV: presupuesto S10 v2. Amortizaciones y retención: las escribe el usuario. Programado: cronograma (lunes a sábado). «Mayor metrado»: acumulado mayor al contrato.</div>${firmas()}</div>`;
+}
+function metradosHTML(n){
+  const {p, det} = datosVal(n), g = {}; det.forEach(r => (g[r.it] ||= []).push(r));
+  return `<div class="hoja">${cabecera("HOJA DE METRADOS EJECUTADOS · VALORIZACIÓN N° " + String(p.n).padStart(2,"0"), `Del ${fmtD(p.desde)} al ${fmtD(p.hasta)} · sustento por elemento del modelo (ElementId de Revit)`)}` +
+    (Object.keys(g).sort().map(it => { const x = S.porItem[it], q = g[it].reduce((s,r) => s + r.q, 0);
+      return `<h2>${it} · ${esc(x?.desc||"")} (${esc(x?.und||"")})</h2><table><thead><tr><th>Fecha</th><th>ElementId</th><th>Elemento</th><th>Nivel</th><th>Bloque / sector</th><th>Cantidad</th></tr></thead><tbody>` +
+        g[it].sort((a,b) => a.f.localeCompare(b.f)).map(r => `<tr><td>${fmtD(r.f)}</td><td>${r.id||"—"}</td><td>${r.id ? esc(r.el.tipo) : "Partida sin elementos"}</td><td>${r.id ? esc(r.el.nivel) : ""}</td><td>${r.id ? esc(r.el.paquete + "-" + r.el.sector) : ""}</td><td class="n">${nf(r.q,3)}</td></tr>`).join("") +
+        `<tr class="tot"><td colspan="5">Total del mes</td><td class="n">${nf(q,3)}</td></tr></tbody></table>`; }).join("") || '<p>No hay metrados registrados en este periodo.</p>') + firmas() + `</div>`;
+}
+function expedienteHTML(n){
+  const {p} = datosVal(n), emp = empresaDoc(), logo = ls("logo"), obs = S.els.filter(e => e.obs);
+  const cs = document.createElement("div"); curvaS(cs, {alto:250});
+  return `<div class="hoja caratula salto">${logo?`<img src="${logo}">`:""}<h1>EXPEDIENTE DE VALORIZACIÓN N° ${String(p.n).padStart(2,"0")}</h1><div>${esc(emp.obra || S.datos.modelo + " · casco estructural")}</div>
+      <div>Periodo: ${fmtD(p.desde)} al ${fmtD(p.hasta)}</div><div>${esc(emp.empresa || "")}</div><div>${esc(emp.ubicacion || "")}</div><div style="margin-top:30px;color:#555">Emitido el ${fmtD(hoy())}</div></div>
+    <div class="hoja salto">${cabecera("RESUMEN", "Valorización N° " + String(p.n).padStart(2,"0"))}<div style="background:#0f172a;padding:10px;border-radius:6px">${cs.innerHTML}</div>
+      <div class="nota2">Curva S: programado del cronograma frente a lo valorizado con los metrados registrados.</div></div>
+    <div class="salto">${formatoHTML(n)}</div><div class="salto">${metradosHTML(n)}</div>
+    <div class="hoja">${S.vz?.obs ? `${cabecera("OBSERVACIONES DE LA VALORIZACIÓN", "Escritas al crear la valorización")}<p style="white-space:pre-wrap">${esc(S.vz.obs)}</p><h2>Mayor metrado</h2>` : cabecera("OBSERVACIONES DE MAYOR METRADO", "Tomadas de VZ_Observaciones del modelo")}${obs.length ? `<table><thead><tr><th>ElementId</th><th>Elemento</th><th>Nivel</th><th>Observación</th></tr></thead><tbody>${obs.map(e => `<tr><td>${e.id}</td><td>${esc(e.tipo)}</td><td>${esc(e.nivel)}</td><td>${esc(e.obs)}</td></tr>`).join("")}</tbody></table>` : "<p>Sin observaciones.</p>"}${firmas()}</div>`;
+}
+$("#crearVz").onclick = () => formVz(null);
+["#verFormato","#verMetrados","#verExpediente"].forEach(s => $(s).addEventListener("click", () => S.vz = null, true));
+$("#verFormato").onclick = () => { const c = ls("formato") || {}; $("#fAdel").value = c.adel ?? ""; $("#fMat").value = c.mat ?? ""; $("#fRet").value = c.ret ?? ""; abrirHoja("Formato de valorización", formatoHTML(S.valN), true); };
+$("#verMetrados").onclick = () => abrirHoja("Hoja de metrados", metradosHTML(S.valN), false);
+$("#verExpediente").onclick = () => abrirHoja("Expediente de valorización", expedienteHTML(S.valN), false);
+["#fAdel","#fMat","#fRet"].forEach(s => $(s).addEventListener("input", () => { ls("formato", {adel:$("#fAdel").value, mat:$("#fMat").value, ret:$("#fRet").value}); $("#fHoja").innerHTML = formatoHTML(S.valN); }));
+$("#fCerrar").onclick = () => { $("#formato").hidden = true; S.vz = null; };
+$("#fImprimir").onclick = () => print();
+$("#csv").onclick = () => { const {p, ant, act} = datosVal(S.valN), l = [["Item","Descripcion","Und","Metrado contrato","PU","Anterior","Del mes","Acumulado","Saldo","Monto del mes"].join(";")];
+  S.partidas.forEach(x => { const a = ant[x.item]||0, m = act[x.item]||0; l.push([x.item, '"'+x.desc.replace(/"/g,'""')+'"', x.und, x.metrado, x.pu, a, m, a+m, x.metrado-a-m, (m*x.pu).toFixed(2)].join(";")); });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + l.join("\n")], {type:"text/csv"})); a.download = `Valorizacion_${String(p.n).padStart(2,"0")}.csv`; a.click(); };
+
+/* ============================================================ 7 CONTROL */
+function pControl(){
+  const c = corte(), atr = S.els.filter(e => atrasado(e, c)), porAct = {};
+  atr.forEach(e => { const a = CRONO.elementos[e.id][0]; (porAct[a] ||= []).push(e); });
+  $("#atrasados").innerHTML = atr.length ? `<div class="nota" style="margin:0 0 6px">${atr.length} elementos con vaciado programado antes del ${fmtD(c)} y sin completar su partida principal.</div><table><tbody>` +
+    Object.entries(porAct).sort((a,b) => ACT[a[0]].fin.localeCompare(ACT[b[0]].fin)).map(([a, els]) => `<tr class="cl" data-a="${a}"><td>${esc(ACT[a].nombre)}<div class="nota" style="margin:0">programado ${fmtD(ACT[a].fin)}</div></td><td class="n"><span class="tag bad">${els.length}</span></td></tr>`).join("") + `</tbody></table>`
+    : `<div class="vacio">Sin atrasos al ${fmtD(c)}.</div>`;
+  $("#atrasados").querySelectorAll("tr[data-a]").forEach(tr => tr.onclick = () => { ir("visor"); resaltar(porAct[tr.dataset.a].map(e => e.id), "Atrasados: " + ACT[tr.dataset.a].nombre); });
+  const may = S.els.filter(e => e.obs);
+  $("#mayores").innerHTML = may.length ? `<table><tbody>${may.map(e => `<tr class="cl" data-id="${e.id}"><td>${esc(e.tipo)}<div class="nota" style="margin:0">${esc(e.obs)}</div></td></tr>`).join("")}</tbody></table>` : '<div class="vacio">Sin mayores metrados.</div>';
+  $("#mayores").querySelectorAll("tr[data-id]").forEach(tr => tr.onclick = () => { ir("visor"); S.selEl = +tr.dataset.id; pintar(); V.encuadrar([S.porId[S.selEl]]); });
+  const per = periodos().find(p => p.desde <= c && c <= p.hasta);
+  if(!per || !CRONO){ $("#desvio").innerHTML = '<div class="vacio">La fecha de corte está fuera del plazo de obra.</div>'; }
+  else { const prog = {}; CRONO.actividades.forEach(a => { const f = fracAct(a, per.desde, c); if(f > 0) a.partidas.forEach(x => prog[x.item] = (prog[x.item]||0) + x.metrado*f); });
+    const ej = {}; todos().forEach(r => { if(r.f >= per.desde && r.f <= c) ej[r.it] = (ej[r.it]||0) + r.q; });
+    const items = [...new Set([...Object.keys(prog), ...Object.keys(ej)])].map(it => ({it, p:prog[it]||0, e:ej[it]||0})).map(x => ({...x, d:(x.e - x.p) * pu(x.it)})).sort((a,b) => a.d - b.d);
+    $("#desvio").innerHTML = `<div class="nota" style="margin:0 0 6px">Del ${fmtD(per.desde)} al ${fmtD(c)} · en soles de costo directo (ejecutado − programado).</div><table><thead><tr><th>Partida</th><th class="n">Prog.</th><th class="n">Ejec.</th><th class="n">Desvío S/</th></tr></thead><tbody>` +
+      items.slice(0,40).map(x => `<tr><td>${x.it}<div class="nota" style="margin:0">${esc(S.porItem[x.it]?.desc||"")}</div></td><td class="n">${nf(x.p)}</td><td class="n">${nf(x.e)}</td><td class="n ${x.d<-1?"err":""}">${nf(x.d)}</td></tr>`).join("") + `</tbody></table>`; }
+  // mes siguiente
+  const base = dISO(c), ms = new Date(base.getFullYear(), base.getMonth()+1, 1), me = new Date(base.getFullYear(), base.getMonth()+2, 0), d1 = isoD(ms), d2 = isoD(me);
+  if(!CRONO){ $("#siguiente").innerHTML = ""; return; }
+  const empiezan = CRONO.actividades.filter(a => a.inicio >= d1 && a.inicio <= d2), mat = {};
+  CRONO.actividades.forEach(a => { const f = fracAct(a, d1, d2); if(f > 0) a.partidas.forEach(x => Object.entries(CRONO.coef[x.item] || {}).forEach(([cod, q]) => mat[cod] = (mat[cod]||0) + x.metrado*f*q)); });
+  $("#siguiente").innerHTML = `<div class="nota" style="margin:0 0 8px">${mesTxt(d1)} (del ${fmtD(d1)} al ${fmtD(d2)}). Cantidades = metrado programado del mes × coeficientes del análisis de precios unitarios. Pedir con anticipación.</div>
+    <div class="grid" style="grid-template-columns:1fr 1fr"><div><div class="h3">Actividades que empiezan (${empiezan.length})</div>${empiezan.length ? `<table><tbody>${empiezan.map(a => `<tr><td>${fmtD(a.inicio)}</td><td>${esc(a.nombre)}</td></tr>`).join("")}</tbody></table>` : '<div class="nota">Ninguna.</div>'}</div>
+    <div><div class="h3">Materiales del mes</div>${Object.keys(mat).length ? `<table><thead><tr><th>Material</th><th class="n">Cantidad</th><th>Und.</th></tr></thead><tbody>${Object.entries(mat).sort((a,b) => (CRONO.recursos[a[0]]||[""])[0].localeCompare((CRONO.recursos[b[0]]||[""])[0])).map(([cod,q]) => `<tr><td>${esc(CRONO.recursos[cod]?.[0]||cod)}</td><td class="n">${nf(q,2)}</td><td>${esc(CRONO.recursos[cod]?.[1]||"")}</td></tr>`).join("")}</tbody></table>` : '<div class="nota">Sin actividades ese mes.</div>'}</div></div>`;
+}
+
+/* ============================================================ 8 CONFIGURACIÓN */
+function pConfig(){
+  const d = S.datos;
+  $("#conexion").innerHTML = `<table><tbody><tr><td>Estado</td><td>${SNAP ? "Instantánea de solo lectura (" + fmtD(SNAP.fecha) + ")" : LECTURA ? "Conectado en solo lectura" : "Conectado a Revit (lectura y escritura)"}</td></tr>
+    <tr><td>Modelo</td><td>${esc(d.modelo)}</td></tr><tr><td>Elementos</td><td>${S.els.length} con datos · ${S.geo ? S.geo.elementos.length : 0} con geometría</td></tr>
+    <tr><td>Parámetros por crear</td><td>${(d.parametrosFaltan||[]).join(", ") || "ninguno"}</td></tr>
+    <tr><td>Presupuesto</td><td>${esc(CRONO?.fuentePresupuesto || "—")} · ${S.partidas.length} partidas · CD S/ ${nf(BAC())}</td></tr>
+    <tr><td>Cronograma</td><td>${CRONO ? CRONO.actividades.length + " actividades · " + fmtD(CRONO.inicio) + " → " + fmtD(DIAS_OBRA.at(-1)) : "no incrustado"}</td></tr>
+    <tr><td>Gastos generales / utilidad / IGV</td><td>${nf((d.pie.gg||0)*100,2)}% / ${nf((d.pie.ut||0)*100,2)}% / ${nf((d.pie.igv||0)*100,2)}%</td></tr>
+    <tr><td>Registros de metrado</td><td>${todos().length}</td></tr></tbody></table>`;
+  $("#calendario").innerHTML = `<div class="nota" style="margin:0 0 6px">Lunes a sábado; domingo y feriados no laborables (cronograma). ${DIAS_OBRA.length} días laborables de obra.</div><table><tbody>${(CRONO?.feriados||[]).map(f => `<tr><td>${fmtD(f)}</td><td>${dISO(f).toLocaleDateString("es-PE",{weekday:"long"})}</td></tr>`).join("")}</tbody></table>`;
+  const emp = ls("empresa") || {}; document.querySelectorAll("[data-emp]").forEach(i => { i.value = emp[i.dataset.emp] || ""; i.disabled = !!SNAP; });
+  $("#logoPrev").innerHTML = ls("logo") ? `<img src="${ls("logo")}" style="max-height:60px;margin-top:8px"> <button class="btn sm" id="quitarLogo">Quitar logo</button>` : "Sin logo.";
+  $("#quitarLogo")?.addEventListener("click", () => { ls("logo", null); pConfig(); });
+  $("#compartir").innerHTML = SNAP ? `<p>Estás viendo una instantánea de solo lectura con los datos al ${fmtD(SNAP.fecha)}. No se puede registrar nada.</p><p><b>¿Tienes una sugerencia?</b> Déjala con los comentarios de esta página: indica la página del panel (Inicio, Partidas, Valorizaciones…) y, si aplica, la partida o el ElementId.</p>` :
+    `<p>Descarga una copia de solo lectura del panel con los datos y el 3D de hoy. Quien la abra puede ver todo, pero no registrar metrados.</p>
+    <div class="fila"><button class="btn pri" id="snap">⇩ Descargar instantánea (HTML)</button><a class="btn" href="?lectura=1" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none">Abrir en solo lectura</a></div>
+    <div class="nota">Para recibir sugerencias se puede publicar la instantánea como página privada con comentarios (pídelo en el chat). En red local o en la nube necesita configuración adicional.</div>`;
+  $("#snap")?.addEventListener("click", descargarInstantanea);
+}
+document.querySelectorAll("[data-emp]").forEach(i => i.addEventListener("input", () => { const e = ls("empresa") || {}; e[i.dataset.emp] = i.value; ls("empresa", e); }));
+$("#logo").addEventListener("change", ev => { const f = ev.target.files[0]; if(!f) return; const r = new FileReader(); r.onload = () => { ls("logo", r.result); pConfig(); }; r.readAsDataURL(f); });
+async function descargarInstantanea(){
+  try{ toast("Preparando la instantánea…");
+    const html = await (await fetch(location.pathname)).text(), datos = await api("/api/datos"), geo = S.geo || await api("/api/geometria");
+    const snap = {fecha: hoy(), datos, geo}, js = "<script>window.NEXO_SNAPSHOT=" + JSON.stringify(snap).replace(/</g, "\\u003c") + ";<\/script>";
+    const out = html.replace("<head>", "<head>" + js);
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([out], {type:"text/html"})); a.download = `NEXO_OBRA_${datos.modelo}_solo_lectura_${hoy()}.html`; a.click();
+    toast("Instantánea descargada (" + Math.round(out.length/1048576*10)/10 + " MB).");
+  }catch(e){ alert("No se pudo crear la instantánea: " + e.message); }
+}
+
+/* ============================================================ visor 3D (WebGL, un solo lienzo que se mueve entre páginas) */
+const V = (() => {
+  const cv = document.createElement("canvas"); const gl = cv.getContext("webgl", {antialias:true});
+  const vacio = {montar(c){}, colorear(){}, encuadrar(){}, resaltarUno(){}, cargar(){}, dibujar(){}};
+  if(!gl) return vacio;
+  const vs = `attribute vec3 p; attribute vec3 n; uniform mat4 mvp; uniform vec3 luz; varying float l; void main(){ gl_Position = mvp * vec4(p,1.0); l = 0.45 + 0.55*abs(dot(normalize(n), luz)); }`;
+  const fs = `precision mediump float; uniform vec4 col; uniform float plano; varying float l; void main(){ gl_FragColor = plano > 0.5 ? col : vec4(col.rgb*l, col.a); }`;
+  const sh = (t, s) => { const x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); return x; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  const U = n => gl.getUniformLocation(pr, n), aP = gl.getAttribLocation(pr, "p"), aN = gl.getAttribLocation(pr, "n");
+  let rangos = [], radio = 30, cam = {th:-0.8, ph:0.55, d:60, t:[0,0,0]}, colores = {}, uno = null, fb = null, fbW = 0, fbH = 0;
+  function montar(c){ if(cv.parentNode !== c) c.prepend(cv); requestAnimationFrame(() => dibujar()); }
+  function cargar(geo){
+    let tot = 0; geo.elementos.forEach(e => tot += e.v.length);
+    const P = new Float32Array(tot), N = new Float32Array(tot); let o = 0; rangos = []; const mn = [1e9,1e9,1e9], mx = [-1e9,-1e9,-1e9];
+    geo.elementos.forEach(e => { const v = e.v, ini = o / 3;
+      for(let i = 0; i < v.length; i += 9){ const ax=v[i+3]-v[i], ay=v[i+4]-v[i+1], az=v[i+5]-v[i+2], bx=v[i+6]-v[i], by=v[i+7]-v[i+1], bz=v[i+8]-v[i+2];
+        let nx=ay*bz-az*by, ny=az*bx-ax*bz, nz=ax*by-ay*bx; const L = Math.hypot(nx,ny,nz)||1; nx/=L; ny/=L; nz/=L;
+        for(let k = 0; k < 9; k += 3){ P[o]=v[i+k]; P[o+1]=v[i+k+1]; P[o+2]=v[i+k+2]; N[o]=nx; N[o+1]=ny; N[o+2]=nz; for(let c = 0; c < 3; c++){ mn[c] = Math.min(mn[c], P[o+c]); mx[c] = Math.max(mx[c], P[o+c]); } o += 3; } }
+      const k = rangos.length + 1; rangos.push({id:e.id, ini, n:o/3 - ini, idc:[(k&255)/255, ((k>>8)&255)/255, ((k>>16)&255)/255]}); });
+    const bP = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, bP); gl.bufferData(gl.ARRAY_BUFFER, P, gl.STATIC_DRAW); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP, 3, gl.FLOAT, false, 0, 0);
+    const bN = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, bN); gl.bufferData(gl.ARRAY_BUFFER, N, gl.STATIC_DRAW); gl.enableVertexAttribArray(aN); gl.vertexAttribPointer(aN, 3, gl.FLOAT, false, 0, 0);
+    cam.t = mn.map((a,i) => (a + mx[i]) / 2); radio = Math.hypot(mx[0]-mn[0], mx[1]-mn[1], mx[2]-mn[2]) / 2; cam.d = radio * 2.6; colorear();
+  }
+  function persp(f, a, n, l){ const t = 1/Math.tan(f/2); return [t/a,0,0,0, 0,t,0,0, 0,0,(l+n)/(n-l),-1, 0,0,2*l*n/(n-l),0]; }
+  function mul(a, b){ const r = new Array(16); for(let i=0;i<4;i++) for(let j=0;j<4;j++){ let s=0; for(let k=0;k<4;k++) s += a[k*4+j]*b[i*4+k]; r[i*4+j]=s; } return r; }
+  function mira(e, t){ let z=[e[0]-t[0],e[1]-t[1],e[2]-t[2]]; let L=Math.hypot(...z); z=z.map(x=>x/L); let x=[-z[1], z[0], 0]; L=Math.hypot(...x)||1; x=x.map(v=>v/L);
+    const y=[z[1]*x[2]-z[2]*x[1], z[2]*x[0]-z[0]*x[2], z[0]*x[1]-z[1]*x[0]];
+    return [x[0],y[0],z[0],0, x[1],y[1],z[1],0, x[2],y[2],z[2],0, -(x[0]*e[0]+x[1]*e[1]+x[2]*e[2]), -(y[0]*e[0]+y[1]*e[1]+y[2]*e[2]), -(z[0]*e[0]+z[1]*e[1]+z[2]*e[2]), 1]; }
+  const ojo = () => [cam.t[0] + cam.d*Math.cos(cam.ph)*Math.cos(cam.th), cam.t[1] + cam.d*Math.cos(cam.ph)*Math.sin(cam.th), cam.t[2] + cam.d*Math.sin(cam.ph)];
+  const GRIS = [0.55,0.6,0.7], T = 0.07;
+  function colorDe(e){
+    const c = corte();
+    if(S.tl && S.pag === "visor"){ const st = estadoProg(e.id, S.tl); return st === 2 ? [0.09,0.64,0.29,1] : st === 1 ? [0.96,0.62,0.04,1] : [...GRIS, 0.06]; }
+    if(e.id === S.selEl || e.id === uno) return [0.23,0.51,0.96,1];
+    if(S.res) return S.res.has(e.id) ? [0.90,0.72,0.41,1] : [...GRIS, T];
+    if(S.selPartida){ const pc = e.partidas.find(x => x.item === S.selPartida); if(!pc) return [...GRIS, T];
+      const ex = e.ejec[S.selPartida]||0; return ex > pc.metrado*1.000001 ? [0.86,0.15,0.15,1] : ex >= pc.metrado*0.999 ? [0.09,0.64,0.29,1] : ex > 1e-9 ? [0.96,0.62,0.04,1] : [0.90,0.72,0.41,1]; }
+    const base = (() => { const m = S.pag === "visor" ? S.modo3d : "avance";
+      if(m === "sector") return e.sector === "A" ? [0.15,0.39,0.92] : [0.90,0.72,0.41];
+      if(m === "programado"){ const st = estadoProg(e.id, c); return st === 2 ? [0.09,0.64,0.29] : st === 1 ? [0.96,0.62,0.04] : [0.62,0.66,0.72]; }
+      if(m === "atraso") return atrasado(e, c) ? [0.86,0.15,0.15] : estadoReal(e, c) === 2 ? [0.09,0.64,0.29] : [0.62,0.66,0.72];
+      const st = estadoReal(e, c); return st === 2 ? [0.09,0.64,0.29] : st === 1 ? [0.96,0.62,0.04] : [0.62,0.66,0.72]; })();
+    return [...base, S.selEl ? 0.15 : 1];
+  }
+  function colorear(){ colores = {}; S.els.forEach(e => colores[e.id] = colorDe(e)); leyenda(); dibujar(); }
+  function leyenda(){ const it = (c, t) => `<span><i style="background:${c}"></i>${t}</span>`, tr = it("rgba(140,153,178,.35)", "Otros (transparentes)"); let h;
+    if(S.tl && S.pag === "visor") h = it("#16A34A","Vaciado según programa") + it("#F59E0B","En ejecución programada") + it("rgba(140,153,178,.35)","Aún no programado");
+    else if(S.res) h = it("#E5B869", esc(S.resTxt || "Resaltados")) + tr;
+    else if(S.selPartida) h = it("#E5B869","Sin ejecutar") + it("#F59E0B","Parcial") + it("#16A34A","Completo") + it("#DC2626","Mayor metrado") + tr;
+    else { const m = S.modo3d; h = m === "sector" ? it("#2563EB","Sector A") + it("#E5B869","Sector B") : m === "programado" ? it("#16A34A","Vaciado según programa al corte") + it("#F59E0B","En ejecución programada") + it("#9EA8B8","Aún no")
+      : m === "atraso" ? it("#DC2626","Atrasado al corte") + it("#16A34A","Vaciado") + it("#9EA8B8","A tiempo / no le toca") : it("#9EA8B8","Sin avance") + it("#F59E0B","En ejecución") + it("#16A34A","Vaciado"); }
+    $("#leyenda").innerHTML = h; }
+  function dibujar(pick){
+    const w = cv.clientWidth, h = cv.clientHeight; if(!w || !h) return; const dpr = Math.min(2, devicePixelRatio || 1);
+    if(cv.width !== Math.round(w*dpr) || cv.height !== Math.round(h*dpr)){ cv.width = Math.round(w*dpr); cv.height = Math.round(h*dpr); }
+    gl.viewport(0, 0, cv.width, cv.height);
+    const e = ojo(), mvp = mul(persp(0.8, cv.width/Math.max(1,cv.height), Math.max(0.05, cam.d - radio*3), cam.d + radio*3), mira(e, cam.t));
+    gl.uniformMatrix4fv(U("mvp"), false, mvp); const lz = [e[0]-cam.t[0]+radio, e[1]-cam.t[1]-radio, e[2]-cam.t[2]+radio*2], L = Math.hypot(...lz); gl.uniform3f(U("luz"), lz[0]/L, lz[1]/L, lz[2]/L);
+    gl.uniform1f(U("plano"), pick ? 1 : 0); gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); gl.enable(gl.DEPTH_TEST);
+    const vis = r => { const el = S.porId[r.id]; return el && (S.pag !== "visor" && S.pag !== "partidas" || visible(el)); };
+    gl.disable(gl.BLEND); gl.depthMask(true);
+    rangos.forEach(r => { if(!vis(r)) return; const c = colores[r.id] || [0.6,0.6,0.6,1]; if(!pick && c[3] < 1) return; if(pick && c[3] < 0.5) return;
+      gl.uniform4f(U("col"), ...(pick ? [...r.idc, 1] : c)); gl.drawArrays(gl.TRIANGLES, r.ini, r.n); });
+    if(pick) return;
+    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.depthMask(false);
+    rangos.forEach(r => { if(!vis(r)) return; const c = colores[r.id]; if(!c || c[3] >= 1) return; gl.uniform4f(U("col"), ...c); gl.drawArrays(gl.TRIANGLES, r.ini, r.n); });
+    gl.depthMask(true);
+  }
+  function elegir(x, y){ const dpr = cv.width / cv.clientWidth;
+    if(!fb || fbW !== cv.width || fbH !== cv.height){ fb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      const tx = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tx); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, cv.width, cv.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null); gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tx, 0);
+      const rb = gl.createRenderbuffer(); gl.bindRenderbuffer(gl.RENDERBUFFER, rb); gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_COMPONENT16, cv.width, cv.height); gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, rb); fbW = cv.width; fbH = cv.height; }
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fb); dibujar(true); const px = new Uint8Array(4); gl.readPixels(Math.round(x*dpr), Math.round(cv.height - y*dpr), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null); dibujar(); const k = px[0] + (px[1] << 8) + (px[2] << 16); return k ? rangos[k-1]?.id : null; }
+  let arr = null;
+  cv.addEventListener("contextmenu", e => e.preventDefault());
+  cv.addEventListener("pointerdown", e => { arr = {x:e.clientX, y:e.clientY, b:e.button, sh:e.shiftKey, mov:0}; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener("pointermove", e => { if(!arr) return; const dx = e.clientX - arr.x, dy = e.clientY - arr.y; arr.x = e.clientX; arr.y = e.clientY; arr.mov += Math.abs(dx) + Math.abs(dy);
+    if(arr.b === 2 || arr.sh){ const s = cam.d * 0.0016, ct = Math.cos(cam.th), st = Math.sin(cam.th), cp = Math.cos(cam.ph), sp = Math.sin(cam.ph), der = [-st, ct, 0], arriba = [-sp*ct, -sp*st, cp];
+      for(let i = 0; i < 3; i++) cam.t[i] += (-der[i]*dx + arriba[i]*dy) * s; }
+    else { cam.th -= dx * 0.008; cam.ph = Math.max(-1.5, Math.min(1.5, cam.ph + dy * 0.008)); } dibujar(); });
+  cv.addEventListener("pointerup", e => { if(arr && arr.mov < 4 && arr.b === 0){ const r = cv.getBoundingClientRect(), id = elegir(e.clientX - r.left, e.clientY - r.top);
+      if(S.pag === "inicio"){ arr = null; return ir("visor"); }
+      S.selEl = id || null; if(id){ S.selPartida = null; S.selAct = null; S.res = null; } uno = null; pintar();
+      if(id && $("#info3d")){ const el = S.porId[id]; $("#info3d").textContent = `${el.tipo} · ${el.nivel} · ${el.paquete}-${el.sector} · ElementId ${id}`; } }
+    arr = null; });
+  cv.addEventListener("wheel", e => { e.preventDefault(); cam.d = Math.max(radio*0.05, Math.min(radio*8, cam.d * (e.deltaY > 0 ? 1.12 : 0.89))); dibujar(); }, {passive:false});
+  addEventListener("resize", () => dibujar());
+  function encuadrar(lista){ const g = S.geo; if(!g) return;
+    const ids = new Set((lista && lista.length ? lista : S.els).filter(Boolean).filter(e => S.pag !== "visor" && S.pag !== "partidas" || visible(e)).map(e => e.id)); const mn=[1e9,1e9,1e9], mx=[-1e9,-1e9,-1e9];
+    g.elementos.forEach(e => { if(!ids.has(e.id)) return; for(let i = 0; i < e.v.length; i += 3) for(let c = 0; c < 3; c++){ mn[c] = Math.min(mn[c], e.v[i+c]); mx[c] = Math.max(mx[c], e.v[i+c]); } });
+    if(mn[0] > mx[0]) return; cam.t = mn.map((a,i) => (a+mx[i])/2); cam.d = Math.max(4, Math.hypot(mx[0]-mn[0], mx[1]-mn[1], mx[2]-mn[2]) * 1.4); dibujar(); }
+  function resaltarUno(id){ uno = id; colorear(); }
+  return {montar, cargar, colorear, dibujar, encuadrar, resaltarUno};
+})();
+
+/* ============================================================ inicio */
+$("#corte").value = hoy();
+$("#corte").addEventListener("change", pintar);
+$("#recargar").addEventListener("click", () => cargarDatos().then(() => toast("Datos actualizados desde Revit")).catch(e => estado("err", e.message)));
+$("#ver").textContent = LECTURA ? "Solo lectura" : "";
+if(SNAP){ ["#fImprimir", "#csv", "#recargar"].forEach(s => $(s).hidden = true); }   // en la página publicada no se imprime ni se descarga
+addEventListener("hashchange", () => { const p = location.hash.slice(1); if(TITULOS[p] && p !== S.pag) ir(p); });
+(async () => {
+  ir(location.hash.slice(1) || ls("pag") || "inicio");
+  try{
+    await cargarDatos();
+    S.geo = await api("/api/geometria"); V.cargar(S.geo); pintar();
+  }catch(e){ estado("err", "Sin conexión con Revit: " + e.message);
+    $("#kpis").innerHTML = `<div class="kpi" style="grid-column:1/-1"><small>Sin conexión</small><b class="err" style="font-size:15px">${esc(e.message)}</b><span>Abre Revit con el modelo y pulsa «NEXO OBRA (NO) → Abrir panel».</span></div>`; }
+})();
+</script>
+</body>
+</html>

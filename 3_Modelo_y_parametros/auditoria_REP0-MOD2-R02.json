@@ -1,0 +1,9500 @@
+{
+  "censo": {
+    "<Boceto>": 1641,
+    "Armazón estructural": 654,
+    "Modelos genéricos": 492,
+    "Pilares estructurales": 234,
+    "Suelos": 222,
+    "Materiales": 216,
+    "<Boceto de escalera/rampa: vertical>": 210,
+    "Armadura estructural": 197,
+    "Activos de materiales": 113,
+    "Camino de sol": 108,
+    "<Boceto de escalera/rampa: contorno>": 108,
+    "Muros": 100,
+    "Componentes de leyenda": 90,
+    "<Boceto de escalera/rampa: camino de escalera >": 47,
+    "Cimentación estructural": 35,
+    "Escaleras": 16,
+    "Tramos": 15,
+    "Segmentos de tubería": 12,
+    "Cámaras": 8,
+    "Balaustres": 6,
+    "Rampas": 5,
+    "Barandillas": 3,
+    "Curvas de nivel principales": 2,
+    "Líneas": 2,
+    "Información de proyecto": 1,
+    "Origen interno": 1,
+    "Punto de reconocimiento": 1,
+    "Punto base del proyecto": 1,
+    "Recorte_Muros de Anclaje Zona 1.dwg": 1,
+    "Recorte CAD_Cimentacion.dwg (2)": 1,
+    "Recorte CAD_Techo Cisterna.dwg": 1,
+    "RecorteCAD_Aligerado Sotano 1.dwg": 1,
+    "RecorteCAD_Aligerado Tipico de 2 a 4.dwg": 1,
+    "RecorteCAD_Aligerado Piso 1.dwg": 1,
+    "RecorteCAD_Aligerado Piso 6.dwg": 1,
+    "RecorteCAD_Techo Semisotano.dwg": 1,
+    "new block.dwg": 1,
+    "RecorteCAD_Azotea.dwg": 1,
+    "RecorteCAD_Aligerado Piso 05.dwg": 1,
+    "Refuerzo de área estructural": 1,
+    "Escalera_J-J.dwg": 1
+  },
+  "vinculos": [],
+  "importados_cad": 12,
+  "opciones_diseno": [],
+  "fases": [
+    "Existente",
+    "Nueva construcción"
+  ],
+  "elementos": [
+    {
+      "id": 394666,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394667,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394670,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394672,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394673,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394676,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394677,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394680,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394682,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394683,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394684,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394685,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 394687,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 398738,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401665,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 402159,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 402522,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 402712,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 404331,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 404622,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 406459,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 406556,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 407854,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410998,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 411181,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 411820,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 413975,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414049,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416196,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416288,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417300,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418585,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418602,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 629363,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 630043,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396067,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396664,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396669,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396674,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396679,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396684,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396689,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 396694,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 400440,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401406,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401501,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401563,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401582,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401587,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401592,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401597,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 401797,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 402406,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 404863,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 405296,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 405301,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 405306,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 405311,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 405996,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 406557,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 407425,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 408064,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 408192,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410344,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410476,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410685,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410686,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410687,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410688,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410689,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410700,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410701,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410702,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410703,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410704,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410715,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410716,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410717,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410718,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410719,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410730,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410731,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410732,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410733,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410734,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410745,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410746,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410747,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410748,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410749,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410760,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410761,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410762,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410763,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410764,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 410999,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 411182,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 411557,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 412084,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 412228,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 412276,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 413030,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 413918,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414239,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414332,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414333,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414397,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414589,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 471567,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 471895,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 471911,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 471965,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472665,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472666,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472667,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472668,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472675,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472676,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472677,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472678,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472685,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472686,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472687,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472688,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472695,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472696,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472697,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472698,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472705,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472706,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472707,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472708,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 472772,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473176,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473188,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473290,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473291,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473292,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473297,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473298,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473299,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473344,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473345,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473346,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473358,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473359,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473370,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473371,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473372,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473381,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473382,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473383,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473392,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473393,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473394,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473403,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473404,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473405,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473414,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473415,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473416,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473527,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473763,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473829,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473843,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473857,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473869,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473879,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473891,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473907,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473970,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474015,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474043,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474098,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474114,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474126,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474183,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474195,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474237,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 535970,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536151,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536167,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536238,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536248,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536347,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536357,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536369,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536381,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536428,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536883,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536941,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536951,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536963,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536977,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 536989,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537007,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537017,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537027,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537037,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537105,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537117,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537129,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537143,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537153,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537269,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537308,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537320,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537338,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537348,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537366,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537376,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537388,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537404,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537418,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537428,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537440,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537454,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537464,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537478,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537538,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537548,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537564,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537576,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537592,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537602,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537612,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537622,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537632,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537644,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537658,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537668,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537684,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537704,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537714,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537724,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537740,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537752,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537764,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537774,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537784,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537794,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537806,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537820,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537830,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537840,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537850,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537860,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537872,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537884,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537898,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537912,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 537961,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541364,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541673,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541694,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546778,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547114,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 549179,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 550698,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 550703,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 550708,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 550713,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 550734,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 574288,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 589188,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 589218,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 589248,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 589278,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 589372,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419018,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419157,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419248,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419303,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419353,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419459,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 429150,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 429280,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 437517,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 438519,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446414,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446562,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446565,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451657,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451749,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451787,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451816,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451834,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451852,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451872,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451888,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451910,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451934,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451956,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451978,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451997,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 452013,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 452035,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 452285,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 452517,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 452644,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 452790,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453211,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453212,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453213,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453214,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453215,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453216,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453217,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453218,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453219,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453220,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453221,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453222,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453223,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453224,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453225,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453226,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453227,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453228,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453229,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453232,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453233,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453234,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453235,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453236,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453237,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453238,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453239,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453240,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453241,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453242,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453243,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453244,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453245,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453246,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453247,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453248,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453249,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453250,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453295,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453763,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 453910,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454429,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454430,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454431,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454434,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454435,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454436,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454477,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454673,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454800,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 454808,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 455154,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 455433,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456147,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456148,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456149,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456150,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456151,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456152,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456155,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456156,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456157,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456158,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456159,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456160,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456204,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456446,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456651,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 456661,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457218,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457219,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457220,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457221,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457224,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457225,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457226,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457227,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457289,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457761,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 457942,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 458226,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 458455,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 458592,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 458855,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459499,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459500,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459501,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459502,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459503,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459504,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459505,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459508,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459509,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459510,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459511,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459512,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459513,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459514,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459658,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459831,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 459922,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460217,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460455,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460456,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460457,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460458,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460461,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460462,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460463,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460464,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460501,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460734,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 460827,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 461048,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 461390,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 461581,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 461684,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 461922,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462225,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462365,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462366,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462367,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462990,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462991,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462992,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462993,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462994,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462995,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462996,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462997,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462998,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 462999,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463000,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463001,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463004,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463005,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463006,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463007,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463008,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463009,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463010,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463011,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463012,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463013,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463014,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463015,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 463735,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 464178,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 464181,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 464707,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465056,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465127,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465148,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465330,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465351,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465666,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 465831,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 466049,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 466283,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 466463,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 466638,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 466851,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 467092,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 467260,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 467261,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 467262,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 467617,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468207,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468208,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468209,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468210,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468211,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468212,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468213,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468214,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468215,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468216,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468217,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468218,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468219,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468220,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468221,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468222,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468223,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468224,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468227,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468228,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468229,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468230,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468231,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468232,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468233,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468234,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468235,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468236,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468237,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468238,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468239,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468240,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468241,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468242,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468243,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468244,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468596,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468737,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468738,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468739,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468740,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468741,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468742,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468743,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468744,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468745,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468746,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468747,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468748,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468749,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468750,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468751,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468752,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468753,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468754,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468755,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468756,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468757,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468758,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468759,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468760,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468761,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468762,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468763,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468764,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468765,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468766,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468767,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468768,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468769,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468770,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468771,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468772,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468773,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468774,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468775,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468776,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468777,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468778,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468779,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468780,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468781,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468782,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468783,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468784,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468785,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468786,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468787,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468788,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468789,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468790,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468791,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468794,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468795,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468796,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468797,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468798,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468799,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468800,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468801,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468802,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468803,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468804,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468805,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468806,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468807,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468808,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468867,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469154,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469346,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469399,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469506,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469507,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469508,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469781,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 469905,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470181,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470195,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470297,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470298,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470299,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470477,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 470536,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 471180,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474701,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474823,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474824,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474825,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474826,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474827,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474828,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474829,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474830,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474831,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474832,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474833,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474834,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474835,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474836,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474837,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474838,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474839,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474840,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474841,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474842,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474843,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474844,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474845,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474846,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474847,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474848,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474849,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474850,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474851,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474852,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474853,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474854,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474855,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474856,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474857,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474858,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474859,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474860,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474861,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474862,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474863,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474864,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474865,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474866,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474867,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474868,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474869,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474870,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474871,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474872,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474873,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474874,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474875,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474876,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474877,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474880,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474882,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474885,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474886,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474887,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474888,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474889,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474890,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474891,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474892,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474893,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474894,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474902,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474988,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476260,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476433,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476588,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476725,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476928,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476938,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 477032,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 477068,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 490344,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 490618,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 490861,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 490905,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 490936,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 491137,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493368,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493505,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493506,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493510,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493511,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493512,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493513,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493514,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493517,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493518,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493519,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493520,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493521,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493523,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493524,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493525,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493526,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493528,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493547,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493548,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493549,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493550,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493551,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493552,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493553,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493554,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493555,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493556,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493557,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493558,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493559,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493560,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493569,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493815,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 495458,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 495798,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 495829,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 496054,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 496361,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 496755,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 497009,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 498689,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 498850,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499021,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499559,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499689,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 501005,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 524648,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 524694,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 525343,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 525705,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 525919,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526034,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526214,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526485,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526667,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526769,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526832,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 526974,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527150,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527294,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527822,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527918,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528058,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528143,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 529064,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 529276,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 529332,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 529470,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 529684,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 529859,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538070,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538235,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538386,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538462,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538670,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538901,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 539030,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 539159,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 539640,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 539892,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 540455,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 540663,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 540695,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541066,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541523,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541866,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 542003,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 542171,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 542314,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 542547,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 542750,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 542796,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543073,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543254,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543462,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543623,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543646,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543685,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543709,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543776,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543817,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543850,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543907,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543952,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544056,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544092,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544155,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544188,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544223,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544340,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544645,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544680,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544731,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544759,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544802,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544904,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 544986,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545018,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545065,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545084,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545197,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545234,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545290,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545348,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545376,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545417,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545481,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545501,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545577,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545648,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545698,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545791,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 545904,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546122,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546175,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546243,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546410,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546643,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546702,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546745,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546830,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546858,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546902,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546993,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547079,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547202,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547244,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547294,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547352,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547412,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547462,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547491,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547687,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547787,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547956,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 548017,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 548056,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 548301,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 548336,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 549255,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 549312,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 565830,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566053,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566166,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566208,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566247,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566469,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566470,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566535,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 566790,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572296,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572438,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572439,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572440,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572441,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572442,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572443,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572444,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572445,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572446,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572447,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572448,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572449,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572450,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572451,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572452,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572453,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572454,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572455,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572456,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572457,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572458,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572459,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572460,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572461,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572462,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572463,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572464,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572465,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572466,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572467,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572468,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572469,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572470,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572471,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572472,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572473,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572474,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572475,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572476,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572477,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572478,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572479,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572480,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572481,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572482,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572483,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572484,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572485,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572486,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572487,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572488,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572489,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572490,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572491,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572492,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572495,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572496,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572497,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572498,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572499,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572500,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572501,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572502,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572503,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572504,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572505,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572506,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572507,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572508,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572509,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572510,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572511,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572512,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572513,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 585387,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419605,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419671,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419706,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419742,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 419923,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 423431,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 423464,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 423498,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 439356,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 442659,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 444223,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 444870,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 444900,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 444969,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445079,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445279,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445339,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445505,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445549,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445597,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445770,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445790,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445798,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445810,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445818,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445826,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445840,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445850,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445868,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445876,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445886,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445906,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445914,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445926,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445934,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445942,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445956,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445966,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445984,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 445992,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446004,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446074,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446083,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446100,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446132,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446309,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446317,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446328,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 446336,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 447776,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448254,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448419,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448435,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448445,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448461,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448475,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448508,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448562,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448740,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448748,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448760,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448769,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448777,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448789,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448803,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 448951,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 449097,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 449693,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 449747,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 450854,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451322,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451338,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451348,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451366,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451378,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451398,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451412,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451428,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451438,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451456,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451468,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 451488,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468457,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468477,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468485,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468497,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468505,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468513,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468527,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468537,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468555,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468563,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468572,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468580,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468588,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468599,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468615,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468623,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468631,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468643,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468651,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468667,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468677,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468695,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 468707,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474563,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474583,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474591,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474603,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474611,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474619,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474633,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474643,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474661,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474669,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474677,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474685,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474693,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474704,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474717,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474725,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474733,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474741,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474765,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474775,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474793,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 474805,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 475305,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 475374,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 475588,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 475839,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 475949,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 475981,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476104,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476136,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476169,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 476201,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 477121,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 491166,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 491262,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 491564,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493230,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493250,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493286,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493328,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493336,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493344,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493352,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493360,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493371,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493416,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493432,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 493442,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 495184,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 496553,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 496585,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 496642,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 497109,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499164,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499197,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499332,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499808,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499838,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499889,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 499922,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 501107,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527469,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527504,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527537,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527568,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527601,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527688,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527718,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 527750,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528773,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528806,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528837,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 530020,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 530079,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 531895,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 533105,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 533403,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538703,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 538736,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 540156,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 540187,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 540989,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541707,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541736,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 541798,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543170,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 543528,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546503,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 546536,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 547141,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 548238,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 548527,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 549112,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572156,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572176,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572184,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572196,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572204,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572212,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572226,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572236,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572254,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572262,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572271,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572279,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572287,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572299,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572315,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572323,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572331,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572343,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572351,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572367,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572377,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572395,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572407,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 572427,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 384729,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 385154,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 385868,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 387314,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 387315,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 387318,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 387850,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 387983,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 388263,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 388774,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 388779,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 388842,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389145,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389203,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389345,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389350,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389472,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389670,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 389776,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 390036,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 390182,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 390183,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 390184,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 390186,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 403972,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 414876,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 415207,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 415567,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 415650,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 415805,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 415889,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416410,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416584,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416729,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416829,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 416990,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417144,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417214,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417492,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417557,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417638,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417854,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 417961,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418044,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418128,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418281,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418366,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418430,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418746,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 418826,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 420333,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 420637,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 421967,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473461,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473462,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473465,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473466,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473469,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473470,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473473,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 473474,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 501269,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 502671,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 502845,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 503339,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 524070,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528385,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 528597,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 535411,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 551527,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 567571,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 567826,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 567955,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 568158,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 568366,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 568548,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 568720,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 568863,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569004,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569099,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569237,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569458,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569630,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569749,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 569908,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 570053,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 570215,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 570465,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 570628,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 570804,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 570932,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571056,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571139,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571272,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571355,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571493,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571673,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 571812,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 592149,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 592768,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 574225,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 574451,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 577354,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 577493,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 577578,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 577772,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 581137,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 582718,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 584923,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 585715,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 586141,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 586496,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 588625,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 588636,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 588730,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 588741,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 531214,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 532143,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 532844,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 533458,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    },
+    {
+      "id": 535163,
+      "fase": "Nueva construcción",
+      "demolida": null,
+      "opcion": null,
+      "grupo": null
+    }
+  ],
+  "solapes": [
+    {
+      "a": 416196,
+      "b": 417961,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416196,
+      "b": 418128,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416196,
+      "b": 418746,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 416410,
+      "volumen_m3": 0.015,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 416990,
+      "volumen_m3": 0.0668,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 417492,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 417638,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 417854,
+      "volumen_m3": 0.058,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 418281,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 418430,
+      "volumen_m3": 0.008,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 418826,
+      "volumen_m3": 0.015,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 420637,
+      "volumen_m3": 0.0403,
+      "unidos": false
+    },
+    {
+      "a": 416288,
+      "b": 588625,
+      "volumen_m3": 0.0152,
+      "unidos": false
+    },
+    {
+      "a": 396067,
+      "b": 531214,
+      "volumen_m3": 0.0034,
+      "unidos": false
+    },
+    {
+      "a": 396067,
+      "b": 532844,
+      "volumen_m3": 0.0066,
+      "unidos": false
+    },
+    {
+      "a": 396664,
+      "b": 531214,
+      "volumen_m3": 0.0033,
+      "unidos": false
+    },
+    {
+      "a": 402406,
+      "b": 416288,
+      "volumen_m3": 0.04,
+      "unidos": false
+    },
+    {
+      "a": 404863,
+      "b": 416196,
+      "volumen_m3": 0.065,
+      "unidos": false
+    },
+    {
+      "a": 405996,
+      "b": 416196,
+      "volumen_m3": 0.065,
+      "unidos": false
+    },
+    {
+      "a": 406557,
+      "b": 416196,
+      "volumen_m3": 0.065,
+      "unidos": false
+    },
+    {
+      "a": 407425,
+      "b": 495798,
+      "volumen_m3": 0.0017,
+      "unidos": false
+    },
+    {
+      "a": 407425,
+      "b": 501107,
+      "volumen_m3": 0.013,
+      "unidos": false
+    },
+    {
+      "a": 410344,
+      "b": 493559,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410344,
+      "b": 531214,
+      "volumen_m3": 0.013,
+      "unidos": false
+    },
+    {
+      "a": 410344,
+      "b": 532143,
+      "volumen_m3": 0.0132,
+      "unidos": false
+    },
+    {
+      "a": 410476,
+      "b": 532143,
+      "volumen_m3": 0.0132,
+      "unidos": false
+    },
+    {
+      "a": 410685,
+      "b": 468788,
+      "volumen_m3": 0.0023,
+      "unidos": false
+    },
+    {
+      "a": 410688,
+      "b": 468563,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410688,
+      "b": 468806,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410689,
+      "b": 468631,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410689,
+      "b": 468643,
+      "volumen_m3": 0.009,
+      "unidos": false
+    },
+    {
+      "a": 410700,
+      "b": 462225,
+      "volumen_m3": 0.0023,
+      "unidos": false
+    },
+    {
+      "a": 410700,
+      "b": 473461,
+      "volumen_m3": 0.0159,
+      "unidos": false
+    },
+    {
+      "a": 410703,
+      "b": 445597,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410703,
+      "b": 466638,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410704,
+      "b": 448508,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410704,
+      "b": 448562,
+      "volumen_m3": 0.009,
+      "unidos": false
+    },
+    {
+      "a": 410715,
+      "b": 462998,
+      "volumen_m3": 0.0023,
+      "unidos": false
+    },
+    {
+      "a": 410715,
+      "b": 473465,
+      "volumen_m3": 0.0159,
+      "unidos": false
+    },
+    {
+      "a": 410718,
+      "b": 445876,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410718,
+      "b": 468218,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410719,
+      "b": 448748,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410719,
+      "b": 448760,
+      "volumen_m3": 0.009,
+      "unidos": false
+    },
+    {
+      "a": 410730,
+      "b": 463012,
+      "volumen_m3": 0.0023,
+      "unidos": false
+    },
+    {
+      "a": 410730,
+      "b": 473469,
+      "volumen_m3": 0.0159,
+      "unidos": false
+    },
+    {
+      "a": 410733,
+      "b": 445992,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410733,
+      "b": 468238,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410734,
+      "b": 448777,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410734,
+      "b": 448789,
+      "volumen_m3": 0.009,
+      "unidos": false
+    },
+    {
+      "a": 410745,
+      "b": 473473,
+      "volumen_m3": 0.0159,
+      "unidos": false
+    },
+    {
+      "a": 410745,
+      "b": 572489,
+      "volumen_m3": 0.0023,
+      "unidos": false
+    },
+    {
+      "a": 410748,
+      "b": 572262,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410748,
+      "b": 572507,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410749,
+      "b": 572331,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410749,
+      "b": 572343,
+      "volumen_m3": 0.009,
+      "unidos": false
+    },
+    {
+      "a": 410760,
+      "b": 474874,
+      "volumen_m3": 0.0023,
+      "unidos": false
+    },
+    {
+      "a": 410761,
+      "b": 474988,
+      "volumen_m3": 0.0034,
+      "unidos": false
+    },
+    {
+      "a": 410762,
+      "b": 474902,
+      "volumen_m3": 0.0877,
+      "unidos": false
+    },
+    {
+      "a": 410763,
+      "b": 474669,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 410763,
+      "b": 474892,
+      "volumen_m3": 0.0038,
+      "unidos": false
+    },
+    {
+      "a": 410764,
+      "b": 474741,
+      "volumen_m3": 0.009,
+      "unidos": false
+    },
+    {
+      "a": 410999,
+      "b": 416288,
+      "volumen_m3": 0.04,
+      "unidos": false
+    },
+    {
+      "a": 411182,
+      "b": 416288,
+      "volumen_m3": 0.04,
+      "unidos": false
+    },
+    {
+      "a": 411557,
+      "b": 416288,
+      "volumen_m3": 0.634,
+      "unidos": false
+    },
+    {
+      "a": 412084,
+      "b": 589372,
+      "volumen_m3": 0.1585,
+      "unidos": false
+    },
+    {
+      "a": 413030,
+      "b": 529859,
+      "volumen_m3": 0.0042,
+      "unidos": false
+    },
+    {
+      "a": 413918,
+      "b": 416288,
+      "volumen_m3": 0.065,
+      "unidos": false
+    },
+    {
+      "a": 414239,
+      "b": 527504,
+      "volumen_m3": 0.0105,
+      "unidos": false
+    },
+    {
+      "a": 414239,
+      "b": 527718,
+      "volumen_m3": 0.004,
+      "unidos": false
+    },
+    {
+      "a": 414239,
+      "b": 527750,
+      "volumen_m3": 0.0065,
+      "unidos": false
+    },
+    {
+      "a": 414332,
+      "b": 532844,
+      "volumen_m3": 0.013,
+      "unidos": false
+    },
+    {
+      "a": 414332,
+      "b": 535163,
+      "volumen_m3": 0.0131,
+      "unidos": false
+    },
+    {
+      "a": 414333,
+      "b": 533458,
+      "volumen_m3": 0.0106,
+      "unidos": false
+    },
+    {
+      "a": 414333,
+      "b": 535163,
+      "volumen_m3": 0.0131,
+      "unidos": false
+    },
+    {
+      "a": 414397,
+      "b": 442659,
+      "volumen_m3": 0.01,
+      "unidos": false
+    },
+    {
+      "a": 414397,
+      "b": 531214,
+      "volumen_m3": 0.0043,
+      "unidos": false
+    },
+    {
+      "a": 414397,
+      "b": 531895,
+      "volumen_m3": 0.0085,
+      "unidos": false
+    },
+    {
+      "a": 414397,
+      "b": 532844,
+      "volumen_m3": 0.0045,
+      "unidos": false
+    },
+    {
+      "a": 414589,
+      "b": 527718,
+      "volumen_m3": 0.0045,
+      "unidos": false
+    },
+    {
+      "a": 414589,
+      "b": 528773,
+      "volumen_m3": 0.0069,
+      "unidos": false
+    },
+    {
+      "a": 493521,
+      "b": 535411,
+      "volumen_m3": 0.0553,
+      "unidos": false
+    },
+    {
+      "a": 414876,
+      "b": 416196,
+      "volumen_m3": 0.0806,
+      "unidos": false
+    },
+    {
+      "a": 415207,
+      "b": 416196,
+      "volumen_m3": 0.0612,
+      "unidos": false
+    },
+    {
+      "a": 415567,
+      "b": 416196,
+      "volumen_m3": 0.1699,
+      "unidos": false
+    },
+    {
+      "a": 415567,
+      "b": 417961,
+      "volumen_m3": 0.004,
+      "unidos": false
+    },
+    {
+      "a": 415567,
+      "b": 418128,
+      "volumen_m3": 0.004,
+      "unidos": false
+    },
+    {
+      "a": 415805,
+      "b": 416196,
+      "volumen_m3": 0.0211,
+      "unidos": false
+    },
+    {
+      "a": 415889,
+      "b": 416196,
+      "volumen_m3": 0.0588,
+      "unidos": false
+    },
+    {
+      "a": 416584,
+      "b": 417492,
+      "volumen_m3": 0.002,
+      "unidos": false
+    },
+    {
+      "a": 416584,
+      "b": 417638,
+      "volumen_m3": 0.002,
+      "unidos": false
+    },
+    {
+      "a": 416584,
+      "b": 417854,
+      "volumen_m3": 0.0145,
+      "unidos": false
+    },
+    {
+      "a": 416990,
+      "b": 418281,
+      "volumen_m3": 0.004,
+      "unidos": false
+    },
+    {
+      "a": 416990,
+      "b": 418430,
+      "volumen_m3": 0.004,
+      "unidos": false
+    },
+    {
+      "a": 421967,
+      "b": 525919,
+      "volumen_m3": 0.0616,
+      "unidos": false
+    },
+    {
+      "a": 421967,
+      "b": 531214,
+      "volumen_m3": 0.0015,
+      "unidos": false
+    },
+    {
+      "a": 528597,
+      "b": 533458,
+      "volumen_m3": 0.0547,
+      "unidos": false
+    },
+    {
+      "a": 531214,
+      "b": 535411,
+      "volumen_m3": 0.002,
+      "unidos": false
+    }
+  ]
+}

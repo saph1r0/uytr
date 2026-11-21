@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXO OBRA (NO)</title>
+<style>
+:root{--bg:#090E17;--surf:#101827;--elev:#162033;--hover:#1C2840;--bd:#24324D;--bd2:#2E3F60;--tx:#F8FAFC;--tx2:#94A3B8;--mut:#64748B;
+--gold:#E5B869;--gold-ink:#F2D49B;--cob:#2563EB;--ok:#16A34A;--warn:#F59E0B;--bad:#DC2626;--sans:"Segoe UI",Inter,Arial,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--tx);font:13px/1.45 var(--sans);overflow:hidden;font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+.app{display:grid;grid-template-rows:52px 1fr;height:100vh}
+header{display:flex;align-items:center;gap:14px;padding:0 16px;border-bottom:1px solid var(--bd);background:var(--surf)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.12em;color:var(--gold-ink);font-size:12px}
+.logo .mk{width:38px;height:28px;display:grid;place-items:center;border:1px solid var(--bd2);border-radius:7px;background:linear-gradient(135deg,#3a2f17,#1b1a17)}
+.estado{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tx2);padding:4px 10px;border:1px solid var(--bd);border-radius:999px}
+.estado i{width:8px;height:8px;border-radius:50%;background:var(--mut)} .estado.ok i{background:var(--ok)} .estado.err i{background:var(--bad)}
+.sp{flex:1}
+.campo{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
+.inp{height:30px;padding:0 9px;background:var(--elev);border:1px solid var(--bd);border-radius:7px;min-width:0}
+.inp:focus{outline:none;border-color:var(--gold)}
+.btn{height:30px;padding:0 12px;border:1px solid var(--bd2);background:var(--elev);border-radius:7px;cursor:pointer;white-space:nowrap}
+.btn:hover{background:var(--hover)} .btn.pri{background:var(--gold);color:#1a1405;border-color:var(--gold);font-weight:600}
+.btn.pri:hover{filter:brightness(1.07)} .btn:disabled{opacity:.45;cursor:default}
+.main{display:grid;grid-template-columns:380px 1fr 400px;min-height:0}
+.col{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--bd);background:var(--surf)}
+.col:last-child{border-right:0;border-left:1px solid var(--bd)}
+.tabs{display:flex;gap:4px;padding:10px 12px 0;border-bottom:1px solid var(--bd)}
+.tabs button{border:0;background:none;padding:8px 10px;color:var(--tx2);border-bottom:2px solid transparent;cursor:pointer}
+.tabs button.on{color:var(--tx);border-bottom-color:var(--gold)}
+.scroll{overflow:auto;min-height:0;flex:1}
+.pad{padding:12px}
+.cap{position:sticky;top:0;background:var(--elev);padding:6px 12px;font-size:11px;letter-spacing:.06em;color:var(--gold-ink);text-transform:uppercase;border-bottom:1px solid var(--bd);z-index:1}
+.par{padding:8px 12px;border-bottom:1px solid var(--bd);cursor:pointer}
+.par:hover{background:var(--hover)} .par.on{background:#1f2b45;box-shadow:inset 3px 0 0 var(--gold)}
+.par .t{display:flex;gap:8px} .par .it{color:var(--mut);font-size:11.5px;min-width:62px}
+.par .d{flex:1;font-size:12.5px}
+.par .m{display:flex;justify-content:space-between;color:var(--tx2);font-size:11.5px;margin-top:4px}
+.bar{height:4px;background:var(--elev);border-radius:2px;margin-top:5px;overflow:hidden} .bar i{display:block;height:100%;background:var(--gold)}
+.bar i.ok{background:var(--ok)} .bar i.ex{background:var(--bad)}
+.tag{font-size:10.5px;padding:1px 7px;border-radius:999px;border:1px solid var(--bd2);color:var(--tx2);white-space:nowrap}
+.tag.ex{border-color:var(--bad);color:#fca5a5}
+.visor{position:relative;min-height:0;background:radial-gradient(ellipse at 50% 30%,#121c30,#070b12)}
+.visor canvas{width:100%;height:100%;display:block}
+.tool{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tool .inp,.tool .btn{height:28px;font-size:12px;background:rgba(16,24,39,.92)}
+.leyenda{position:absolute;left:10px;bottom:10px;display:flex;gap:12px;font-size:11.5px;color:var(--tx2);background:rgba(16,24,39,.88);padding:6px 10px;border-radius:7px;border:1px solid var(--bd)}
+.leyenda span{display:flex;align-items:center;gap:5px} .leyenda i{width:10px;height:10px;border-radius:2px}
+.info3d{position:absolute;right:10px;bottom:10px;font-size:11.5px;color:var(--tx2);background:rgba(16,24,39,.88);padding:6px 10px;border-radius:7px;border:1px solid var(--bd);max-width:60%}
+.vacio{color:var(--mut);padding:24px 16px;text-align:center}
+h2{font-size:14px;margin:0 0 4px} h3{font-size:12px;margin:14px 0 6px;color:var(--gold-ink);text-transform:uppercase;letter-spacing:.06em}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.kpi{background:var(--elev);border:1px solid var(--bd);border-radius:8px;padding:8px} .kpi b{display:block;font-size:15px} .kpi small{color:var(--mut);font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{position:sticky;top:0;background:var(--elev);color:var(--tx2);font-weight:500;text-align:left;padding:6px;border-bottom:1px solid var(--bd);z-index:1}
+td{padding:5px 6px;border-bottom:1px solid var(--bd)} td.n,th.n{text-align:right}
+tr.sel td{background:#1f2b45} tr.cl{cursor:pointer} tr.cl:hover td{background:var(--hover)}
+td input{width:76px;height:26px;text-align:right}
+#detalle td:first-child{min-width:150px}
+.fila{display:flex;gap:8px;align-items:center;margin-top:8px}
+.nota{font-size:11.5px;color:var(--mut);margin-top:6px}
+.obs{font-size:11.5px;color:#fca5a5;margin-top:6px;white-space:pre-wrap}
+#toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--elev);border:1px solid var(--bd2);padding:8px 14px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:9}
+#toast.on{opacity:1}
+dialog{background:var(--surf);color:var(--tx);border:1px solid var(--bd2);border-radius:10px;max-width:520px;padding:18px}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.err{color:#fca5a5}
+.seg{display:flex;border:1px solid var(--bd2);border-radius:7px;overflow:hidden;background:rgba(16,24,39,.92)}
+.seg button{border:0;background:none;padding:0 12px;height:28px;color:var(--tx2);cursor:pointer;font-size:12px}
+.seg button.on{background:var(--gold);color:#1a1405;font-weight:600}
+.timeline{position:absolute;left:10px;right:10px;bottom:46px;display:flex;align-items:center;gap:10px;background:rgba(16,24,39,.92);border:1px solid var(--bd);border-radius:8px;padding:6px 10px}
+.timeline input[type=range]{flex:1;accent-color:var(--gold)} .tl-on{font-size:12px;color:var(--tx2);white-space:nowrap;display:flex;gap:6px;align-items:center}
+.tl-info{font-size:12px;color:var(--tx2);min-width:260px;text-align:right}
+.gantt{position:absolute;inset:48px 0 0 0;overflow:auto;background:var(--bg);z-index:2}
+.gantt table{font-size:11.5px;border-collapse:separate;border-spacing:0}
+.gantt th,.gantt td{white-space:nowrap;padding:3px 6px}
+.gantt td.g{padding:0;position:relative;border-left:1px solid var(--bd)}
+.gantt .gb{position:absolute;top:4px;height:13px;border-radius:3px}
+.gantt tr.grp td{background:var(--elev);color:var(--gold-ink);font-weight:600}
+.gantt tr.on td{background:#1f2b45} .gantt tr.act{cursor:pointer} .gantt tr.act:hover td{background:var(--hover)}
+.gantt .fijo{position:sticky;left:0;background:var(--surf);z-index:1} .gantt th.fijo{z-index:3}
+.formato{position:fixed;inset:0;z-index:20;background:#0b111c;display:flex;flex-direction:column}
+.f-bar{display:flex;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--bd);background:var(--surf);flex-wrap:wrap}
+.f-hoja{overflow:auto;flex:1;padding:22px;background:#e9ecf1}
+.hoja{background:#fff;color:#111;max-width:1500px;margin:0 auto;padding:28px 30px;font:11px/1.35 Arial,sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.hoja h1{font-size:16px;margin:0 0 4px;text-align:center;letter-spacing:.04em} .hoja .sub{text-align:center;color:#444;margin-bottom:12px}
+.hoja .cab{display:grid;grid-template-columns:1fr 1fr;gap:2px 30px;margin-bottom:12px} .hoja .cab b{display:inline-block;min-width:120px}
+.hoja table{width:100%;border-collapse:collapse;font-size:10.5px} .hoja th,.hoja td{border:1px solid #999;padding:3px 4px;color:#111;background:#fff;position:static}
+.hoja th{background:#dfe5ee;text-align:center;font-weight:700} .hoja td.n{text-align:right} .hoja tr.t td{font-weight:700;background:#f2f4f7}
+.hoja tr.tot td{font-weight:700;background:#eef1f6} .hoja tr.neto td{font-weight:700;background:#fff3d6}
+.hoja .res{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0} .hoja .res div{border:1px solid #bbb;padding:8px} .hoja .res b{display:block;font-size:14px}
+.hoja .firmas{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:50px;text-align:center} .hoja .firmas div{border-top:1px solid #333;padding-top:4px}
+.hoja .nota2{color:#555;font-size:10px;margin-top:8px}
+@media print{body{overflow:visible}.app,#toast,dialog,.f-bar{display:none!important}.formato{position:static;display:block!important}.f-hoja{padding:0;background:#fff;overflow:visible}.hoja{box-shadow:none;max-width:none;padding:0}@page{size:A4 landscape;margin:10mm}}
+@media (max-width:1100px){.main{grid-template-columns:320px 1fr}.main>.col:last-child{grid-column:1/-1;max-height:45vh}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo"><span class="mk">NO</span>NEXO OBRA (NO)</div>
+    <div class="estado" id="estado"><i></i><span>Conectando con Revit…</span></div>
+    <div class="sp"></div>
+    <label class="campo">Fecha del parte <input type="date" class="inp" id="fecha"></label>
+    <button class="btn" id="recargar" title="Volver a leer los parámetros VZ_ del modelo">↻ Recargar</button>
+  </header>
+  <div class="main">
+    <section class="col">
+      <div class="tabs"><button class="on" data-tab="partidas">Partidas</button><button data-tab="parte">Parte diario</button><button data-tab="valorizacion">Valorización</button></div>
+      <div id="tab-parte" class="col" style="border:0;flex:1;display:none">
+        <div class="pad fila" style="margin:0"><label class="campo">Día <input type="date" class="inp" id="diaParte"></label></div>
+        <div class="scroll" id="parte"></div>
+      </div>
+      <div id="tab-partidas" class="col" style="border:0;flex:1">
+        <div class="pad" style="padding-bottom:6px"><input class="inp" id="buscar" placeholder="Buscar ítem o descripción…" style="width:100%"></div>
+        <div class="scroll" id="lista"></div>
+      </div>
+      <div id="tab-valorizacion" class="col" style="border:0;flex:1;display:none">
+        <div class="pad fila" style="margin:0;flex-wrap:wrap"><label class="campo">Valorización <select class="inp" id="mes"></select></label><button class="btn pri" id="verFormato">Ver formato</button><button class="btn" id="csv">⇩ CSV</button></div>
+        <div class="scroll" id="valor"></div>
+      </div>
+    </section>
+    <section class="visor" id="visor">
+      <canvas id="cv"></canvas>
+      <div class="gantt" id="gantt" hidden></div>
+      <div class="timeline" id="timeline">
+        <label class="tl-on"><input type="checkbox" id="tlOn"> Simular lo programado</label>
+        <button class="btn" id="tlPlay" disabled>▶</button>
+        <input type="range" id="tlDia" min="0" max="0" value="0" disabled>
+        <div class="tl-info" id="tlInfo">Cronograma programado (sin datos reales)</div>
+      </div>
+      <div class="tool">
+        <div class="seg"><button class="on" data-vista="3d">Visor 3D</button><button data-vista="gantt">Cronograma</button></div>
+        <select class="inp" id="nivel"><option value="">Todos los niveles</option></select>
+        <label class="campo" style="text-transform:none;letter-spacing:0;color:var(--tx2)"><input type="checkbox" id="hasta"> mostrar también los niveles inferiores</label>
+        <select class="inp" id="modo"><option value="avance">Color por avance</option><option value="sector">Color por sector A/B</option></select>
+        <button class="btn" id="limpiar">Quitar selección</button>
+        <button class="btn" id="encuadre">Encuadrar</button>
+      </div>
+      <div class="leyenda" id="leyenda"></div>
+      <div class="info3d" id="info3d">Arrastra para girar · rueda para acercar · clic derecho o Shift para desplazar · clic para seleccionar</div>
+    </section>
+    <section class="col"><div class="scroll pad" id="detalle"><div class="vacio">Elige una partida de la lista o un elemento en el 3D.</div></div></section>
+  </div>
+</div>
+<div id="toast"></div>
+<div class="formato" id="formato" hidden><div class="f-bar"><b>Formato de valorización</b><span class="sp"></span>
+  <label class="campo">Amort. adelanto directo % <input class="inp" id="fAdel" type="number" step="any" min="0" style="width:80px"></label>
+  <label class="campo">Amort. adelanto materiales S/ <input class="inp" id="fMat" type="number" step="any" min="0" style="width:110px"></label>
+  <label class="campo">Retención garantía % <input class="inp" id="fRet" type="number" step="any" min="0" style="width:80px"></label>
+  <button class="btn" id="fImprimir">⎙ Imprimir / PDF</button><button class="btn pri" id="fCerrar">Cerrar</button></div>
+  <div class="f-hoja" id="fHoja"></div></div>
+<dialog id="dlg"><div id="dlgCuerpo"></div><div class="fila" style="justify-content:flex-end;margin-top:14px" id="dlgBotones"></div></dialog>
+<script>
+"use strict";
+/* ============================================================ estado */
+const S = {datos:null, partidas:[], porItem:{}, els:[], porId:{}, elsDePartida:{}, global:{}, niveles:[], selPartida:null, selEl:null, selAct:null, geo:null, conectado:false, tl:null};
+/* Cronograma programado incrustado por armar_panel.py (de cronograma_nexo.py). No se modifica desde el panel. */
+const CRONO = /*__CRONOGRAMA__*/null;
+const ACT = CRONO ? Object.fromEntries(CRONO.actividades.map(a => [a.id, a])) : {};
+/* calendario de obra: lunes a sábado, sin feriados */
+const FER = new Set(CRONO ? CRONO.feriados : []);
+const isoD = d => d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const dISO = s => new Date(+s.slice(0,4), +s.slice(5,7)-1, +s.slice(8,10));
+const laborable = s => dISO(s).getDay() !== 0 && !FER.has(s);
+const fmtD = s => s ? s.split("-").reverse().join("/") : "";
+const DIAS_OBRA = (() => { if(!CRONO) return []; const fin = CRONO.actividades.reduce((m,a) => a.fin > m ? a.fin : m, CRONO.inicio);
+  const out = []; for(let d = dISO(CRONO.inicio); isoD(d) <= fin; d.setDate(d.getDate()+1)) if(laborable(isoD(d))) out.push(isoD(d)); return out; })();
+const IDX = Object.fromEntries(DIAS_OBRA.map((d,i) => [d, i]));
+function lab(a, b){ if(a > b) return 0; let n = 0; for(let d = dISO(a); isoD(d) <= b; d.setDate(d.getDate()+1)) if(laborable(isoD(d))) n++; return n; }
+/* valor programado (PV) a una fecha: cada actividad avanza en proporción a sus días laborables */
+function pvA(fecha){ let s = 0; if(!CRONO) return 0; CRONO.actividades.forEach(a => { if(a.inicio > fecha) return;
+  s += a.fin <= fecha ? a.monto_cd : a.monto_cd * lab(a.inicio, fecha) / Math.max(1, a.duracion); }); return s; }
+/* estado programado de un elemento a una fecha: 2 = vaciado según programa, 1 = en ejecución (acero/encofrado), 0 = aún no */
+function estadoProg(id, fecha){ const r = CRONO?.elementos[id]; if(!r) return -1; const [c, a, en] = r.map(x => ACT[x]);
+  if(c && c.fin <= fecha) return 2; if((a && a.inicio <= fecha) || (en && en.inicio <= fecha) || (c && c.inicio <= fecha)) return 1; return 0; }
+const $ = s => document.querySelector(s);
+const nf = (x, d=2) => (x==null||isNaN(x)) ? "-" : Number(x).toLocaleString("es-PE",{minimumFractionDigits:d,maximumFractionDigits:d});
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const hoy = () => { const t = new Date(); return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0"); };
+function toast(m){ const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("on"), 2600); }
+function estado(ok, msg){ const e = $("#estado"); e.className = "estado " + (ok ? "ok" : "err"); e.querySelector("span").textContent = msg; }
+function dialogo(html, botones){ return new Promise(res => { $("#dlgCuerpo").innerHTML = html; const b = $("#dlgBotones"); b.innerHTML = "";
+  botones.forEach(([txt, val, cls]) => { const x = document.createElement("button"); x.className = "btn " + (cls||""); x.textContent = txt; x.onclick = () => { $("#dlg").close(); res(val); }; b.appendChild(x); });
+  $("#dlg").showModal(); }); }
+
+/* registro «aaaa-mm-dd|ítem|cantidad;» → lista */
+function parsear(reg){ return (reg||"").split(";").filter(Boolean).map(x => { const [f, it, q] = x.split("|"); return {f, it, q: parseFloat(q)}; }).filter(r => r.f && !isNaN(r.q)); }
+function sumar(regs, hasta){ const s = {}; regs.forEach(r => { if(!hasta || r.f <= hasta) s[r.it] = (s[r.it]||0) + r.q; }); return s; }
+
+/* ============================================================ API */
+async function api(ruta, opc){ const r = await fetch(ruta, opc); const j = await r.json().catch(() => ({ok:false, error:"Respuesta no válida"}));
+  if(!r.ok || j.ok === false) throw new Error(j.error || ("HTTP " + r.status)); return j; }
+
+async function cargarDatos(){
+  const d = await api("/api/datos");
+  S.datos = d; S.partidas = d.partidas; S.porItem = Object.fromEntries(d.partidas.map(p => [p.item, p]));
+  S.els = d.elementos.filter(e => e.existe); S.porId = Object.fromEntries(S.els.map(e => [e.id, e]));
+  S.elsDePartida = {};
+  S.els.forEach(e => { e.regs = parsear(e.registro); e.ejec = sumar(e.regs);
+    e.partidas.forEach(p => (S.elsDePartida[p.item] ||= []).push(e)); });
+  S.globalRegs = parsear(d.registroGlobal); S.global = sumar(S.globalRegs);
+  S.niveles = d.niveles;
+  const sel = $("#nivel"); const v = sel.value;
+  sel.innerHTML = '<option value="">Todos los niveles</option>' + d.niveles.filter(n => S.els.some(e => e.nivel === n.nombre)).map(n => `<option value="${esc(n.nombre)}">${esc(n.nombre)} (${nf(n.cota,2)} m)</option>`).join("");
+  sel.value = v;
+  const faltan = d.parametrosFaltan || [];
+  estado(true, `Revit: ${d.modelo} · ${S.els.length} elementos` + (faltan.length ? ` · faltan ${faltan.length} parámetros (se crean al registrar)` : ""));
+  pintarLista(); pintarDetalle(); pintarValorizacion(); V.colorear();
+}
+
+/* ============================================================ partidas */
+function ejecutadoPartida(item){ let s = S.global[item] || 0; (S.elsDePartida[item]||[]).forEach(e => s += e.ejec[item] || 0); return s; }
+function pintarLista(){
+  const q = $("#buscar").value.trim().toLowerCase(); let html = "", capAnt = null;
+  S.partidas.forEach(p => {
+    if(q && !(p.item + " " + p.desc).toLowerCase().includes(q)) return;
+    const cap = p.item.slice(0,2);
+    if(cap !== capAnt){ html += `<div class="cap">${cap} · ${esc(S.datos.capitulos[cap] || "")}</div>`; capAnt = cap; }
+    const ej = ejecutadoPartida(p.item), pct = p.metrado ? ej / p.metrado : 0, n = (S.elsDePartida[p.item]||[]).length;
+    html += `<div class="par ${S.selPartida===p.item?"on":""}" data-item="${p.item}"><div class="t"><span class="it">${p.item}</span><span class="d">${esc(p.desc)}</span></div>
+      <div class="m"><span>${nf(ej)} / ${nf(p.metrado)} ${esc(p.und)}</span><span>${n ? n + " elem." : '<span class="tag">sin elementos</span>'} · ${nf(pct*100,1)}%</span></div>
+      <div class="bar"><i class="${pct>1.000001?"ex":pct>=0.999?"ok":""}" style="width:${Math.min(100,pct*100)}%"></i></div></div>`;
+  });
+  $("#lista").innerHTML = html || '<div class="vacio">Sin resultados.</div>';
+}
+$("#lista").addEventListener("click", e => { const d = e.target.closest(".par"); if(!d) return;
+  S.selPartida = S.selPartida === d.dataset.item ? null : d.dataset.item; S.selEl = null; S.selAct = null; pintarLista(); pintarDetalle(); V.colorear(); if(S.selPartida) V.encuadrar(S.elsDePartida[S.selPartida]); });
+$("#buscar").addEventListener("input", pintarLista);
+
+/* ============================================================ detalle y metrado diario */
+function visible(e){ const nv = $("#nivel").value; if(!nv) return true; if(!$("#hasta").checked) return e.nivel === nv;
+  const c = S.niveles.find(n => n.nombre === nv)?.cota ?? 1e9, ce = S.niveles.find(n => n.nombre === e.nivel)?.cota ?? -1e9; return ce <= c + 1e-6; }
+
+function pintarDetalle(){
+  const box = $("#detalle");
+  if(S.selEl){ return detalleElemento(box, S.porId[S.selEl]); }
+  if(S.selAct && ACT[S.selAct]){ return detalleActividad(box, ACT[S.selAct]); }
+  if(!S.selPartida){ box.innerHTML = '<div class="vacio">Elige una partida de la lista o un elemento en el 3D.</div>'; return; }
+  const p = S.porItem[S.selPartida], ej = ejecutadoPartida(p.item), els = (S.elsDePartida[p.item]||[]);
+  let html = `<h2>${p.item} · ${esc(p.desc)}</h2><div class="nota">Precio unitario S/ ${nf(p.pu)} por ${esc(p.und)} · fecha del parte ${esc($("#fecha").value)}</div>
+    <div class="kpis"><div class="kpi"><small>Contrato</small><b>${nf(p.metrado)}</b><small>${esc(p.und)}</small></div>
+    <div class="kpi"><small>Ejecutado</small><b>${nf(ej)}</b><small>${nf(p.metrado?ej/p.metrado*100:0,1)}%</small></div>
+    <div class="kpi"><small>Saldo</small><b class="${ej>p.metrado+1e-6?"err":""}">${nf(p.metrado-ej)}</b><small>${esc(p.und)}</small></div></div>`;
+  if(!els.length){
+    html += `<h3>Metrado del día</h3><div class="nota">Esta partida no tiene elementos en el modelo: se registra como total de la partida.</div>
+      <div class="fila"><input class="inp" id="qGlobal" type="number" step="any" placeholder="Cantidad (${esc(p.und)})" style="width:160px"><button class="btn pri" id="regGlobal">Registrar</button></div>`;
+  } else {
+    const vis = els.filter(visible);
+    html += `<h3>Por partida completa</h3><div class="nota">Se reparte entre los ${vis.length} elementos ${$("#nivel").value ? "visibles del nivel elegido" : "de la partida"} según su saldo.</div>
+      <div class="fila"><input class="inp" id="qPartida" type="number" step="any" placeholder="Cantidad (${esc(p.und)})" style="width:160px"><button class="btn" id="saldoPartida">Usar saldo</button><button class="btn pri" id="regPartida">Registrar</button></div>
+      <h3>Por elemento (${vis.length}${vis.length!==els.length?" de "+els.length:""})</h3>
+      <table><thead><tr><th>Elemento</th><th>Nivel</th><th class="n">Contrato</th><th class="n">Ejec.</th><th class="n">Hoy</th></tr></thead><tbody>` +
+      vis.map(e => { const pc = e.partidas.find(x => x.item === p.item), ex = e.ejec[p.item]||0;
+        return `<tr class="cl" data-id="${e.id}"><td>${esc(e.tipo)}<div class="nota" style="margin:0">${e.id} · ${esc(e.paquete)}-${esc(e.sector)}</div></td><td>${esc(e.nivel)}</td>
+        <td class="n">${nf(pc.metrado)}</td><td class="n ${ex>pc.metrado+1e-6?"err":""}">${nf(ex)}</td><td class="n"><input class="inp" type="number" step="any" data-q="${e.id}"></td></tr>`; }).join("") +
+      `</tbody></table><div class="fila" style="justify-content:flex-end"><button class="btn pri" id="regElems">Registrar metrado del día</button></div>`;
+  }
+  const regs = [...S.globalRegs.filter(r => r.it === p.item).map(r => ({...r, id:0}))];
+  els.forEach(e => e.regs.filter(r => r.it === p.item).forEach(r => regs.push({...r, id:e.id})));
+  regs.sort((a,b) => b.f.localeCompare(a.f));
+  html += `<h3>Historial (${regs.length})</h3>` + (regs.length ? `<table><thead><tr><th>Fecha</th><th>Elemento</th><th class="n">Cantidad</th></tr></thead><tbody>` +
+    regs.slice(0,200).map(r => `<tr><td>${r.f.split("-").reverse().join("/")}</td><td>${r.id ? r.id : "Partida"}</td><td class="n">${nf(r.q,3)}</td></tr>`).join("") + "</tbody></table>" : '<div class="nota">Sin registros todavía.</div>');
+  box.innerHTML = html;
+  $("#regGlobal")?.addEventListener("click", () => registrar([{id:0, item:p.item, cantidad:parseFloat($("#qGlobal").value)}]));
+  $("#saldoPartida")?.addEventListener("click", () => { $("#qPartida").value = Math.max(0, vis2().reduce((s,e) => s + saldo(e,p.item), 0)).toFixed(4); });
+  $("#regPartida")?.addEventListener("click", () => porPartida(p));
+  $("#regElems")?.addEventListener("click", () => { const regs = [...box.querySelectorAll("input[data-q]")].map(i => ({id:+i.dataset.q, item:p.item, cantidad:parseFloat(i.value)})).filter(r => r.cantidad && !isNaN(r.cantidad));
+    if(!regs.length) return toast("Escribe al menos una cantidad."); registrar(regs); });
+  box.querySelectorAll("tr.cl").forEach(tr => tr.addEventListener("click", ev => { if(ev.target.tagName === "INPUT") return; V.resaltar(+tr.dataset.id); box.querySelectorAll("tr.sel").forEach(x => x.classList.remove("sel")); tr.classList.add("sel"); }));
+}
+const vis2 = () => (S.elsDePartida[S.selPartida]||[]).filter(visible);
+function saldo(e, item){ const pc = e.partidas.find(x => x.item === item); return pc.metrado - (e.ejec[item]||0); }
+
+async function porPartida(p){
+  const Q = parseFloat($("#qPartida").value); if(!Q || isNaN(Q)) return toast("Escribe la cantidad de la partida.");
+  const els = vis2(); if(!els.length) return toast("No hay elementos visibles de esta partida.");
+  let pesos = els.map(e => Math.max(0, saldo(e, p.item))); let tot = pesos.reduce((a,b) => a+b, 0);
+  if(tot <= 1e-9){ pesos = els.map(e => e.partidas.find(x => x.item === p.item).metrado); tot = pesos.reduce((a,b) => a+b, 0); }
+  const regs = els.map((e,i) => ({id:e.id, item:p.item, cantidad:+(Q*pesos[i]/tot).toFixed(6)})).filter(r => r.cantidad);
+  const ok = await dialogo(`<h2>¿Está seguro de colocar por la partida completa?</h2><p>Se registrarán <b>${nf(Q,3)} ${esc(p.und)}</b> de <b>${esc(p.item)} ${esc(p.desc)}</b> con fecha ${esc($("#fecha").value.split("-").reverse().join("/"))}, repartidos entre <b>${regs.length}</b> elementos según su saldo${$("#nivel").value ? " (solo los del nivel visible)" : ""}.</p><p class="nota">Se escribe en Revit (parámetros VZ_) y se suma a lo ya ejecutado.</p>`,
+    [["Cancelar", false], ["Sí, registrar", true, "pri"]]);
+  if(ok) registrar(regs);
+}
+
+function detalleElemento(box, e){
+  if(!e){ box.innerHTML = '<div class="vacio">Elemento sin datos.</div>'; return; }
+  box.innerHTML = `<h2>${esc(e.tipo)}</h2><div class="nota">ElementId ${e.id} · ${esc(e.nivel)} · paquete ${esc(e.paquete)} · sector ${esc(e.sector)} · vaciado programado ${esc(e.fecha_prog)}</div>
+    <h3>Partidas del elemento</h3><table><thead><tr><th>Partida</th><th class="n">Contrato</th><th class="n">Ejec.</th><th class="n">Hoy</th></tr></thead><tbody>` +
+    e.partidas.map(pc => { const p = S.porItem[pc.item], ex = e.ejec[pc.item]||0;
+      return `<tr><td>${pc.item}<div class="nota" style="margin:0">${esc(p?.desc||"")} (${esc(p?.und||"")})</div></td><td class="n">${nf(pc.metrado)}</td><td class="n ${ex>pc.metrado+1e-6?"err":""}">${nf(ex)}</td><td class="n"><input class="inp" type="number" step="any" data-item="${pc.item}"></td></tr>`; }).join("") +
+    `</tbody></table><div class="fila" style="justify-content:flex-end"><button class="btn" id="saldoEl">Completar saldos</button><button class="btn pri" id="regEl">Registrar metrado del día</button></div>` +
+    (e.obs ? `<h3>Observaciones</h3><div class="obs">${esc(e.obs)}</div>` : "") +
+    `<h3>Historial</h3>` + (e.regs.length ? `<table><tbody>${[...e.regs].reverse().map(r => `<tr><td>${r.f.split("-").reverse().join("/")}</td><td>${r.it}</td><td class="n">${nf(r.q,3)}</td></tr>`).join("")}</tbody></table>` : '<div class="nota">Sin registros todavía.</div>');
+  $("#saldoEl").onclick = () => box.querySelectorAll("input[data-item]").forEach(i => { const s = saldo(e, i.dataset.item); i.value = s > 1e-9 ? +s.toFixed(4) : ""; });
+  $("#regEl").onclick = () => { const regs = [...box.querySelectorAll("input[data-item]")].map(i => ({id:e.id, item:i.dataset.item, cantidad:parseFloat(i.value)})).filter(r => r.cantidad && !isNaN(r.cantidad));
+    if(!regs.length) return toast("Escribe al menos una cantidad."); registrar(regs); };
+}
+
+async function registrar(registros){
+  const fecha = $("#fecha").value; if(!fecha) return toast("Elige la fecha del parte.");
+  registros = registros.filter(r => r.cantidad && !isNaN(r.cantidad)); if(!registros.length) return toast("Cantidad no válida.");
+  try{
+    const r = await api("/api/metrado", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({fecha, simular:false, registros})});
+    r.elementos.forEach(x => { const e = S.porId[x.id]; if(e){ e.registro = x.registro; e.obs = x.obs; e.regs = parsear(x.registro); e.ejec = sumar(e.regs); } });
+    S.globalRegs = parsear(r.registroGlobal); S.global = sumar(S.globalRegs);
+    pintarLista(); pintarDetalle(); pintarValorizacion(); pintarParte(); V.colorear();
+    if(r.alertas.length) alert("ALERTA DE MAYOR METRADO\n\n" + r.alertas.join("\n") + "\n\nQuedó anotado en VZ_Observaciones del elemento.");
+    if(r.rechazados.length) alert("No se registraron:\n" + r.rechazados.map(x => `${x.id||"Partida"} ${x.item}: ${x.motivo}`).join("\n"));
+    toast(`Registrado en Revit: ${r.aplicados.length} valores` + (r.notas.length ? " · " + r.notas.length + " parámetros creados" : ""));
+  }catch(err){ alert("No se pudo registrar en Revit:\n" + err.message); }
+}
+
+/* ============================================================ valorización mensual */
+function periodos(){ const ini = S.datos.inicio; const fechas = [ini, hoy()]; S.els.forEach(e => e.regs.forEach(r => fechas.push(r.f))); S.globalRegs.forEach(r => fechas.push(r.f));
+  const max = fechas.sort().at(-1); const out = []; let y = +ini.slice(0,4), m = +ini.slice(5,7), n = 1;
+  while(true){ const d = `${y}-${String(m).padStart(2,"0")}`; out.push({n, desde:d+"-01", hasta:d+"-"+String(new Date(y,m,0).getDate()).padStart(2,"0"), etq:new Date(y,m-1,1).toLocaleDateString("es-PE",{month:"long",year:"numeric"})});
+    if(d >= max.slice(0,7)) break; n++; m++; if(m > 12){ m = 1; y++; } }
+  return out; }
+function pintarValorizacion(){
+  if(!S.datos) return;
+  const per = periodos(), sel = $("#mes"), v = sel.value;
+  sel.innerHTML = per.map(p => `<option value="${p.n}">N° ${String(p.n).padStart(2,"0")} · ${p.etq}</option>`).join("");
+  sel.value = v && per.some(p => p.n == v) ? v : String(per.find(p => p.desde <= hoy() && hoy() <= p.hasta)?.n || per.at(-1).n);
+  const p = per.find(x => x.n == sel.value);
+  const ant = {}, act = {};
+  const sumarA = (regs) => regs.forEach(r => { if(r.f < p.desde) ant[r.it] = (ant[r.it]||0) + r.q; else if(r.f <= p.hasta) act[r.it] = (act[r.it]||0) + r.q; });
+  S.els.forEach(e => sumarA(e.regs)); sumarA(S.globalRegs);
+  let tA = 0, tM = 0, tAc = 0, tP = 0, filas = "";
+  S.partidas.forEach(x => { const a = ant[x.item]||0, m = act[x.item]||0, ac = a + m; tP += x.metrado*x.pu; tA += a*x.pu; tM += m*x.pu; tAc += ac*x.pu;
+    if(!a && !m) return;
+    filas += `<tr><td>${x.item}</td><td>${esc(x.desc)}</td><td>${esc(x.und)}</td><td class="n">${nf(x.metrado)}</td><td class="n">${nf(a)}</td><td class="n">${nf(m)}</td><td class="n ${ac>x.metrado+1e-6?"err":""}">${nf(ac)}</td><td class="n">${nf(x.metrado-ac)}</td><td class="n">${nf(x.metrado?ac/x.metrado*100:0,1)}%</td><td class="n">${nf(m*x.pu)}</td></tr>`; });
+  const pie = S.datos.pie, gg = pie.gg||0, ut = pie.ut||0, igv = pie.igv||0, sub = tM*(1+gg+ut);
+  $("#valor").innerHTML = `<div class="pad"><h2>Valorización N° ${String(p.n).padStart(2,"0")}</h2><div class="nota">${p.desde.split("-").reverse().join("/")} al ${p.hasta.split("-").reverse().join("/")} · metrados diarios registrados en Revit</div>
+    <div class="kpis"><div class="kpi"><small>Del mes (CD)</small><b>${nf(tM)}</b></div><div class="kpi"><small>Acumulado (CD)</small><b>${nf(tAc)}</b><small>${nf(tP?tAc/tP*100:0,1)}% del presupuesto</small></div><div class="kpi"><small>Del mes con GG, UT e IGV</small><b>${nf(sub*(1+igv))}</b></div></div>
+    <div class="nota">Costo directo ${nf(tM)} + gastos generales ${nf(gg*100,0)}% + utilidad ${nf(ut*100,0)}% = ${nf(sub)} · IGV ${nf(igv*100,0)}% = ${nf(sub*igv)}</div></div>` +
+    (filas ? `<table><thead><tr><th>Ítem</th><th>Descripción</th><th>Und</th><th class="n">Contrato</th><th class="n">Anterior</th><th class="n">Del mes</th><th class="n">Acumulado</th><th class="n">Saldo</th><th class="n">%</th><th class="n">Monto mes</th></tr></thead><tbody>${filas}</tbody></table>`
+           : '<div class="vacio">No hay metrados registrados hasta este periodo.</div>');
+  S._val = {p, ant, act};
+}
+$("#mes").addEventListener("change", pintarValorizacion);
+$("#csv").addEventListener("click", () => { if(!S._val) return; const {p, ant, act} = S._val;
+  const l = [["Item","Descripcion","Und","Metrado contrato","PU","Anterior","Del mes","Acumulado","Saldo","Monto del mes"].join(";")];
+  S.partidas.forEach(x => { const a = ant[x.item]||0, m = act[x.item]||0; l.push([x.item, '"'+x.desc.replace(/"/g,'""')+'"', x.und, x.metrado, x.pu, a, m, a+m, x.metrado-a-m, (m*x.pu).toFixed(2)].join(";")); });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob(["﻿" + l.join("\n")], {type:"text/csv"})); a.download = `Valorizacion_${String(p.n).padStart(2,"0")}.csv`; a.click(); });
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => { document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+  ["partidas","parte","valorizacion"].forEach(t => $("#tab-" + t).style.display = b.dataset.tab === t ? "" : "none"); if(b.dataset.tab === "parte") pintarParte(); }));
+
+/* ============================================================ parte diario: metrados registrados por día */
+function todosLosRegistros(){ const out = []; S.els.forEach(e => e.regs.forEach(r => out.push({...r, id:e.id, el:e}))); S.globalRegs.forEach(r => out.push({...r, id:0})); return out; }
+function pintarParte(){
+  if(!S.datos) return;
+  const regs = todosLosRegistros(), porDia = {};
+  regs.forEach(r => { const d = (porDia[r.f] ||= {n:0, monto:0}); d.n++; d.monto += r.q * (S.porItem[r.it]?.pu || 0); });
+  const dias = Object.keys(porDia).sort().reverse(), dia = $("#diaParte").value || dias[0] || hoy();
+  if(!$("#diaParte").value) $("#diaParte").value = dia;
+  const delDia = regs.filter(r => r.f === dia), grupos = {};
+  delDia.forEach(r => (grupos[r.it] ||= []).push(r));
+  let html = `<div class="pad"><h2>Parte del ${fmtD(dia)}</h2><div class="nota">${delDia.length} registros · S/ ${nf(delDia.reduce((s,r) => s + r.q*(S.porItem[r.it]?.pu||0), 0))} de costo directo</div></div>`;
+  html += Object.keys(grupos).sort().map(it => { const p = S.porItem[it], g = grupos[it], q = g.reduce((s,r) => s + r.q, 0);
+    return `<div class="cap">${it} · ${esc(p?.desc||"")}</div><table><thead><tr><th>Elemento</th><th>Nivel</th><th class="n">Cantidad</th><th class="n">S/</th></tr></thead><tbody>` +
+      g.map(r => `<tr class="cl" data-id="${r.id}"><td>${r.id ? esc(r.el.tipo) + `<div class="nota" style="margin:0">${r.id}</div>` : "Partida (sin elementos)"}</td><td>${r.id ? esc(r.el.nivel) : ""}</td><td class="n">${nf(r.q,3)}</td><td class="n">${nf(r.q*(p?.pu||0))}</td></tr>`).join("") +
+      `<tr><td colspan="2"><b>Total ${esc(p?.und||"")}</b></td><td class="n"><b>${nf(q,3)}</b></td><td class="n"><b>${nf(q*(p?.pu||0))}</b></td></tr></tbody></table>`; }).join("");
+  if(!delDia.length) html += '<div class="vacio">No hay metrados registrados este día.</div>';
+  html += `<h3 style="padding:0 12px">Días con registros (${dias.length})</h3>` + (dias.length ? `<table><tbody>${dias.map(d => `<tr class="cl dia ${d===dia?"sel":""}" data-dia="${d}"><td>${fmtD(d)}</td><td class="n">${porDia[d].n} reg.</td><td class="n">S/ ${nf(porDia[d].monto)}</td></tr>`).join("")}</tbody></table>` : '<div class="nota" style="padding:0 12px">Todavía no hay registros.</div>');
+  $("#parte").innerHTML = html;
+  $("#parte").querySelectorAll("tr.dia").forEach(tr => tr.onclick = () => { $("#diaParte").value = tr.dataset.dia; pintarParte(); });
+  $("#parte").querySelectorAll("tr.cl[data-id]").forEach(tr => tr.onclick = () => { const id = +tr.dataset.id; if(!id) return; S.selEl = id; S.selPartida = null; pintarLista(); pintarDetalle(); V.colorear(); V.encuadrar([S.porId[id]]); });
+}
+$("#diaParte").addEventListener("change", pintarParte);
+
+/* ============================================================ cronograma (Gantt) programado */
+function nombrePaquete(id){ return CRONO?.paquetes[id] || ({AN1:"Anillo 1 · muros anclados del semisótano", AN2:"Anillo 2 · muros anclados del sótano 1", "":"Generales y movimiento de tierras"}[id] ?? id); }
+const COL_TIPO = t => ["EXC","ANC","TEN","MUA","MAN","FPI"].includes(t) ? "#A0522D" : ["CIM","AV","EV","CV","ALB"].includes(t) ? "#2563EB" : ["EH","AH","CH"].includes(t) ? "#D4A14A" : "#7c8698";
+function pintarGantt(){
+  if(!CRONO){ $("#gantt").innerHTML = '<div class="vacio">El panel no tiene el cronograma incrustado: corre armar_panel.py.</div>'; return; }
+  const acts = CRONO.actividades, ini = CRONO.inicio, fin = DIAS_OBRA.at(-1);
+  const d0 = dISO(ini); d0.setDate(d0.getDate() - ((d0.getDay()+6)%7));               // lunes de la primera semana
+  const semanas = []; for(let d = new Date(d0); isoD(d) <= fin; d.setDate(d.getDate()+7)) semanas.push(isoD(d));
+  const PX = 14, ancho = semanas.length * 7 * PX, dx = s => Math.round((dISO(s) - d0) / 864e5) * PX;
+  const hoyX = dx(hoy()), grupos = [];
+  acts.forEach(a => { const k = a.paquete || ""; let g = grupos.find(x => x.k === k); if(!g) grupos.push(g = {k, acts:[]}); g.acts.push(a); });
+  let h = `<table><thead><tr><th class="fijo">Actividad</th><th>Inicio</th><th>Fin</th><th class="n">Días</th><th class="n">Monto CD</th><th style="padding:0"><div style="position:relative;width:${ancho}px;height:22px">` +
+    semanas.map((s,i) => `<span style="position:absolute;left:${i*7*PX}px;top:4px;font-weight:400;font-size:10px;color:var(--mut)">${fmtD(s).slice(0,5)}</span>`).join("") + `</div></th></tr></thead><tbody>`;
+  grupos.forEach(g => { h += `<tr class="grp"><td class="fijo" colspan="5">${esc(nombrePaquete(g.k))}</td><td></td></tr>`;
+    g.acts.forEach(a => { h += `<tr class="act ${S.selAct===a.id?"on":""}" data-act="${a.id}"><td class="fijo" title="${esc(a.id)}">${esc(a.nombre)}</td><td>${fmtD(a.inicio)}</td><td>${fmtD(a.fin)}</td><td class="n">${a.duracion}</td><td class="n">${nf(a.monto_cd,0)}</td>
+      <td class="g"><div style="position:relative;width:${ancho}px;height:21px">${hoyX>=0&&hoyX<=ancho?`<i style="position:absolute;left:${hoyX}px;top:0;bottom:0;width:1px;background:#DC2626"></i>`:""}<div class="gb" style="left:${dx(a.inicio)}px;width:${Math.max(PX, dx(a.fin)-dx(a.inicio)+PX)}px;background:${COL_TIPO(a.tipo)}" title="${esc(a.nombre)} · ${fmtD(a.inicio)} → ${fmtD(a.fin)}"></div></div></td></tr>`; }); });
+  h += `</tbody></table><div class="nota pad">Programado del cronograma (calendario lunes a sábado, sin feriados). Clic en una actividad para ver sus elementos en el 3D. Línea roja = hoy.</div>`;
+  $("#gantt").innerHTML = h;
+  $("#gantt").querySelectorAll("tr.act").forEach(tr => tr.onclick = () => { S.selAct = S.selAct === tr.dataset.act ? null : tr.dataset.act; S.selPartida = null; S.selEl = null;
+    $("#gantt").querySelectorAll("tr.act").forEach(x => x.classList.toggle("on", x.dataset.act === S.selAct)); pintarLista(); pintarDetalle(); V.colorear(); });
+}
+function elsDeActividad(id){ return S.els.filter(e => (CRONO?.elementos[e.id] || []).includes(id)); }
+function detalleActividad(box, a){
+  const els = elsDeActividad(a.id);
+  box.innerHTML = `<h2>${esc(a.nombre)}</h2><div class="nota">${esc(a.id)} · ${fmtD(a.inicio)} → ${fmtD(a.fin)} · ${a.duracion} días laborables · predecesoras: ${esc(a.predecesoras.join(", ") || "ninguna")}</div>
+    <div class="kpis"><div class="kpi"><small>Monto CD</small><b>${nf(a.monto_cd)}</b></div><div class="kpi"><small>Elementos</small><b>${els.length}</b></div><div class="kpi"><small>Partidas</small><b>${a.partidas.length}</b></div></div>
+    <h3>Metrado programado por partida</h3><table><thead><tr><th>Partida</th><th class="n">Metrado</th><th class="n">Ejecutado</th></tr></thead><tbody>` +
+    a.partidas.map(p => { const pp = S.porItem[p.item]; const ej = els.reduce((s,e) => s + (e.ejec[p.item]||0), 0);
+      return `<tr><td>${p.item}<div class="nota" style="margin:0">${esc(pp?.desc||"")}</div></td><td class="n">${nf(p.metrado)} ${esc(pp?.und||"")}</td><td class="n">${els.length ? nf(ej) : "-"}</td></tr>`; }).join("") + `</tbody></table>
+    <div class="nota">«Ejecutado» suma los metrados diarios registrados en los elementos de esta actividad.</div>`;
+}
+
+/* ============================================================ timeline 4D (solo lo programado) */
+function tlPintar(){ const i = +$("#tlDia").value, d = DIAS_OBRA[i]; if(!d) return; S.tl = d;
+  const pv = pvA(d), bac = CRONO.actividades.reduce((s,a) => s + a.monto_cd, 0);
+  $("#tlInfo").textContent = `${fmtD(d)} · día ${i+1} de ${DIAS_OBRA.length} · programado acumulado S/ ${nf(pv)} (${nf(bac?pv/bac*100:0,1)}%)`; V.colorear(); }
+$("#tlOn").addEventListener("change", () => { const on = $("#tlOn").checked; $("#tlPlay").disabled = $("#tlDia").disabled = !on;
+  if(on){ $("#tlDia").max = DIAS_OBRA.length - 1; const h = IDX[hoy()]; if(h != null) $("#tlDia").value = h; tlPintar(); } else { S.tl = null; tlParar(); $("#tlInfo").textContent = "Cronograma programado (sin datos reales)"; V.colorear(); } });
+$("#tlDia").addEventListener("input", tlPintar);
+let tlT = null; function tlParar(){ clearInterval(tlT); tlT = null; $("#tlPlay").textContent = "▶"; }
+$("#tlPlay").addEventListener("click", () => { if(tlT) return tlParar(); $("#tlPlay").textContent = "❚❚";
+  if(+$("#tlDia").value >= DIAS_OBRA.length - 1) $("#tlDia").value = 0;
+  tlT = setInterval(() => { const s = $("#tlDia"); if(+s.value >= +s.max) return tlParar(); s.value = +s.value + 1; tlPintar(); }, 90); });
+document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => { document.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b));
+  const g = b.dataset.vista === "gantt"; $("#gantt").hidden = !g; $("#timeline").hidden = g; if(g) pintarGantt(); else V.dibujar(); }));
+
+/* ============================================================ formato de valorización (imprimible) */
+const LS = "nexoNO_formato";
+function leerLS(){ try{ return JSON.parse(localStorage.getItem(LS)) || {}; }catch(e){ return {}; } }
+function guardarLS(o){ try{ localStorage.setItem(LS, JSON.stringify(o)); }catch(e){} }
+function abrirFormato(){ const c = leerLS(); $("#fAdel").value = c.adel ?? ""; $("#fMat").value = c.mat ?? ""; $("#fRet").value = c.ret ?? ""; $("#formato").hidden = false; pintarFormato(); }
+function pintarFormato(){
+  const {p, ant, act} = S._val, pie = S.datos.pie, gg = pie.gg||0, ut = pie.ut||0, igv = pie.igv||0;
+  const adel = (parseFloat($("#fAdel").value)||0)/100, mat = parseFloat($("#fMat").value)||0, ret = (parseFloat($("#fRet").value)||0)/100;
+  guardarLS({adel:$("#fAdel").value, mat:$("#fMat").value, ret:$("#fRet").value});
+  const filas = [...Object.entries(S.datos.capitulos).map(([it, d]) => ({it, d, cap:true})), ...S.partidas.map(x => ({it:x.item, x}))].sort((a,b) => a.it.localeCompare(b.it, "es", {numeric:true}));
+  const tot = it => { const t = {pre:0, ant:0, act:0}; S.partidas.forEach(x => { if(x.item.startsWith(it + ".")){ t.pre += x.metrado*x.pu; t.ant += (ant[x.item]||0)*x.pu; t.act += (act[x.item]||0)*x.pu; } }); return t; };
+  let cuerpo = "", T = {pre:0, ant:0, act:0};
+  filas.forEach(f => {
+    if(f.cap){ const t = tot(f.it); if(!t.pre) return; const ac = t.ant + t.act;
+      cuerpo += `<tr class="t"><td>${f.it}</td><td>${esc(f.d)}</td><td></td><td></td><td></td><td class="n">${nf(t.pre)}</td><td></td><td class="n">${nf(t.ant)}</td><td></td><td class="n">${nf(t.act)}</td><td></td><td class="n">${nf(ac)}</td><td class="n">${nf(t.pre?ac/t.pre*100:0,2)}%</td><td></td><td class="n">${nf(t.pre-ac)}</td></tr>`; return; }
+    const x = f.x, a = ant[x.item]||0, m = act[x.item]||0, ac = a + m, pre = x.metrado*x.pu;
+    T.pre += pre; T.ant += a*x.pu; T.act += m*x.pu;
+    cuerpo += `<tr><td>${x.item}</td><td>${esc(x.desc)}${ac > x.metrado + 1e-6 ? ' <b style="color:#b91c1c">(mayor metrado)</b>' : ""}</td><td>${esc(x.und)}</td><td class="n">${nf(x.metrado)}</td><td class="n">${nf(x.pu)}</td><td class="n">${nf(pre)}</td>
+      <td class="n">${nf(a)}</td><td class="n">${nf(a*x.pu)}</td><td class="n">${nf(m)}</td><td class="n">${nf(m*x.pu)}</td><td class="n">${nf(ac)}</td><td class="n">${nf(ac*x.pu)}</td><td class="n">${nf(x.metrado?ac/x.metrado*100:0,2)}%</td><td class="n">${nf(x.metrado-ac)}</td><td class="n">${nf(pre-ac*x.pu)}</td></tr>`; });
+  const T_ac = T.ant + T.act, linea = (lbl, f, cls="tot") => `<tr class="${cls}"><td></td><td>${lbl}</td><td colspan="3"></td><td class="n">${nf(f(T.pre))}</td><td></td><td class="n">${nf(f(T.ant))}</td><td></td><td class="n">${nf(f(T.act))}</td><td></td><td class="n">${nf(f(T_ac))}</td><td class="n">${nf(T.pre?f(T_ac)/f(T.pre)*100:0,2)}%</td><td></td><td class="n">${nf(f(T.pre)-f(T_ac))}</td></tr>`;
+  const sub = v => v*(1+gg+ut), tot1 = v => sub(v)*(1+igv);
+  const bruta = tot1(T.act), aAdel = bruta*adel, aRet = bruta*ret, neto = bruta - aAdel - mat - aRet;
+  const per = CRONO?.periodos.find(x => x.n === p.n), pvAc = per ? per.pv_acum : pvA(p.hasta), pvMes = per ? per.pv_mes : null;
+  $("#fHoja").innerHTML = `<div class="hoja"><h1>VALORIZACIÓN DE OBRA N° ${String(p.n).padStart(2,"0")}</h1><div class="sub">Periodo del ${fmtD(p.desde)} al ${fmtD(p.hasta)}</div>
+    <div class="cab"><div><b>Obra:</b> ${esc(S.datos.modelo)} · casco estructural</div><div><b>Moneda:</b> soles (S/), precios sin IGV</div>
+      <div><b>Inicio de obra:</b> ${fmtD(S.datos.inicio)}</div><div><b>Fecha de emisión:</b> ${fmtD(hoy())}</div>
+      <div><b>Fuente de metrados:</b> metrado diario registrado en Revit (VZ_Registro)</div><div><b>Presupuesto:</b> S10 v2 (costo directo S/ ${nf(T.pre)})</div></div>
+    <table><thead><tr><th rowspan="2">Ítem</th><th rowspan="2">Descripción</th><th rowspan="2">Und.</th><th colspan="3">Presupuesto contratado</th><th colspan="2">Anterior</th><th colspan="2">Del mes</th><th colspan="3">Acumulado</th><th colspan="2">Saldo</th></tr>
+      <tr><th>Metrado</th><th>P.U. S/</th><th>Parcial S/</th><th>Metrado</th><th>S/</th><th>Metrado</th><th>S/</th><th>Metrado</th><th>S/</th><th>%</th><th>Metrado</th><th>S/</th></tr></thead>
+    <tbody>${cuerpo}${linea("COSTO DIRECTO", v => v)}${linea(`GASTOS GENERALES (${nf(gg*100,2)}% del CD)`, v => v*gg, "")}${linea(`UTILIDAD (${nf(ut*100,2)}% del CD)`, v => v*ut, "")}
+      ${linea("SUBTOTAL", sub)}${linea(`IGV (${nf(igv*100,2)}%)`, v => sub(v)*igv, "")}${linea("TOTAL VALORIZADO", tot1)}</tbody></table>
+    <div class="res"><div>Avance económico del mes<b>${nf(T.pre?T.act/T.pre*100:0,2)}%</b>del costo directo contratado</div>
+      <div>Avance económico acumulado<b>${nf(T.pre?T_ac/T.pre*100:0,2)}%</b>S/ ${nf(T_ac)} de ${nf(T.pre)}</div>
+      <div>Programado acumulado al ${fmtD(p.hasta)}<b>${nf(T.pre?pvAc/T.pre*100:0,2)}%</b>S/ ${nf(pvAc)}${pvMes!=null?` · del mes S/ ${nf(pvMes)}`:""}</div>
+      <div>Índice de desempeño del cronograma (SPI)<b>${pvAc ? nf(T_ac/pvAc,3) : "-"}</b>${pvAc ? (T_ac >= pvAc ? "adelantado o a tiempo" : "atrasado respecto al programa") : "sin programado"}</div></div>
+    <table style="max-width:620px;margin-left:auto"><tbody>
+      <tr><td>Costo directo del mes</td><td class="n">${nf(T.act)}</td><td class="n">100.00%</td></tr>
+      <tr><td>Gastos generales (costo indirecto)</td><td class="n">${nf(T.act*gg)}</td><td class="n">${nf(gg*100,2)}%</td></tr>
+      <tr><td>Utilidad (costo indirecto)</td><td class="n">${nf(T.act*ut)}</td><td class="n">${nf(ut*100,2)}%</td></tr>
+      <tr class="tot"><td>Subtotal</td><td class="n">${nf(sub(T.act))}</td><td class="n">${nf((1+gg+ut)*100,2)}%</td></tr>
+      <tr><td>IGV</td><td class="n">${nf(sub(T.act)*igv)}</td><td class="n">${nf(igv*100,2)}% del subtotal</td></tr>
+      <tr class="tot"><td>Valorización bruta del mes</td><td class="n">${nf(bruta)}</td><td></td></tr>
+      <tr><td>(-) Amortización de adelanto directo</td><td class="n">${nf(-aAdel)}</td><td class="n">${nf(adel*100,2)}%</td></tr>
+      <tr><td>(-) Amortización de adelanto de materiales</td><td class="n">${nf(-mat)}</td><td></td></tr>
+      <tr><td>(-) Retención por fondo de garantía</td><td class="n">${nf(-aRet)}</td><td class="n">${nf(ret*100,2)}%</td></tr>
+      <tr class="neto"><td>NETO A PAGAR</td><td class="n">${nf(neto)}</td><td></td></tr></tbody></table>
+    <div class="nota2">Gastos generales, utilidad e IGV tomados del presupuesto S10 v2. Amortizaciones y retención: los escribe el usuario (por defecto 0). El programado viene del cronograma (calendario lunes a sábado). Metrados mayores al contrato se marcan como «mayor metrado».</div>
+    <div class="firmas"><div>Residente de obra</div><div>Supervisión</div><div>Propietario</div></div></div>`;
+}
+$("#verFormato").addEventListener("click", () => { if(S._val) abrirFormato(); });
+$("#fCerrar").addEventListener("click", () => $("#formato").hidden = true);
+$("#fImprimir").addEventListener("click", () => print());
+["#fAdel","#fMat","#fRet"].forEach(s => $(s).addEventListener("input", pintarFormato));
+
+/* ============================================================ visor 3D (WebGL) */
+const V = (() => {
+  const cv = $("#cv"); const gl = cv.getContext("webgl", {antialias:true, preserveDrawingBuffer:false});
+  if(!gl){ $("#info3d").textContent = "Este navegador no tiene WebGL."; return {colorear(){}, encuadrar(){}, resaltar(){}}; }
+  const vs = `attribute vec3 p; attribute vec3 n; uniform mat4 mvp; uniform vec3 luz; varying float l;
+    void main(){ gl_Position = mvp * vec4(p,1.0); l = 0.45 + 0.55*abs(dot(normalize(n), luz)); }`;
+  const fs = `precision mediump float; uniform vec4 col; uniform float plano; varying float l; void main(){ gl_FragColor = plano > 0.5 ? col : vec4(col.rgb*l, col.a); }`;
+  const sh = (t, s) => { const x = gl.createShader(t); gl.shaderSource(x, s); gl.compileShader(x); return x; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  const U = n => gl.getUniformLocation(pr, n), aP = gl.getAttribLocation(pr, "p"), aN = gl.getAttribLocation(pr, "n");
+  let rangos = [], centro = [0,0,0], radio = 30, cam = {th:-0.8, ph:0.55, d:60, t:[0,0,0]}, colores = {}, resaltado = null;
+  let fb = null, fbTex = null, fbW = 0, fbH = 0;
+
+  function cargar(geo){
+    let tot = 0; geo.elementos.forEach(e => tot += e.v.length);
+    const P = new Float32Array(tot), N = new Float32Array(tot); let o = 0; rangos = [];
+    let mn = [1e9,1e9,1e9], mx = [-1e9,-1e9,-1e9];
+    geo.elementos.forEach(e => { const v = e.v, ini = o / 3;
+      for(let i = 0; i < v.length; i += 9){
+        const ax=v[i+3]-v[i], ay=v[i+4]-v[i+1], az=v[i+5]-v[i+2], bx=v[i+6]-v[i], by=v[i+7]-v[i+1], bz=v[i+8]-v[i+2];
+        let nx=ay*bz-az*by, ny=az*bx-ax*bz, nz=ax*by-ay*bx; const L = Math.hypot(nx,ny,nz)||1; nx/=L; ny/=L; nz/=L;
+        for(let k = 0; k < 9; k += 3){ P[o]=v[i+k]; P[o+1]=v[i+k+1]; P[o+2]=v[i+k+2]; N[o]=nx; N[o+1]=ny; N[o+2]=nz;
+          for(let c = 0; c < 3; c++){ mn[c] = Math.min(mn[c], P[o+c]); mx[c] = Math.max(mx[c], P[o+c]); } o += 3; } }
+      rangos.push({id:e.id, ini, n:o/3 - ini, idc:[((rangos.length+1)&255)/255, (((rangos.length+1)>>8)&255)/255, (((rangos.length+1)>>16)&255)/255]}); });
+    const bP = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, bP); gl.bufferData(gl.ARRAY_BUFFER, P, gl.STATIC_DRAW); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP, 3, gl.FLOAT, false, 0, 0);
+    const bN = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, bN); gl.bufferData(gl.ARRAY_BUFFER, N, gl.STATIC_DRAW); gl.enableVertexAttribArray(aN); gl.vertexAttribPointer(aN, 3, gl.FLOAT, false, 0, 0);
+    centro = mn.map((a,i) => (a + mx[i]) / 2); radio = Math.hypot(mx[0]-mn[0], mx[1]-mn[1], mx[2]-mn[2]) / 2;
+    cam.t = centro.slice(); cam.d = radio * 2.6; colorear();
+  }
+  /* matrices */
+  function persp(f, a, n, l){ const t = 1/Math.tan(f/2); return [t/a,0,0,0, 0,t,0,0, 0,0,(l+n)/(n-l),-1, 0,0,2*l*n/(n-l),0]; }
+  function mul(a, b){ const r = new Array(16); for(let i=0;i<4;i++) for(let j=0;j<4;j++){ let s=0; for(let k=0;k<4;k++) s += a[k*4+j]*b[i*4+k]; r[i*4+j]=s; } return r; }
+  function mira(e, t){ const up=[0,0,1]; let z=[e[0]-t[0],e[1]-t[1],e[2]-t[2]]; let L=Math.hypot(...z); z=z.map(x=>x/L);
+    let x=[up[1]*z[2]-up[2]*z[1], up[2]*z[0]-up[0]*z[2], up[0]*z[1]-up[1]*z[0]]; L=Math.hypot(...x)||1; x=x.map(v=>v/L);
+    const y=[z[1]*x[2]-z[2]*x[1], z[2]*x[0]-z[0]*x[2], z[0]*x[1]-z[1]*x[0]];
+    return [x[0],y[0],z[0],0, x[1],y[1],z[1],0, x[2],y[2],z[2],0, -(x[0]*e[0]+x[1]*e[1]+x[2]*e[2]), -(y[0]*e[0]+y[1]*e[1]+y[2]*e[2]), -(z[0]*e[0]+z[1]*e[1]+z[2]*e[2]), 1]; }
+  function ojo(){ return [cam.t[0] + cam.d*Math.cos(cam.ph)*Math.cos(cam.th), cam.t[1] + cam.d*Math.cos(cam.ph)*Math.sin(cam.th), cam.t[2] + cam.d*Math.sin(cam.ph)]; }
+
+  function colorear(){
+    colores = {}; const modo = $("#modo").value, sp = S.selPartida;
+    S.els.forEach(e => {
+      let c;
+      if(modo === "sector") c = e.sector === "A" ? [0.15,0.39,0.92] : [0.90,0.72,0.41];
+      else { const pr = e.partidas.find(x => x.clase === "concreto" || x.clase === "muro"), ex = pr ? (e.ejec[pr.item]||0) : 0, alguno = Object.values(e.ejec).some(q => q > 1e-9);
+        c = pr && ex >= pr.metrado*0.999 ? [0.09,0.64,0.29] : alguno ? [0.96,0.62,0.04] : [0.62,0.66,0.72]; }
+      let a = 1;
+      if(S.tl){ const st = estadoProg(e.id, S.tl);
+        colores[e.id] = st === 2 ? [0.09,0.64,0.29,1] : st === 1 ? [0.96,0.62,0.04,1] : [0.55,0.6,0.7,0.06]; return; }
+      if(S.selAct){ const en = (CRONO?.elementos[e.id] || []).includes(S.selAct);
+        colores[e.id] = en ? [0.90,0.72,0.41,1] : [0.55,0.6,0.7,0.07]; return; }
+      if(sp){ const pc = e.partidas.find(x => x.item === sp);
+        if(pc){ const ex = e.ejec[sp]||0; c = ex > pc.metrado*1.000001 ? [0.86,0.15,0.15] : ex >= pc.metrado*0.999 ? [0.09,0.64,0.29] : ex > 1e-9 ? [0.96,0.62,0.04] : [0.90,0.72,0.41]; }
+        else { c = [0.55,0.6,0.7]; a = 0.07; } }
+      if(S.selEl && e.id !== S.selEl && !sp){ a = Math.min(a, 0.12); }
+      if(e.id === resaltado || e.id === S.selEl){ c = [0.15,0.39,0.92]; a = 1; }
+      colores[e.id] = [c[0], c[1], c[2], a];
+    });
+    leyenda(); dibujar();
+  }
+  function leyenda(){ const it = (c, t) => `<span><i style="background:${c}"></i>${t}</span>`;
+    if(S.tl){ $("#leyenda").innerHTML = it("#16A34A","Vaciado según programa") + it("#F59E0B","En ejecución programada") + it("rgba(140,153,178,.35)","Aún no programado"); return; }
+    if(S.selAct){ $("#leyenda").innerHTML = it("#E5B869","Elementos de la actividad " + esc(S.selAct)) + it("rgba(140,153,178,.35)","Otros"); return; }
+    $("#leyenda").innerHTML = $("#modo").value === "sector" ? it("#2563EB","Sector A") + it("#E5B869","Sector B")
+      : S.selPartida ? it("#E5B869","Sin ejecutar") + it("#F59E0B","Parcial") + it("#16A34A","Completo") + it("#DC2626","Mayor metrado") + it("rgba(140,153,178,.35)","Otros (transparentes)")
+      : it("#9EA8B8","Sin avance") + it("#F59E0B","En ejecución") + it("#16A34A","Vaciado"); }
+
+  function dibujar(pick){
+    const w = cv.clientWidth, h = cv.clientHeight, dpr = Math.min(2, devicePixelRatio || 1);
+    if(cv.width !== w*dpr || cv.height !== h*dpr){ cv.width = w*dpr; cv.height = h*dpr; }
+    gl.viewport(0, 0, cv.width, cv.height);
+    const e = ojo(), mvp = mul(persp(0.8, cv.width/Math.max(1,cv.height), Math.max(0.05, cam.d - radio*3), cam.d + radio*3), mira(e, cam.t));
+    gl.uniformMatrix4fv(U("mvp"), false, mvp);
+    const lz = [e[0]-cam.t[0]+radio, e[1]-cam.t[1]-radio, e[2]-cam.t[2]+radio*2], L = Math.hypot(...lz); gl.uniform3f(U("luz"), lz[0]/L, lz[1]/L, lz[2]/L);
+    gl.uniform1f(U("plano"), pick ? 1 : 0);
+    gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); gl.enable(gl.DEPTH_TEST);
+    const vis = r => { const el = S.porId[r.id]; return el && visible(el); };
+    gl.disable(gl.BLEND); gl.depthMask(true);
+    rangos.forEach(r => { if(!vis(r)) return; const c = colores[r.id] || [0.6,0.6,0.6,1]; if(!pick && c[3] < 1) return;
+      gl.uniform4f(U("col"), ...(pick ? [...r.idc, 1] : c)); gl.drawArrays(gl.TRIANGLES, r.ini, r.n); });
+    if(pick) return;
+    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA); gl.depthMask(false);
+    rangos.forEach(r => { if(!vis(r)) return; const c = colores[r.id]; if(!c || c[3] >= 1) return; gl.uniform4f(U("col"), ...c); gl.drawArrays(gl.TRIANGLES, r.ini, r.n); });
+    gl.depthMask(true);
+  }
+  function elegir(x, y){
+    const dpr = cv.width / cv.clientWidth;
+    if(!fb || fbW !== cv.width || fbH !== cv.height){ fb = gl.createFramebuffer(); gl.bindFramebuffer(gl.FRAMEBUFFER, fb);
+      fbTex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, fbTex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, cv.width, cv.height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
+      gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, fbTex, 0);
+      const rb = gl.createRenderbuffer(); gl.bindRenderbuffer(gl.RENDERBUFFER, rb); gl.renderbufferStorage(gl.RENDERBUFFER, gl.DEPTH_COMPONENT16, cv.width, cv.height);
+      gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_ATTACHMENT, gl.RENDERBUFFER, rb); fbW = cv.width; fbH = cv.height; }
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fb); dibujar(true);
+    const px = new Uint8Array(4); gl.readPixels(Math.round(x*dpr), Math.round(cv.height - y*dpr), 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+    gl.bindFramebuffer(gl.FRAMEBUFFER, null); dibujar();
+    const k = px[0] + (px[1] << 8) + (px[2] << 16); return k ? rangos[k-1]?.id : null;
+  }
+  /* interacción */
+  let arr = null;
+  cv.addEventListener("contextmenu", e => e.preventDefault());
+  cv.addEventListener("pointerdown", e => { arr = {x:e.clientX, y:e.clientY, b:e.button, sh:e.shiftKey, mov:0}; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener("pointermove", e => { if(!arr) return; const dx = e.clientX - arr.x, dy = e.clientY - arr.y; arr.x = e.clientX; arr.y = e.clientY; arr.mov += Math.abs(dx) + Math.abs(dy);
+    if(arr.b === 2 || arr.sh){ const s = cam.d * 0.0016, ct = Math.cos(cam.th), st = Math.sin(cam.th), cp = Math.cos(cam.ph), sp = Math.sin(cam.ph);
+      const der = [-st, ct, 0], arriba = [-sp*ct, -sp*st, cp];   // ejes de pantalla
+      for(let i = 0; i < 3; i++) cam.t[i] += (-der[i]*dx + arriba[i]*dy) * s; }
+    else { cam.th -= dx * 0.008; cam.ph = Math.max(-1.5, Math.min(1.5, cam.ph + dy * 0.008)); }
+    dibujar(); });
+  cv.addEventListener("pointerup", e => { if(arr && arr.mov < 4 && arr.b === 0){ const r = cv.getBoundingClientRect(), id = elegir(e.clientX - r.left, e.clientY - r.top);
+      S.selEl = id || null; if(id){ S.selPartida = null; S.selAct = null; } pintarLista(); pintarDetalle(); colorear();
+      if(id){ const el = S.porId[id]; $("#info3d").textContent = `${el.tipo} · ${el.nivel} · ${el.paquete}-${el.sector} · ElementId ${id}`; } }
+    arr = null; });
+  cv.addEventListener("wheel", e => { e.preventDefault(); cam.d = Math.max(radio*0.05, Math.min(radio*8, cam.d * (e.deltaY > 0 ? 1.12 : 0.89))); dibujar(); }, {passive:false});
+  addEventListener("resize", () => dibujar());
+  function encuadrar(lista){
+    const ids = new Set((lista && lista.length ? lista : S.els).filter(visible).map(e => e.id)); let mn=[1e9,1e9,1e9], mx=[-1e9,-1e9,-1e9];
+    const g = S.geo; if(!g) return;
+    g.elementos.forEach(e => { if(!ids.has(e.id)) return; for(let i = 0; i < e.v.length; i += 3) for(let c = 0; c < 3; c++){ mn[c] = Math.min(mn[c], e.v[i+c]); mx[c] = Math.max(mx[c], e.v[i+c]); } });
+    if(mn[0] > mx[0]) return; cam.t = mn.map((a,i) => (a+mx[i])/2); cam.d = Math.max(4, Math.hypot(mx[0]-mn[0], mx[1]-mn[1], mx[2]-mn[2]) * 1.4); dibujar();
+  }
+  function resaltar(id){ resaltado = id; colorear(); }
+  return {cargar, colorear, dibujar, encuadrar, resaltar};
+})();
+
+$("#nivel").addEventListener("change", () => { pintarDetalle(); V.colorear(); V.encuadrar(); });
+$("#hasta").addEventListener("change", () => { pintarDetalle(); V.colorear(); V.encuadrar(); });
+$("#modo").addEventListener("change", () => V.colorear());
+$("#limpiar").addEventListener("click", () => { S.selPartida = null; S.selEl = null; S.selAct = null; V.resaltar(null); pintarLista(); pintarDetalle(); $("#info3d").textContent = "Arrastra para girar · rueda para acercar · clic derecho o Shift para desplazar · clic para seleccionar"; });
+$("#encuadre").addEventListener("click", () => V.encuadrar(S.selPartida ? S.elsDePartida[S.selPartida] : null));
+$("#recargar").addEventListener("click", () => cargarDatos().then(() => toast("Datos actualizados desde Revit")).catch(e => estado(false, e.message)));
+$("#fecha").value = hoy();
+$("#fecha").addEventListener("change", pintarDetalle);
+
+(async () => {
+  try{
+    await cargarDatos();
+    $("#info3d").textContent = "Cargando la geometría del modelo…";
+    S.geo = await api("/api/geometria"); V.cargar(S.geo);
+    $("#info3d").textContent = `${S.geo.elementos.length} elementos en 3D · arrastra para girar · rueda para acercar · clic derecho o Shift para desplazar · clic para seleccionar`;
+  }catch(e){ estado(false, "Sin conexión con Revit: " + e.message); $("#detalle").innerHTML = `<div class="vacio err">${esc(e.message)}<br><br>Abre Revit con el modelo y pulsa «NEXO OBRA (NO) → Abrir panel».</div>`; }
+})();
+</script>
+</body>
+</html>

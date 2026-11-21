@@ -1,0 +1,210 @@
+{
+  "Uuid": "b10be3bf-3912-434c-948b-b68edb3f6a1b",
+  "IsCustomNode": false,
+  "Description": "NEXO OBRA (NO): crea los 15 parámetros VZ_ de valorización y control en las categorías estructurales, los llena con el cronograma y el presupuesto (archivo JSON), respeta las fechas de ejecución y crea las vistas VZ - SECTORES, VZ - ESTADO y la tabla VZ - VALORIZACION. Se puede correr varias veces.",
+  "Name": "Cargar_Parametros_NEXO_NO",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "0c5301121ea84b8892adf364f9ab4bb4",
+      "Name": "Archivo de datos (parametros_revit_<modelo>.json)",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "D:\\NEXO OBRA (NO)\\3_Modelo_y_parametros\\parametros_revit_REP0-MOD2-R02.json",
+      "Description": "Crea una cadena."
+    },
+    {
+      "Id": "5e79b215df5a4f08a7cdfaa397677598",
+      "Name": "Fecha de corte (dd/mm/aaaa, vacío = hoy)",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "",
+      "Description": "Crea una cadena."
+    }
+  ],
+  "Outputs": [
+    {
+      "Id": "b966321a20a745e6a3cf183abf5fef6e",
+      "Name": "Reporte",
+      "Type": "unknown",
+      "InitialValue": "",
+      "Description": "Resultado del script."
+    }
+  ],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "SerializedWidth": 0.0,
+      "SerializedHeight": 0.0,
+      "Id": "0c5301121ea84b8892adf364f9ab4bb4",
+      "NodeType": "StringInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ceedcc89c9ab40c0a197811e766e760f",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crea una cadena.",
+      "InputValue": "D:\\NEXO OBRA (NO)\\3_Modelo_y_parametros\\parametros_revit_REP0-MOD2-R02.json"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "SerializedWidth": 0.0,
+      "SerializedHeight": 0.0,
+      "Id": "5e79b215df5a4f08a7cdfaa397677598",
+      "NodeType": "StringInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "07027b85cd4746d5828fe12c5fe949d7",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crea una cadena.",
+      "InputValue": ""
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "Code": "# -*- coding: utf-8 -*-\n# NEXO OBRA (NO) · Cargar parámetros VZ_ de valorización y control (Revit 2027 · Dynamo 4 · PythonNet3 / CPython 3)\n#\n# MODIFICA EL MODELO (no lo guarda):\n#   1. Crea 15 parámetros compartidos VZ_ (por ejemplar, grupo «Datos de identidad») en las categorías estructurales.\n#   2. Escribe en cada elemento su paquete, sector, actividad, partida, fecha programada, metrados y montos,\n#      leídos de parametros_revit_<modelo>.json (lo genera cronograma_nexo.py a partir del cronograma y el presupuesto).\n#   3. NUNCA borra las fechas de ejecución (VZ_Fecha_Acero / Encofrado / Concreto): las respeta y con ellas calcula\n#      VZ_Estado, VZ_Monto_Valorizado y VZ_Valorizacion_N a la fecha de corte.\n#   4. Crea las vistas 3D «VZ - SECTORES» y «VZ - ESTADO» con colores y la tabla «VZ - VALORIZACION».\n# Se puede correr las veces que quieras: no duplica nada, solo actualiza valores.\n#\n# Entradas: IN[0] = ruta del JSON de datos · IN[1] = fecha de corte dd/mm/aaaa (vacío = hoy)\n\nimport clr, os, json, datetime\nclr.AddReference(\"RevitAPI\")\nfrom Autodesk.Revit.DB import *\nclr.AddReference(\"RevitServices\")\nfrom RevitServices.Persistence import DocumentManager\nfrom RevitServices.Transactions import TransactionManager\nimport System\nfrom System.Collections.Generic import List\n\ndoc = DocumentManager.Instance.CurrentDBDocument\napp = DocumentManager.Instance.CurrentUIApplication.Application\n\nGRUPO = \"NEXO OBRA (NO)\"\nCARPETA = os.path.dirname(doc.PathName) or os.environ[\"TEMP\"]\nARCHIVO_SP = os.path.join(CARPETA, \"Parametros_NEXO_NO.txt\")\nCATEGORIAS = [BuiltInCategory.OST_StructuralFoundation, BuiltInCategory.OST_StructuralColumns,\n              BuiltInCategory.OST_StructuralFraming, BuiltInCategory.OST_Floors, BuiltInCategory.OST_Walls,\n              BuiltInCategory.OST_Stairs, BuiltInCategory.OST_Ramps]\n\nTXT, ENT, NUM, VOL, ARE, MON = \"txt\", \"ent\", \"num\", \"vol\", \"are\", \"mon\"\n# (nombre, tipo, descripción, quién lo escribe)\nPARAMETROS = [\n    # --- planificación (los escribe este Dynamo desde el cronograma)\n    (\"VZ_Paquete\", TXT, \"Paquete de vaciado: T01..T10 (verticales de un nivel + techo superior), CIM, AN1, AN2\", \"Dynamo\"),\n    (\"VZ_Sector\", TXT, \"Sector del paquete: A o B\", \"Dynamo\"),\n    (\"VZ_Actividad\", TXT, \"Actividad del cronograma que vacía el elemento (ej. T05-CV-A)\", \"Dynamo\"),\n    (\"VZ_Partida\", TXT, \"Ítem del presupuesto S10 del concreto del elemento (ej. 04.06.01)\", \"Dynamo\"),\n    (\"VZ_Fecha_Prog\", TXT, \"Fecha programada de vaciado (dd/mm/aaaa)\", \"Dynamo\"),\n    # --- metrado y costo contractual (los escribe este Dynamo desde el presupuesto)\n    (\"VZ_Concreto_m3\", VOL, \"Metrado de concreto del presupuesto (aligerado: 0.0875 m3/m2)\", \"Dynamo\"),\n    (\"VZ_Encofrado_m2\", ARE, \"Metrado de encofrado del presupuesto\", \"Dynamo\"),\n    (\"VZ_Acero_kg\", NUM, \"Acero de refuerzo del presupuesto (kg, por cuantía)\", \"Dynamo\"),\n    (\"VZ_Monto_Contractual\", MON, \"Costo directo del elemento: concreto + encofrado + acero (S/ sin IGV)\", \"Dynamo\"),\n    # --- ejecución (las escribe la app NEXO OBRA o el residente; este Dynamo no las borra)\n    (\"VZ_Fecha_Acero\", TXT, \"Fecha real de colocación del acero (dd/mm/aaaa)\", \"App\"),\n    (\"VZ_Fecha_Encofrado\", TXT, \"Fecha real del encofrado (dd/mm/aaaa)\", \"App\"),\n    (\"VZ_Fecha_Concreto\", TXT, \"Fecha real de vaciado (dd/mm/aaaa)\", \"App\"),\n    # --- control (se calculan a la fecha de corte)\n    (\"VZ_Estado\", TXT, \"Programado · Atrasado · En ejecución · Ejecutado · Revisar fecha\", \"Calculado\"),\n    (\"VZ_Monto_Valorizado\", MON, \"Monto valorizado a la fecha de corte (S/ sin IGV)\", \"Calculado\"),\n    (\"VZ_Valorizacion_N\", ENT, \"N° de valorización mensual de la última etapa ejecutada (1 = primer mes de obra)\", \"Calculado\"),\n]\nSPEC = {TXT: SpecTypeId.String.Text, ENT: SpecTypeId.Int.Integer, NUM: SpecTypeId.Number,\n        VOL: SpecTypeId.Volume, ARE: SpecTypeId.Area, MON: SpecTypeId.Currency}\nCOLOR_SECTOR = {\"A\": (37, 99, 235), \"B\": (229, 184, 105)}\nCOLOR_ESTADO = {\"Programado\": (200, 200, 200), \"Atrasado\": (220, 38, 38), \"En ejecución\": (245, 158, 11),\n                \"Ejecutado\": (22, 163, 74), \"Revisar fecha\": (147, 51, 234)}\n\n\ndef leer_fecha(texto):\n    \"\"\"dd/mm/aaaa → date · vacío → None · ilegible → 'error'.\"\"\"\n    if texto is None or not str(texto).strip():\n        return None\n    t = str(texto).strip().replace(\"-\", \"/\").replace(\".\", \"/\")\n    for fmt in (\"%d/%m/%Y\", \"%d/%m/%y\"):\n        try:\n            return datetime.datetime.strptime(t, fmt).date()\n        except ValueError:\n            pass\n    return \"error\"\n\n\ndef a_id(n):\n    try:\n        return ElementId(System.Int64(n))\n    except Exception:\n        return ElementId(n)\n\n\ndef poner(el, nombre, valor):\n    \"\"\"Escribe un valor según el tipo de almacenamiento del parámetro.\"\"\"\n    p = el.LookupParameter(nombre)\n    if p is None or p.IsReadOnly:\n        return False\n    st = p.StorageType\n    if st == StorageType.String:\n        return p.Set(str(valor))\n    if st == StorageType.Integer:\n        try:\n            return p.Set.Overloads[System.Int32](int(valor))\n        except Exception:\n            return p.Set(int(valor))\n    if st == StorageType.Double:\n        try:\n            return p.Set.Overloads[System.Double](float(valor))\n        except Exception:\n            return p.Set(float(valor))\n    return False\n\n\ndef texto(el, nombre):\n    p = el.LookupParameter(nombre)\n    return (p.AsString() or \"\") if p is not None else \"\"\n\n\ndef color(rgb):\n    return Color(System.Byte(rgb[0]), System.Byte(rgb[1]), System.Byte(rgb[2]))\n\n\nm3 = lambda v: UnitUtils.ConvertToInternalUnits(v, UnitTypeId.CubicMeters)\nm2 = lambda v: UnitUtils.ConvertToInternalUnits(v, UnitTypeId.SquareMeters)\nreporte = []\n\ntry:\n    # ------------------------------------------------------------------ entradas\n    ruta = IN[0] if len(IN) > 0 and IN[0] else \"\"\n    if not ruta or not os.path.exists(ruta):\n        raise Exception(\"No encuentro el archivo de datos: %s\" % ruta)\n    with open(ruta, encoding=\"utf-8\") as fh:\n        datos = json.load(fh)\n    modelo = os.path.splitext(os.path.basename(doc.PathName or doc.Title))[0]\n    if datos.get(\"modelo\") and datos[\"modelo\"].lower() != modelo.lower():\n        reporte.append(\"AVISO: el archivo es del modelo %s y el abierto es %s.\" % (datos[\"modelo\"], modelo))\n    corte = leer_fecha(IN[1] if len(IN) > 1 else \"\")\n    if corte in (None, \"error\"):\n        if corte == \"error\":\n            reporte.append(\"Fecha de corte ilegible: se usa la de hoy.\")\n        corte = datetime.date.today()\n    inicio = datetime.date.fromisoformat(datos[\"inicio_obra\"])\n    reporte.append(\"Fecha de corte: %s · inicio de obra %s\" % (corte.strftime(\"%d/%m/%Y\"), inicio.strftime(\"%d/%m/%Y\")))\n\n    TransactionManager.Instance.EnsureInTransaction(doc)\n\n    # ------------------------------------------------------------------ 1. parámetros compartidos\n    vinculados = {}\n    it = doc.ParameterBindings.ForwardIterator(); it.Reset()\n    while it.MoveNext():\n        vinculados[it.Key.Name] = it.Key\n    sp_original = app.SharedParametersFilename\n    creados, existian = [], []\n    try:\n        if not os.path.exists(ARCHIVO_SP):\n            open(ARCHIVO_SP, \"w\").close()\n        app.SharedParametersFilename = ARCHIVO_SP\n        archivo = app.OpenSharedParameterFile()\n        grupo = archivo.Groups.get_Item(GRUPO) or archivo.Groups.Create(GRUPO)\n        cats = app.Create.NewCategorySet()\n        for bic in CATEGORIAS:\n            cat = Category.GetCategory(doc, bic)\n            if cat is not None and cat.AllowsBoundParameters:\n                cats.Insert(cat)\n        vinculo = app.Create.NewInstanceBinding(cats)\n        for nombre, tipo, desc, _ in PARAMETROS:\n            definicion = grupo.Definitions.get_Item(nombre)\n            if definicion is None:\n                opc = ExternalDefinitionCreationOptions(nombre, SPEC[tipo])\n                opc.Description = desc\n                definicion = grupo.Definitions.Create(opc)\n            if nombre in vinculados:\n                doc.ParameterBindings.ReInsert(vinculados[nombre], vinculo, GroupTypeId.IdentityData)\n                existian.append(nombre)\n            elif doc.ParameterBindings.Insert(definicion, vinculo, GroupTypeId.IdentityData):\n                creados.append(nombre)\n    finally:\n        app.SharedParametersFilename = sp_original\n    doc.Regenerate()\n    reporte.append(\"Parámetros VZ_: %d creados · %d ya existían · archivo %s\" % (len(creados), len(existian), ARCHIVO_SP))\n\n    id_param = {}\n    it = doc.ParameterBindings.ForwardIterator(); it.Reset()\n    while it.MoveNext():\n        if it.Key.Name.startswith(\"VZ_\"):\n            id_param[it.Key.Name] = it.Key.Id\n\n    # ------------------------------------------------------------------ 2-3. valores por elemento\n    escritos, faltan, fechas_malas, conteo = 0, [], [], {}\n    contractual, valorizado_total = 0.0, 0.0\n    for e in datos[\"elementos\"]:\n        el = doc.GetElement(a_id(e[\"id\"]))\n        if el is None:\n            faltan.append(e[\"id\"]); continue\n        monto = round(e[\"monto_concreto\"] + e[\"monto_encofrado\"] + e[\"monto_acero\"], 2)\n        ok = all([\n            poner(el, \"VZ_Paquete\", e[\"paquete\"]), poner(el, \"VZ_Sector\", e[\"sector\"]),\n            poner(el, \"VZ_Actividad\", e[\"actividad\"]), poner(el, \"VZ_Partida\", e[\"partida\"]),\n            poner(el, \"VZ_Fecha_Prog\", e[\"fecha_prog\"]),\n            poner(el, \"VZ_Concreto_m3\", m3(e[\"concreto_m3\"])), poner(el, \"VZ_Encofrado_m2\", m2(e[\"encofrado_m2\"])),\n            poner(el, \"VZ_Acero_kg\", e[\"acero_kg\"]), poner(el, \"VZ_Monto_Contractual\", monto)])\n        # ejecución: se leen, no se tocan\n        fa, fe, fc = (leer_fecha(texto(el, n)) for n in (\"VZ_Fecha_Acero\", \"VZ_Fecha_Encofrado\", \"VZ_Fecha_Concreto\"))\n        prog = leer_fecha(e[\"fecha_prog\"])\n        if \"error\" in (fa, fe, fc):\n            estado, val, ult = \"Revisar fecha\", 0.0, None\n            fechas_malas.append(e[\"id\"])\n        else:\n            hechas = [(d, m) for d, m in ((fa, e[\"monto_acero\"]), (fe, e[\"monto_encofrado\"]), (fc, e[\"monto_concreto\"]))\n                      if d is not None and d <= corte]\n            val = round(sum(m for _, m in hechas), 2)\n            ult = max((d for d, _ in hechas), default=None)\n            if fc is not None and fc <= corte:\n                estado = \"Ejecutado\"\n            elif hechas:\n                estado = \"En ejecución\"\n            elif prog and corte > prog:\n                estado = \"Atrasado\"\n            else:\n                estado = \"Programado\"\n        n_val = (ult.year - inicio.year) * 12 + ult.month - inicio.month + 1 if ult else 0\n        ok = all([ok, poner(el, \"VZ_Estado\", estado), poner(el, \"VZ_Monto_Valorizado\", val),\n                  poner(el, \"VZ_Valorizacion_N\", n_val)])\n        escritos += 1 if ok else 0\n        conteo[estado] = conteo.get(estado, 0) + 1\n        contractual += monto; valorizado_total += val\n    reporte.append(\"Elementos escritos: %d de %d\" % (escritos, len(datos[\"elementos\"])))\n    if faltan:\n        reporte.append(\"No encontrados en el modelo (%d): %s\" % (len(faltan), faltan[:20]))\n    if fechas_malas:\n        reporte.append(\"Fechas ilegibles (usa dd/mm/aaaa) en: %s\" % fechas_malas[:20])\n    reporte.append(\"Estados: \" + \" · \".join(\"%s %d\" % kv for kv in sorted(conteo.items())))\n    reporte.append(\"Contractual S/ {:,.2f} · valorizado S/ {:,.2f}\".format(contractual, valorizado_total))\n\n    # ------------------------------------------------------------------ 4. filtros, vistas y tabla\n    ids_cat = List[ElementId]([Category.GetCategory(doc, b).Id for b in CATEGORIAS\n                               if Category.GetCategory(doc, b) is not None and Category.GetCategory(doc, b).AllowsBoundParameters])\n    filtros = {f.Name: f for f in FilteredElementCollector(doc).OfClass(ParameterFilterElement)}\n    relleno = next((fp for fp in FilteredElementCollector(doc).OfClass(FillPatternElement) if fp.GetFillPattern().IsSolidFill), None)\n\n    def filtro(nombre, parametro, valor):\n        try:\n            regla = ParameterFilterRuleFactory.CreateEqualsRule(id_param[parametro], valor)\n        except Exception:\n            regla = ParameterFilterRuleFactory.CreateEqualsRule(id_param[parametro], valor, False)\n        epf = ElementParameterFilter(regla)\n        if nombre in filtros:\n            f = filtros[nombre]; f.SetCategories(ids_cat); f.SetElementFilter(epf)\n        else:\n            f = ParameterFilterElement.Create(doc, nombre, ids_cat, epf); filtros[nombre] = f\n        return f\n\n    def vista_3d(nombre):\n        for v in FilteredElementCollector(doc).OfClass(View3D):\n            if not v.IsTemplate and v.Name == nombre:\n                return v\n        vft = next(t for t in FilteredElementCollector(doc).OfClass(ViewFamilyType) if t.ViewFamily == ViewFamily.ThreeDimensional)\n        v = View3D.CreateIsometric(doc, vft.Id); v.Name = nombre\n        return v\n\n    def pintar(v, f, rgb):\n        ogs = OverrideGraphicSettings()\n        ogs.SetSurfaceForegroundPatternId(relleno.Id); ogs.SetSurfaceForegroundPatternColor(color(rgb))\n        ogs.SetCutForegroundPatternId(relleno.Id); ogs.SetCutForegroundPatternColor(color(rgb))\n        if not v.IsFilterApplied(f.Id):\n            v.AddFilter(f.Id)\n        v.SetFilterOverrides(f.Id, ogs); v.SetFilterVisibility(f.Id, True)\n\n    for nombre_vista, parametro, colores, prefijo in ((\"VZ - SECTORES\", \"VZ_Sector\", COLOR_SECTOR, \"VZ Sector \"),\n                                                       (\"VZ - ESTADO\", \"VZ_Estado\", COLOR_ESTADO, \"VZ Estado \")):\n        try:   # si una vista falla, los parámetros y valores igual quedan\n            v = vista_3d(nombre_vista)\n            v.ViewTemplateId = ElementId.InvalidElementId\n            v.DisplayStyle = DisplayStyle.Shading\n            for valor, rgb in colores.items():\n                pintar(v, filtro(prefijo + valor, parametro, valor), rgb)\n            reporte.append(\"Vista 3D «%s»: %d filtros de color\" % (nombre_vista, len(colores)))\n        except Exception as ex:\n            reporte.append(\"La vista «%s» no se pudo crear: %s\" % (nombre_vista, ex))\n\n    try:\n        NOMBRE_TABLA = \"VZ - VALORIZACION\"\n        tabla = next((t for t in FilteredElementCollector(doc).OfClass(ViewSchedule)\n                      if not t.IsTemplate and t.Name == NOMBRE_TABLA), None)\n        if tabla is None:\n            tabla = ViewSchedule.CreateSchedule(doc, ElementId.InvalidElementId)   # tabla multicategoría\n            tabla.Name = NOMBRE_TABLA\n        defn = tabla.Definition\n        campos = [\"VZ_Paquete\", \"VZ_Sector\", \"VZ_Actividad\", \"VZ_Partida\", \"VZ_Fecha_Prog\", \"VZ_Concreto_m3\",\n                  \"VZ_Encofrado_m2\", \"VZ_Acero_kg\", \"VZ_Monto_Contractual\", \"VZ_Fecha_Acero\", \"VZ_Fecha_Encofrado\",\n                  \"VZ_Fecha_Concreto\", \"VZ_Estado\", \"VZ_Valorizacion_N\", \"VZ_Monto_Valorizado\"]\n        presentes = {defn.GetField(i).GetName(): defn.GetField(i) for i in range(defn.GetFieldCount())}\n        disponibles = {sf.GetName(doc): sf for sf in defn.GetSchedulableFields()}\n        for c in campos:\n            if c not in presentes and c in disponibles:\n                presentes[c] = defn.AddField(disponibles[c])\n        defn.ClearSortGroupFields()\n        for c in (\"VZ_Paquete\", \"VZ_Sector\", \"VZ_Actividad\"):\n            defn.AddSortGroupField(ScheduleSortGroupField(presentes[c].FieldId, ScheduleSortOrder.Ascending))\n        defn.ClearFilters()\n        defn.AddFilter(ScheduleFilter(presentes[\"VZ_Actividad\"].FieldId, ScheduleFilterType.HasValue))\n        defn.IsItemized = True\n        defn.ShowGrandTotal = True\n        for c in (\"VZ_Concreto_m3\", \"VZ_Encofrado_m2\", \"VZ_Acero_kg\", \"VZ_Monto_Contractual\", \"VZ_Monto_Valorizado\"):\n            try:\n                presentes[c].DisplayType = ScheduleFieldDisplayType.Totals\n            except Exception:\n                pass\n        reporte.append(\"Tabla «%s» lista (%d campos)\" % (NOMBRE_TABLA, len(campos)))\n    except Exception as ex:\n        reporte.append(\"La tabla no se pudo crear (los parámetros sí quedaron): %s\" % ex)\n\n    TransactionManager.Instance.TransactionTaskDone()\n    reporte.append(\"Listo. Revisa las vistas y guarda el modelo con Ctrl+S.\")\nexcept Exception as ex:\n    TransactionManager.Instance.ForceCloseTransaction()\n    reporte.append(\"ERROR: %s\" % ex)\n\nOUT = reporte\n",
+      "Engine": "PythonNet3",
+      "VariableInputPorts": true,
+      "Id": "b966321a20a745e6a3cf183abf5fef6e",
+      "NodeType": "PythonScriptNode",
+      "Inputs": [
+        {
+          "Id": "a16ecc09a0604b958ab08a37be944225",
+          "Name": "IN[0]",
+          "Description": "Archivo de datos",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "38936c19437e458ebc92781adfb0f532",
+          "Name": "IN[1]",
+          "Description": "Fecha de corte",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ec9fa3ec03754e939b60fbb076eef69e",
+          "Name": "OUT",
+          "Description": "Resultado del script de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta un script de Python incrustado."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ceedcc89c9ab40c0a197811e766e760f",
+      "End": "a16ecc09a0604b958ab08a37be944225",
+      "Id": "e9367697f52f42029049ce9bf6e5266e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "07027b85cd4746d5828fe12c5fe949d7",
+      "End": "38936c19437e458ebc92781adfb0f532",
+      "Id": "e0474a963d4d47f38c80385bd0a8a944",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": null,
+  "Thumbnail": null,
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [],
+  "Author": "NEXO OBRA (NO)",
+  "Linting": {
+    "activeLinter": "Ninguno",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "4.0.0.3277",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Vista preliminar de fondo",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "0c5301121ea84b8892adf364f9ab4bb4",
+        "Name": "Archivo de datos (parametros_revit_<modelo>.json)",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 0.0,
+        "Y": 0.0
+      },
+      {
+        "Id": "5e79b215df5a4f08a7cdfaa397677598",
+        "Name": "Fecha de corte (dd/mm/aaaa, vacío = hoy)",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 0.0,
+        "Y": 160.0
+      },
+      {
+        "Id": "b966321a20a745e6a3cf183abf5fef6e",
+        "Name": "NEXO OBRA (NO) · Cargar parámetros VZ_",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 520.0,
+        "Y": 60.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}

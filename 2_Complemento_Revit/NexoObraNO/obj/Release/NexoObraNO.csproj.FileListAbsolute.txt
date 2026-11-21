@@ -1,0 +1,12 @@
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\bin_out\NexoObraNO.deps.json
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\bin_out\NexoObraNO.dll
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\bin_out\NexoObraNO.pdb
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.csproj.AssemblyReference.cache
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.GeneratedMSBuildEditorConfig.editorconfig
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.AssemblyInfoInputs.cache
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.AssemblyInfo.cs
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.csproj.CoreCompileInputs.cache
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.dll
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\refint\NexoObraNO.dll
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\NexoObraNO.pdb
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoObraNO\obj\Release\ref\NexoObraNO.dll

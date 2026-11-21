@@ -1,0 +1,12 @@
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetrados.csproj.AssemblyReference.cache
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetrados.GeneratedMSBuildEditorConfig.editorconfig
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetrados.AssemblyInfoInputs.cache
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetrados.AssemblyInfo.cs
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetrados.csproj.CoreCompileInputs.cache
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\bin_out\NexoMetradosC.deps.json
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\bin_out\NexoMetradosC.dll
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\bin_out\NexoMetradosC.pdb
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetradosC.dll
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\refint\NexoMetradosC.dll
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\NexoMetradosC.pdb
+D:\NEXO OBRA (NO)\2_Complemento_Revit\NexoMetrados\obj\Release\ref\NexoMetradosC.dll
